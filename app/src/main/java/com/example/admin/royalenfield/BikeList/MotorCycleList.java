@@ -9,6 +9,7 @@ import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import com.example.admin.royalenfield.R;
+import com.example.admin.royalenfield.misc.Constants;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -35,8 +36,17 @@ public class MotorCycleList extends Activity {
     };
 
     String[] bikeCategory = new String[]{
-            "Standard Street", "Standard Street", "Standard Street", "Retro Street", "Retro Street", "Retro Street", "Retro Street", "Retro Street", "Cruiser", "Cruiser", "Cafe Racer"
-
+            "Standard Street",
+            "Standard Street",
+            "Standard Street",
+            "Retro Street",
+            "Retro Street",
+            "Retro Street",
+            "Retro Street",
+            "Retro Street",
+            "Cruiser",
+            "Cruiser",
+            "Cafe Racer"
     };
 
     int[] bikeImage = new int[]{
@@ -64,14 +74,14 @@ public class MotorCycleList extends Activity {
 
         for (int i = 0; i < bikeName.length; i++) {
             HashMap<String, String> hm = new HashMap<String, String>();
-            hm.put("txt", bikeName[i]);
-            hm.put("image", Integer.toString(bikeImage[i]));
-            hm.put("cat", "Category: "+bikeCategory[i]);
+            hm.put(Constants.TAG_TXT, bikeName[i]);
+            hm.put(Constants.TAG_IMAGE, Integer.toString(bikeImage[i]));
+            hm.put(Constants.TAG_CAT, "Category: " + bikeCategory[i]);
             aList.add(hm);
         }
-        String[] from = {"image", "txt","cat"};
+        String[] from = {Constants.TAG_IMAGE, Constants.TAG_TXT, Constants.TAG_CAT};
 
-        int[] to = {R.id.imageView_img, R.id.textView_bikeName,R.id.textView_category};
+        int[] to = {R.id.imageView_img, R.id.textView_bikeName, R.id.textView_category};
 
         SimpleAdapter adapter = new SimpleAdapter(getBaseContext(), aList, R.layout.simple_list_item, from, to);
 
@@ -84,12 +94,13 @@ public class MotorCycleList extends Activity {
 
 
     public void listViewItemSelect() {
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                //Toast.makeText(MotorCycleList.this, position, Toast.LENGTH_LONG).show(); -NOTWORKING
+                HashMap<String, String> map = (HashMap<String, String>) listView.getItemAtPosition(position);
+                String bikeName = map.get(Constants.TAG_TXT);
+                Toast.makeText(MotorCycleList.this, bikeName, Toast.LENGTH_LONG).show();
             }
         });
     }
