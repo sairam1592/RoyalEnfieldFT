@@ -1,12 +1,15 @@
 package com.example.admin.royalenfield.BikeList;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -23,7 +26,7 @@ import java.util.List;
 /**
  * Created by Admin on 10/20/2015.
  */
-public class MotorCycleList extends Activity {
+public class MotorCycleList extends Fragment {
 
 
     String[] bikeCategory = new String[]{
@@ -103,7 +106,38 @@ public class MotorCycleList extends Activity {
     Intent i;
     Bundle b;
 
+    public MotorCycleList(){}
+
     @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        View rootView = inflater.inflate(R.layout.activity_bikelist, container, false);
+
+        String[] bikeName = getResources().getStringArray(R.array.bikeName);
+        TypedArray bikeImage = getResources().obtainTypedArray(R.array.bikeImage);
+
+        List<HashMap<String, String>> aList = new ArrayList<HashMap<String, String>>();
+        b = new Bundle();
+        for (int i = 0; i < bikeName.length; i++) {
+            HashMap<String, String> hm = new HashMap<String, String>();
+            hm.put(Constants.TAG_TXT, bikeName[i]);
+            hm.put(Constants.TAG_IMAGE, Integer.toString(bikeImage.getResourceId(i, -1)));
+            hm.put(Constants.TAG_CAT, "Category: " + bikeCategory[i]);
+            aList.add(hm);
+        }
+        String[] from = {Constants.TAG_IMAGE, Constants.TAG_TXT, Constants.TAG_CAT};
+        int[] to = {R.id.imageView_img, R.id.textView_bikeName, R.id.textView_category};
+        SimpleAdapter adapter = new SimpleAdapter(getActivity(), aList, R.layout.simple_list_item, from, to);
+        listView = (ListView) rootView.findViewById(R.id.listview_bike);
+        listView.setAdapter(adapter);
+
+        listViewItemSelect();
+        return rootView;
+    }
+
+
+   /* @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bikelist);
@@ -128,7 +162,7 @@ public class MotorCycleList extends Activity {
 
         listViewItemSelect();
     }
-
+*/
 
     public void listViewItemSelect() {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -137,8 +171,8 @@ public class MotorCycleList extends Activity {
                                     int position, long id) {
                 HashMap<String, String> map = (HashMap<String, String>) listView.getItemAtPosition(position);
                 String bikeName = map.get(Constants.TAG_TXT);
-                Toast.makeText(MotorCycleList.this, bikeName, Toast.LENGTH_LONG).show();
-                i = new Intent(MotorCycleList.this, BikeViewActivity.class);
+                Toast.makeText(getActivity(), bikeName, Toast.LENGTH_LONG).show();
+                i = new Intent(getActivity(), BikeViewActivity.class);
                 b.putString(Constants.TAG_BIKENAME, bikeName);
 
                 switch (bikeName) {

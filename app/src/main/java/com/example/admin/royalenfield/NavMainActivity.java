@@ -20,6 +20,8 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.admin.royalenfield.BikeList.MotorCycleList;
+import com.example.admin.royalenfield.fragments.AboutFragment;
+import com.example.admin.royalenfield.fragments.HomeFragment;
 
 
 public class NavMainActivity extends Activity
@@ -53,10 +55,26 @@ public class NavMainActivity extends Activity
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
-        FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
-                .commit();
+        Fragment fragment = null;
+        switch (position) {
+            case 0:
+                fragment = new HomeFragment();
+                break;
+            case 1:
+                fragment = new MotorCycleList();
+                break;
+            case 2:
+                fragment = new AboutFragment();
+                break;
+        }
+
+        if (fragment != null) {
+            FragmentManager fragmentManager = getFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.container, fragment)
+                    .commit();
+        }
+
     }
 
     public void onSectionAttached(int number) {
@@ -66,8 +84,6 @@ public class NavMainActivity extends Activity
                 break;
             case 2:
                 mTitle = getString(R.string.title_section2);
-                Intent i = new Intent(NavMainActivity.this, MotorCycleList.class);
-                startActivity(i);
                 break;
             case 3:
                 mTitle = getString(R.string.title_section3);
