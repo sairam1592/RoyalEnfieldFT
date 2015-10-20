@@ -4,11 +4,96 @@
     <string name="title_section1">Home</string>
     <string name="title_section2">MotorCycles</string>
     <string name="title_section3">About</string>
-
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
     <string name="action_example">Example action</string>
-
     <string name="action_settings">Settings</string>
+
+    <string-array name="bikeName">
+        <item>Standard Bullet 350</item>
+        <item>Bullet Electra 350</item>
+        <item>Bullet 500</item>
+        <item>Classic 350</item>
+        <item>Classic 500</item>
+        <item>Classic Chrome</item>
+        <item>Classic Battle Green 500</item>
+        <item>Classic Desert Storm 500</item>
+        <item>Thunderbird 350</item>
+        <item>Thunderbird 500</item>
+        <item>Continental GT 535</item>
+    </string-array>
+
+
+    <array name="standardBullet">
+        <item>@drawable/bullet_1</item>
+        <item>@drawable/bullet_2</item>
+    </array>
+
+    <array name="bulletElectra">
+        <item>@drawable/electra_1</item>
+        <item>@drawable/electra_2</item>
+    </array>
+
+    <array name="bullet500">
+        <item>@drawable/bulletfive_1</item>
+        <item>@drawable/bulletfive_2</item>
+    </array>
+
+    <array name="classic350">
+        <item>@drawable/classicblue_3</item>
+        <item>@drawable/classicblue_4</item>
+    </array>
+
+    <array name="classic500">
+        <item>@drawable/classicfive_1</item>
+        <item>@drawable/classicfive_2</item>
+        <item>@drawable/classicfive_5</item>
+    </array>
+
+    <array name="classicChrome">
+        <item>@drawable/classicchrome_2</item>
+        <item>@drawable/classicchrome_3</item>
+    </array>
+
+    <array name="classicDS">
+        <item>@drawable/desertstorm_1</item>
+        <item>@drawable/desertstorm_3</item>
+    </array>
+
+    <array name="classicBG">
+        <item>@drawable/military_2</item>
+        <item>@drawable/military_3</item>
+    </array>
+
+    <array name="tb350">
+        <item>@drawable/tb_1</item>
+        <item>@drawable/tb_3</item>
+        <item>@drawable/tb_5</item>
+    </array>
+
+    <array name="tb500">
+        <item>@drawable/tbfive_2</item>
+        <item>@drawable/tbfive_4</item>
+    </array>
+
+    <array name="continental">
+        <item>@drawable/gt_1</item>
+        <item>@drawable/gt_3</item>
+    </array>
+
+    <array name="bikeImage">
+        <item>@drawable/stb_img</item>
+        <item>@drawable/elec_img</item>
+        <item>@drawable/stb_img</item>
+        <item>@drawable/class_img</item>
+        <item>@drawable/classfive_img</item>
+        <item>@drawable/classchr_img</item>
+        <item>@drawable/classbg_img</item>
+        <item>@drawable/classds_img</item>
+        <item>@drawable/tb_img</item>
+        <item>@drawable/tbfivr_img</item>
+        <item>@drawable/gt_img</item>
+    </array>
+
+
 </resources>
