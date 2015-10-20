@@ -34,6 +34,11 @@ public class MotorCycleList extends Activity {
             "Continental GT 535"
     };
 
+    String[] bikeCategory = new String[]{
+            "Standard Street", "Standard Street", "Standard Street", "Retro Street", "Retro Street", "Retro Street", "Retro Street", "Retro Street", "Cruiser", "Cruiser", "Cafe Racer"
+
+    };
+
     int[] bikeImage = new int[]{
             R.drawable.stb_img,
             R.drawable.elec_img,
@@ -61,11 +66,12 @@ public class MotorCycleList extends Activity {
             HashMap<String, String> hm = new HashMap<String, String>();
             hm.put("txt", bikeName[i]);
             hm.put("image", Integer.toString(bikeImage[i]));
+            hm.put("cat", "Category: "+bikeCategory[i]);
             aList.add(hm);
         }
-        String[] from = {"image", "txt"};
+        String[] from = {"image", "txt","cat"};
 
-        int[] to = {R.id.imageView_img, R.id.textView_bikeName};
+        int[] to = {R.id.imageView_img, R.id.textView_bikeName,R.id.textView_category};
 
         SimpleAdapter adapter = new SimpleAdapter(getBaseContext(), aList, R.layout.simple_list_item, from, to);
 
@@ -83,8 +89,7 @@ public class MotorCycleList extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                String item =(String) (listView.getItemAtPosition(position));
-                Toast.makeText(MotorCycleList.this, item, Toast.LENGTH_LONG).show();
+                //Toast.makeText(MotorCycleList.this, position, Toast.LENGTH_LONG).show(); -NOTWORKING
             }
         });
     }
