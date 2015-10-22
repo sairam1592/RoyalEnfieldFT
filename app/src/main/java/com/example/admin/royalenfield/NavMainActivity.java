@@ -19,7 +19,9 @@ import android.support.v4.widget.DrawerLayout;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+
 import com.example.admin.royalenfield.BikeList.MotorCycleList;
+import com.example.admin.royalenfield.History.HistoryActivity;
 import com.example.admin.royalenfield.fragments.AboutFragment;
 import com.example.admin.royalenfield.fragments.HomeFragment;
 
@@ -50,6 +52,16 @@ public class NavMainActivity extends Activity
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
+
+        setFragment(new AboutFragment());
+    }
+
+    //To set default fragment on load of app
+    public void setFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.container, fragment)
+                .commit();
     }
 
     @Override
@@ -58,13 +70,14 @@ public class NavMainActivity extends Activity
         Fragment fragment = null;
         switch (position) {
             case 0:
-                fragment = new HomeFragment();
+                fragment = new AboutFragment();
                 break;
             case 1:
                 fragment = new MotorCycleList();
                 break;
             case 2:
-                fragment = new AboutFragment();
+                Intent i = new Intent(NavMainActivity.this, HistoryActivity.class);
+                startActivity(i);
                 break;
         }
 
@@ -79,13 +92,13 @@ public class NavMainActivity extends Activity
 
     public void onSectionAttached(int number) {
         switch (number) {
-            case 1:
+            case 0:
                 mTitle = getString(R.string.title_section1);
                 break;
-            case 2:
+            case 1:
                 mTitle = getString(R.string.title_section2);
                 break;
-            case 3:
+            case 2:
                 mTitle = getString(R.string.title_section3);
                 break;
         }

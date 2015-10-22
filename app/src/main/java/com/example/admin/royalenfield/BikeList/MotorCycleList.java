@@ -171,7 +171,7 @@ public class MotorCycleList extends Fragment {
                                     int position, long id) {
                 HashMap<String, String> map = (HashMap<String, String>) listView.getItemAtPosition(position);
                 String bikeName = map.get(Constants.TAG_TXT);
-                Toast.makeText(getActivity(), bikeName, Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), bikeName, Toast.LENGTH_SHORT).show();
                 i = new Intent(getActivity(), BikeViewActivity.class);
                 b.putString(Constants.TAG_BIKENAME, bikeName);
 

@@ -22,7 +22,7 @@ public interface Constants {
     public static final String TAG_CLS350 = "Classic 350";
     public static final String TAG_CLS500 = "Classic 500";
     public static final String TAG_CLSCHROME = "Classic Chrome";
-    public static final String TAG_CLSDS = "Classic Desert Storm 500 ";
+    public static final String TAG_CLSDS = "Classic Desert Storm 500";
     public static final String TAG_CLSBG = "Classic Battle Green 500";
     public static final String TAG_TB350 = "Thunderbird 350";
     public static final String TAG_TB500 = "Thunderbird 500";

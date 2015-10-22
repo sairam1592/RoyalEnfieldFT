@@ -25,6 +25,10 @@
             android:name=".BikeList.BikeViewActivity"
             android:label="@string/page_bike"
             android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".History.HistoryActivity"
+            android:label="@string/history"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
