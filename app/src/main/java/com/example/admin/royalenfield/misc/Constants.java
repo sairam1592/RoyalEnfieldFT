@@ -27,5 +27,12 @@ public interface Constants {
     public static final String TAG_TB350 = "Thunderbird 350";
     public static final String TAG_TB500 = "Thunderbird 500";
     public static final String TAG_CGT = "Continental GT 535";
+    public static final String TAG_BEGGINING = "Beginning";
+    public static final String TAG_EARLYYEARS = "Early Years";
+    public static final String TAG_BETWEENWARS = "Between the wars";
+    public static final String TAG_INDIACONN = "India Connection";
+    public static final String TAG_UKCLOSE = "UK Closeout";
+    public static final String TAG_EICHER = "Eicher Chapter";
+    public static final String TAG_TECH = "Technology";
 
 }
