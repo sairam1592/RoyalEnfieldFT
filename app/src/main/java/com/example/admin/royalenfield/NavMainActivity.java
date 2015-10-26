@@ -24,6 +24,7 @@ import com.example.admin.royalenfield.BikeList.MotorCycleList;
 import com.example.admin.royalenfield.History.HistoryActivity;
 import com.example.admin.royalenfield.fragments.AboutFragment;
 import com.example.admin.royalenfield.fragments.HomeFragment;
+import com.example.admin.royalenfield.fragments.MyDetailsFragment;
 
 
 public class NavMainActivity extends Activity
@@ -52,9 +53,9 @@ public class NavMainActivity extends Activity
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
-
         setFragment(new AboutFragment());
     }
+
 
     //To set default fragment on load of app
     public void setFragment(Fragment fragment) {
@@ -79,6 +80,9 @@ public class NavMainActivity extends Activity
                 Intent i = new Intent(NavMainActivity.this, HistoryActivity.class);
                 startActivity(i);
                 break;
+            case 3:
+                fragment = new MyDetailsFragment();
+                break;
         }
 
         if (fragment != null) {
@@ -100,6 +104,9 @@ public class NavMainActivity extends Activity
                 break;
             case 2:
                 mTitle = getString(R.string.title_section3);
+                break;
+            case 3:
+                mTitle = getString(R.string.title_section4);
                 break;
         }
     }
@@ -139,45 +146,4 @@ public class NavMainActivity extends Activity
 
         return super.onOptionsItemSelected(item);
     }
-
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private static final String ARG_SECTION_NUMBER = "section_number";
-
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
-
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_nav_main, container, false);
-            return rootView;
-        }
-
-        @Override
-        public void onAttach(Activity activity) {
-            super.onAttach(activity);
-            ((NavMainActivity) activity).onSectionAttached(
-                    getArguments().getInt(ARG_SECTION_NUMBER));
-        }
-    }
-
 }

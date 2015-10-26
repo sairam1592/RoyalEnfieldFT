@@ -20,7 +20,7 @@ import com.example.admin.royalenfield.R;
  */
 public class Tab1Fragment extends Fragment {
     /** (non-Javadoc)
-     * @see Fragment#onCreateView(LayoutInflater, ViewGroup, Bundle)
+     * @see android.support.v4.app.Fragment#onCreateView(android.view.LayoutInflater, android.view.ViewGroup, android.os.Bundle)
      */
 
     TextView txtMsg;

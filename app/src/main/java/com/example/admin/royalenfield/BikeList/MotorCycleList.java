@@ -141,10 +141,8 @@ public class MotorCycleList extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bikelist);
-
         String[] bikeName = getResources().getStringArray(R.array.bikeName);
         TypedArray bikeImage = getResources().obtainTypedArray(R.array.bikeImage);
-
         List<HashMap<String, String>> aList = new ArrayList<HashMap<String, String>>();
         b = new Bundle();
         for (int i = 0; i < bikeName.length; i++) {
@@ -159,7 +157,6 @@ public class MotorCycleList extends Fragment {
         SimpleAdapter adapter = new SimpleAdapter(getBaseContext(), aList, R.layout.simple_list_item, from, to);
         listView = (ListView) findViewById(R.id.listview_bike);
         listView.setAdapter(adapter);
-
         listViewItemSelect();
     }
 */

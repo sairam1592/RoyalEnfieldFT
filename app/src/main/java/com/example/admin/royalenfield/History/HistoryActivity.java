@@ -4,18 +4,18 @@ package com.example.admin.royalenfield.History;
  * Created by arun on 10/22/2015.
  */
 
-import android.app.ActionBar;
-import android.app.FragmentTransaction;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
+        import android.app.ActionBar;
+        import android.app.FragmentTransaction;
+        import android.os.Bundle;
+        import android.support.v4.app.Fragment;
+        import android.support.v4.app.FragmentActivity;
+        import android.support.v4.app.FragmentManager;
+        import android.support.v4.app.FragmentPagerAdapter;
+        import android.support.v4.view.ViewPager;
 
 
-import com.example.admin.royalenfield.R;
-import com.example.admin.royalenfield.misc.Constants;
+        import com.example.admin.royalenfield.R;
+        import com.example.admin.royalenfield.misc.Constants;
 
 public class HistoryActivity extends FragmentActivity implements ActionBar.TabListener {
 
@@ -121,3 +121,4 @@ public class HistoryActivity extends FragmentActivity implements ActionBar.TabLi
     }
 
 }
+

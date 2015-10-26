@@ -2,9 +2,11 @@
     <string name="app_name">Royal Enfield</string>
     <string name="page_bike">List</string>
     <string name="history">RE History</string>
-        <string name="title_section1">About</string>
+    <string name="PersonalDetails">Enter Details</string>
+    <string name="title_section1">About</string>
     <string name="title_section2">MotorCycles</string>
-    <string name="title_section3">History</string>
+    <string name="title_section3">RE History</string>
+    <string name="title_section4">My Details</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
@@ -82,6 +84,17 @@
         <item>@drawable/gt_3</item>
     </array>
 
+    <array name="AppOpen">
+        <item>@drawable/timer_first1</item>
+        <item>@drawable/timer_bike2</item>
+        <item>@drawable/timer_bike4</item>
+        <item>@drawable/timer_bike5</item>
+        <item>@drawable/timer_trip1</item>
+        <item>@drawable/timer_trip2</item>
+        <item>@drawable/timer_trip3</item>
+        <item>@drawable/timer_fuel2</item>
+    </array>
+
     <array name="bikeImage">
         <item>@drawable/stb_img</item>
         <item>@drawable/elec_img</item>
@@ -95,6 +108,4 @@
         <item>@drawable/tbfivr_img</item>
         <item>@drawable/gt_img</item>
     </array>
-
-
 </resources>

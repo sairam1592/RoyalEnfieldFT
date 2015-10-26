@@ -5,7 +5,6 @@ package com.example.admin.royalenfield.misc;
  */
 public interface Constants {
 
-    public static final int SPLASH_TIME_OUT = 3800;
     public static final String TAG_TXT = "txt";
     public static final String TAG_REFT = "Royal_Enfield";
     public static final String TAG_BIKENAME = "BikeName";
@@ -27,6 +26,7 @@ public interface Constants {
     public static final String TAG_TB350 = "Thunderbird 350";
     public static final String TAG_TB500 = "Thunderbird 500";
     public static final String TAG_CGT = "Continental GT 535";
+    public static final int SPLASH_TIME_OUT=3800;
     public static final String TAG_BEGGINING = "Beginning";
     public static final String TAG_EARLYYEARS = "Early Years";
     public static final String TAG_BETWEENWARS = "Between the wars";

@@ -13,20 +13,25 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
+import com.example.admin.royalenfield.DBOperations.DBHelper;
 import com.example.admin.royalenfield.NavMainActivity;
 import com.example.admin.royalenfield.R;
+import com.example.admin.royalenfield.fragments.PersonalDetailsFragment;
 
 public class SplashScreen extends Activity {
 
     Animation fadeIn;
     TextView reText1, reText2;
+    private DBHelper mydb;
+    Intent i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        mydb = new DBHelper(this);
         animText();
-        moveToNavActivity();
+        moveToNavActivity(mydb);
     }
 
     public void animText() {
@@ -43,16 +48,20 @@ public class SplashScreen extends Activity {
 
     }
 
-    public void moveToNavActivity() {
+    public void moveToNavActivity(final DBHelper mydb) {
         new Handler().postDelayed(new Runnable() {
-
             @Override
             public void run() {
-                Intent i = new Intent(SplashScreen.this, NavMainActivity.class);
-                startActivity(i);
-
-                // close this activity
-                finish();
+                int num = mydb.numberOfRows("riderdetails");
+                if (num >= 1) {
+                    i = new Intent(SplashScreen.this, NavMainActivity.class);
+                    startActivity(i);
+                    finish();
+                }else{
+                    i = new Intent(SplashScreen.this, PersonalDetailsFragment.class);
+                    startActivity(i);
+                    finish();
+                }
             }
         }, Constants.SPLASH_TIME_OUT);
 

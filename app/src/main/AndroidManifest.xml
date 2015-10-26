@@ -29,6 +29,11 @@
             android:name=".History.HistoryActivity"
             android:label="@string/history"
             android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".fragments.PersonalDetailsFragment"
+            android:label="@string/PersonalDetails"
+            android:screenOrientation="portrait"></activity>
+
     </application>
 
 </manifest>

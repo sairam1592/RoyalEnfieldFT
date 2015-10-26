@@ -5,9 +5,19 @@
     android:background="@android:color/background_light"
     android:orientation="vertical">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/imageView_bg"
+        android:src="@drawable/re_bg"
+        android:scaleType="fitXY"
+        android:alpha=".07"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
     <TextView
         android:id="@+id/textView_name"
-        style="@style/bikeText"
+        style="@style/bikeName"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="54dp"
@@ -20,7 +30,8 @@
         android:scaleType="fitCenter"
         android:src="@drawable/logomain"
         android:layout_below="@+id/view"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/transparent"/>
 
     <View
         android:id="@+id/view"
