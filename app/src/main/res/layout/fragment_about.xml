@@ -2,14 +2,14 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
+    android:fillViewport="false"
     android:orientation="vertical"
-    android:padding="5dp"
-    android:fillViewport="false">
+    android:padding="5dp">
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
 
         <ViewFlipper
@@ -21,13 +21,13 @@
             android:outAnimation="@anim/slide_out_left"></ViewFlipper>
 
         <TextView
+            android:id="@+id/textView_abt"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="cehck"
+            android:layout_below="@+id/flipper1"
             android:layout_marginTop="13dp"
-            android:id="@+id/textView_abt"
-            android:layout_below="@+id/flipper1" />
+            android:text="cehck"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
     </RelativeLayout>
 </ScrollView>

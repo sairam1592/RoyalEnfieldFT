@@ -4,23 +4,28 @@ package com.example.admin.royalenfield.History;
  * Created by arun on 10/22/2015.
  */
 
-        import android.app.ActionBar;
-        import android.app.FragmentTransaction;
-        import android.os.Bundle;
-        import android.support.v4.app.Fragment;
-        import android.support.v4.app.FragmentActivity;
-        import android.support.v4.app.FragmentManager;
-        import android.support.v4.app.FragmentPagerAdapter;
-        import android.support.v4.view.ViewPager;
+import android.app.ActionBar;
+import android.app.FragmentTransaction;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.view.Menu;
+import android.view.MenuItem;
 
 
-        import com.example.admin.royalenfield.R;
-        import com.example.admin.royalenfield.misc.Constants;
+import com.example.admin.royalenfield.NavMainActivity;
+import com.example.admin.royalenfield.R;
+import com.example.admin.royalenfield.misc.Constants;
 
 public class HistoryActivity extends FragmentActivity implements ActionBar.TabListener {
 
     AppSectionsPagerAdapter mAppSectionsPagerAdapter;
     ViewPager mViewPager;
+    Intent i;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -118,6 +123,26 @@ public class HistoryActivity extends FragmentActivity implements ActionBar.TabLi
             }
             return null;
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.back_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_back) {
+            i = new Intent(HistoryActivity.this, NavMainActivity.class);
+            startActivity(i);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 }
