@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.admin.royalenfield.BikeList.MotorCycleList;
 import com.example.admin.royalenfield.History.HistoryActivity;
@@ -130,6 +131,7 @@ public class NavMainActivity extends Activity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Toast.makeText(NavMainActivity.this, "Settings. Nav main", Toast.LENGTH_SHORT).show();
             return true;
         }
 

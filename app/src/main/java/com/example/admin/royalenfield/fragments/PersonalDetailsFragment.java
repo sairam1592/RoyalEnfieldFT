@@ -71,8 +71,9 @@ public class PersonalDetailsFragment extends Activity implements OnItemSelectedL
         grid2 = (GridLayout) findViewById(R.id.gridlayout2);
         onBullTypeSelection();
         onFuelCostSelection();
-        onShowDialog();
-        onMaybeLaterClick();
+        layPos.setVisibility(LinearLayout.GONE);
+       // onShowDialog();
+       // onMaybeLaterClick();
 
         Button save = (Button) findViewById(R.id.buttonSave);
         save.setOnClickListener(new View.OnClickListener() {
