@@ -42,7 +42,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="10dp"
-                android:text="Username" />
+                android:text="@string/Username" />
 
 
             <TextView
@@ -55,7 +55,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="10dp"
-                android:text="Bull Type" />
+                android:text="@string/Bull_Type" />
 
             <EditText
                 android:id="@+id/UserNameEditText"
@@ -64,7 +64,7 @@
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:hint="Username"
+                android:hint="@string/Username_hint"
                 android:inputType="textNoSuggestions|textVisiblePassword"
                 android:singleLine="true" />
 
@@ -76,8 +76,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="left"
-                android:hint="Password"
-                android:inputType="textPassword"
                 android:singleLine="true" />
         </GridLayout>
     </RelativeLayout>
@@ -95,7 +93,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/button_nearest_showroom"
-            android:text="Find Showroom"
+            android:text="@string/findShowroom"
             android:layout_marginLeft="40dp"
             android:background="@android:color/transparent"
             android:textColor="#808080"
@@ -105,7 +103,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/button_check_later"
-            android:text="Maybe Later"
+            android:text="@string/maybeLater"
             android:layout_marginLeft="40dp"
             android:background="@android:color/transparent"
             android:textColor="#808080"
@@ -140,7 +138,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="10dp"
-                android:text="Mileage" />
+                android:text="@string/Mileage" />
 
             <TextView
                 style="@style/DetailText"
@@ -152,7 +150,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="10dp"
-                android:text="Fuel Cost " />
+                android:text="@string/fuelCost" />
 
             <TextView
                 style="@style/DetailText"
@@ -164,7 +162,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="10dp"
-                android:text="Email id " />
+                android:text="@string/emailId" />
 
             <EditText
                 android:id="@+id/MileageEditText"
@@ -173,7 +171,7 @@
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:hint="Mileage (approx)"
+                android:hint="@string/MileageHint"
                 android:inputType="number"
                 android:singleLine="true" />
 
@@ -185,7 +183,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="left"
-                android:hint="Fuel cost per liter"
+                android:hint="@string/fuelcostHint"
                 android:singleLine="true" />
 
             <EditText
@@ -195,7 +193,7 @@
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:hint="Mail id"
+                android:hint="@string/emailidHint"
                 android:singleLine="true" />
         </GridLayout>
 
@@ -203,12 +201,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/buttonSave"
-            android:text="Proceed"
+            android:text="@string/ButtonProceed"
             android:layout_marginTop="8dp"
             android:gravity="center"
             android:background="@android:color/transparent"
             android:textColor="#808080"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textStyle="bold|normal"
             android:layout_below="@+id/gridlayout2"
             android:layout_centerHorizontal="true" />

@@ -21,7 +21,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="54dp"
-        android:text="CHECK" />
+        android:text="@string/sample_text" />
 
     <ImageView
         android:id="@+id/imageView_bike"

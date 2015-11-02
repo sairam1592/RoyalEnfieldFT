@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/flipper1"
             android:layout_marginTop="13dp"
-            android:text="cehck"
+            android:text="@string/sample_text"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
     </RelativeLayout>

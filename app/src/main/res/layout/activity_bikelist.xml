@@ -19,7 +19,7 @@
         style="@style/bikeText"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:text="Royal Enfield Motorcycles" />
+        android:text="@string/header1" />
 
     <View
         android:id="@+id/view"

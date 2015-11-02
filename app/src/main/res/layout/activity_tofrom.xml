@@ -41,7 +41,7 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="10dp"
                 android:layout_row="0"
-                android:text="From" />
+                android:text="@string/From" />
 
 
             <TextView
@@ -54,7 +54,7 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="10dp"
                 android:layout_row="1"
-                android:text="To" />
+                android:text="@string/To" />
 
 
             <EditText
@@ -64,7 +64,7 @@
                 android:layout_column="1"
                 android:layout_row="0"
                 android:gravity="left"
-                android:hint="From"
+                android:hint="@string/FromHint"
                 android:inputType="textAutoCorrect"
                 android:singleLine="true" />
 
@@ -75,7 +75,7 @@
                 android:layout_column="1"
                 android:layout_row="1"
                 android:gravity="left"
-                android:hint="To"
+                android:hint="@string/ToHint"
                 android:inputType="textAutoCorrect"
                 android:singleLine="true" />
 
@@ -93,7 +93,7 @@
                 style="@style/SubText"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="Please tick if return journey is applicable" />
+                android:text="@string/CheckboxText" />
 
             <Button
                 android:id="@+id/buttonGet"
@@ -104,7 +104,7 @@
                 android:layout_marginTop="3dp"
                 android:background="@android:color/transparent"
                 android:gravity="center"
-                android:text="Fetch"
+                android:text="@string/ButtonFetch"
                 android:textColor="#808080"
                 android:textSize="20dp"
                 android:textStyle="bold|normal" />

@@ -17,7 +17,7 @@
         <TextView
             style="@style/bikeName"
             android:id="@+id/textView_fromto"
-            android:text="fromto"
+            android:text="@string/sample_text"
             android:layout_alignParentTop="true"
             android:layout_marginLeft="8dp"
             android:layout_toRightOf="@+id/imageView_img"
@@ -25,7 +25,7 @@
 
         <TextView
             style="@style/SubText"
-            android:text="Distance"
+            android:text="@string/sample_text"
             android:id="@+id/textView_distdur"
             android:layout_alignLeft="@+id/textView_fromto"
             android:layout_alignStart="@+id/textView_fromto"

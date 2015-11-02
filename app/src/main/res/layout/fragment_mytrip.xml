@@ -29,9 +29,9 @@
             android:layout_marginTop="3dp"
             android:background="@android:color/transparent"
             android:gravity="center"
-            android:text="Plan my Trip"
+            android:text="@string/PlanTrip"
             android:textColor="#808080"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textStyle="bold|normal" />
 
 
@@ -42,9 +42,9 @@
             android:layout_marginTop="20dp"
             android:background="@android:color/transparent"
             android:gravity="center"
-            android:text="View my Trip"
+            android:text="@string/ViewTrip"
             android:textColor="#808080"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textStyle="bold|normal"
             android:layout_below="@+id/buttonPlanTrip"
             android:layout_alignParentLeft="true"

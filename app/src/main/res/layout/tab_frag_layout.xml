@@ -29,10 +29,10 @@
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_marginTop="10dp"
-            android:text="Check"
+            android:text="@string/sample_text"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@android:color/background_dark"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:textStyle="normal" />
 
     </ScrollView>

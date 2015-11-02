@@ -21,7 +21,7 @@
         android:layout_alignRight="@+id/view"
         android:layout_toEndOf="@+id/imageView_img"
         android:layout_toRightOf="@+id/imageView_img"
-        android:text="test" />
+        android:text="@string/sample_text" />
 
     <View
         style="@style/viewlist"
@@ -37,7 +37,7 @@
         android:layout_below="@+id/textView_bikeName"
         android:layout_toEndOf="@+id/imageView_img"
         android:layout_toRightOf="@+id/imageView_img"
-        android:text="test" />
+        android:text="@string/sample_text" />
 
 
 </RelativeLayout>
