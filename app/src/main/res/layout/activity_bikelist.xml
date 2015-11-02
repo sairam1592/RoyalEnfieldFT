@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/imageView"
-        android:src="@drawable/re_bg"
-        android:scaleType="fitXY"
-        android:alpha=".20"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:alpha=".20"
+        android:scaleType="fitXY"
+        android:src="@drawable/re_bg" />
 
     <TextView
-        style="@style/bikeText"
-        android:text="Royal Enfield Motorcycles"
         android:id="@+id/textView2"
+        style="@style/bikeText"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:text="Royal Enfield Motorcycles" />
 
     <View
         android:id="@+id/view"
@@ -29,15 +30,14 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
-        >
+        android:layout_below="@+id/textView2">
+
         <ListView
             android:id="@+id/listview_bike"
-            android:layout_marginTop="12dp"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-/>
+            android:layout_marginTop="12dp" />
 
     </RelativeLayout>
 

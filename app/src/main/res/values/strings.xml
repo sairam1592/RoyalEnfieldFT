@@ -3,10 +3,13 @@
     <string name="page_bike">Gallery</string>
     <string name="history">RE History</string>
     <string name="PersonalDetails">Enter Details</string>
+    <string name="plan">Plan My Trip</string>
+    <string name="view">View My Trip</string>
     <string name="title_section1">About</string>
     <string name="title_section2">MotorCycles</string>
     <string name="title_section3">RE History</string>
     <string name="title_section4">My Details</string>
+    <string name="title_section5">My Trip</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>

@@ -92,11 +92,11 @@ public class AboutFragment extends Fragment {
 
     public void setTextView() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Welcome to Royal Enfield Fuel tracker app.\n");
-        sb.append("\nThis app serves as the bible and heartbeat for all Royal Enfield lovers out there!\n");
-        sb.append("\nPeople who wish to buy a Royal Enfield can use this app for motorcycle information,pictures,find the nearest showroom from current location etc\n");
-        sb.append("\nPeople who own a Royal Enfield can plan for trips, share trip plan with other android applications groups,hangouts,chats etc, get update of the trip.\n");
-        sb.append("\nAs most Royal Enfield bikes come without a fuel indicator, the important feature in this app computes the fuel to fill and price as per the user input to travel from one place to another.\n");
+        sb.append("Welcome to Royal Enfield Fuel Tracker app.\n");
+        sb.append("\nThis app serves as the heartbeat for all Royal Enfield lovers out there!\n");
+        sb.append("\nPeople who wish to buy a Royal Enfield can view motorcycle information,pictures,find the nearest showroom from their current location.\n");
+        sb.append("\nPeople who own a Royal Enfield can plan for trips,share trip plan with other applications,set reminder of trip\n");
+        sb.append("\nAs most Royal Enfield bikes come without a fuel indicator, the important feature in this app is to compute the fuel to fill and price to travel.\n");
         sb.append("\nHappy Riding! Thump it up...");
         sb.append("\n\nNote: This is not the official Android app of RoyalEnfield (Eicher Motors).\n");
         about.setText(sb.toString());

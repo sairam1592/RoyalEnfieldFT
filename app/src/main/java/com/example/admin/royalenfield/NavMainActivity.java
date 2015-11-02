@@ -15,6 +15,7 @@ import com.example.admin.royalenfield.BikeList.MotorCycleList;
 import com.example.admin.royalenfield.History.HistoryActivity;
 import com.example.admin.royalenfield.fragments.AboutFragment;
 import com.example.admin.royalenfield.fragments.MyDetailsFragment;
+import com.example.admin.royalenfield.fragments.MyTripFragment;
 
 
 public class NavMainActivity extends Activity
@@ -73,6 +74,9 @@ public class NavMainActivity extends Activity
             case 3:
                 fragment = new MyDetailsFragment();
                 break;
+            case 4:
+                fragment = new MyTripFragment();
+                break;
         }
 
         if (fragment != null) {
@@ -97,6 +101,9 @@ public class NavMainActivity extends Activity
                 break;
             case 3:
                 mTitle = getString(R.string.title_section4);
+                break;
+            case 4:
+                mTitle = getString(R.string.title_section5);
                 break;
         }
     }

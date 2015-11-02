@@ -33,6 +33,14 @@
             android:name=".fragments.PersonalDetailsFragment"
             android:label="@string/PersonalDetails"
             android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".fragments.PlanTripDetails"
+            android:label="@string/plan"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".fragments.ViewTripDetails"
+            android:label="@string/view"
+            android:screenOrientation="portrait"></activity>
 
     </application>
 
