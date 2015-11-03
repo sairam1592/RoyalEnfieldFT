@@ -16,6 +16,7 @@ import com.example.admin.royalenfield.History.HistoryActivity;
 import com.example.admin.royalenfield.fragments.AboutFragment;
 import com.example.admin.royalenfield.fragments.MyDetailsFragment;
 import com.example.admin.royalenfield.fragments.MyTripFragment;
+import com.example.admin.royalenfield.fragments.NearbyGasStatFragment;
 
 
 public class NavMainActivity extends Activity
@@ -77,6 +78,10 @@ public class NavMainActivity extends Activity
             case 4:
                 fragment = new MyTripFragment();
                 break;
+
+            case 5:
+                fragment = new NearbyGasStatFragment();
+                break;
         }
 
         if (fragment != null) {
@@ -104,6 +109,9 @@ public class NavMainActivity extends Activity
                 break;
             case 4:
                 mTitle = getString(R.string.title_section5);
+                break;
+            case 5:
+                mTitle = getString(R.string.title_section6);
                 break;
         }
     }

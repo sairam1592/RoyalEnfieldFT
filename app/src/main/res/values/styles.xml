@@ -2,12 +2,15 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
-       <item name="android:popupMenuStyle">@style/popupMenu</item>
+        <item name="android:popupMenuStyle">@style/popupMenu</item>
     </style>
 
-    <style name="popupMenu" parent="android:Theme.Holo.Light">
+    <style name="popupMenu">
         <item name="android:popupBackground">#282828</item>
         <item name="android:itemTextAppearance">@android:color/background_light</item>
+        <item name="android:actionMenuTextColor">@android:color/background_light</item>
+        <item name="android:textColor">@android:color/background_light</item>
+
     </style>
 
     <style name="splashText">

@@ -50,7 +50,7 @@ public class AboutFragment extends Fragment {
                              Bundle savedInstanceState) {
         screenRes = deviceDimensions();
         Log.i("Height width", "Width:" + screenRes.width + "Height:" + screenRes.height);
-        params= new RelativeLayout.LayoutParams(screenRes.width, screenRes.height/2);
+        params = new RelativeLayout.LayoutParams(screenRes.width, screenRes.height / 2);
 
         View rootView = inflater.inflate(R.layout.fragment_about, container, false);
         about = (TextView) rootView.findViewById(R.id.textView_abt);

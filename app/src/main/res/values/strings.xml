@@ -10,8 +10,11 @@
     <string name="title_section3">RE History</string>
     <string name="title_section4">My Details</string>
     <string name="title_section5">My Trip</string>
+    <string name="title_section6">Find Gas Station</string>
     <string name="sample_text">check</string>
     <string name="header1">Royal Enfield Motorcycles</string>
+    <string name="header2">Nearby Gas Station</string>
+    <string name="Range">Range</string>
     <string name="Username">Username</string>
     <string name="Username_hint">Username</string>
     <string name="Bull_Type">Bull Type</string>
@@ -34,7 +37,7 @@
     <string name="ViewTrip">View my Trip</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="action_example">Example action</string>
+    <string name="action_example">Ex action</string>
     <string name="action_settings">Settings</string>
     <string name="action_back">Back</string>
 
@@ -114,7 +117,7 @@
         <item>@drawable/timer_first1</item>
         <item>@drawable/timer_bike2</item>
         <item>@drawable/timer_bike4</item>
-        <item>@drawable/timer_bike5</item>
+        <item>@drawable/timer_showroom</item>
         <item>@drawable/timer_trip1</item>
         <item>@drawable/timer_trip2</item>
         <item>@drawable/timer_trip3</item>
