@@ -38,4 +38,13 @@ public interface Constants {
     public static final String TAG_TECH = "Technology";
     public static final String TAG_APIKEY = "AIzaSyBMfmvAsBOlvWt1r_hLsu_-FUqBrDyR1es";
     public static final String TAG_TYPE = "gas_station";
+    public static final String TAG_LABELORIGIN = "fromlabel";
+    public static final String TAG_LABELDEST = "tolabel";
+    public static final String TAG_ORIGIN = "fromplace";
+    public static final String TAG_DEST = "toplace";
+    public static final String TAG_DIST = "distance";
+    public static final String TAG_DUR="duration";
+    public static final String TAG_LITRE = "litre";
+    public static final String TAG_AMOUNT = "amount";
+    public static final String TAG_URL="url";
 }

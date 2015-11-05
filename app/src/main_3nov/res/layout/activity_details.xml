@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/imageView"
+        android:src="@drawable/re_bg"
+        android:scaleType="fitXY"
+        android:alpha=".10"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativelayout1"
+        android:layout_marginTop="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true">
+
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/gridlayout1">
+
+            <TextView
+                style="@style/DetailText"
+                android:id="@+id/UsernameTextView"
+                android:layout_column="0"
+                android:layout_row="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/Username" />
+
+
+            <TextView
+                style="@style/DetailText"
+                android:id="@+id/BullTypeTextView"
+                android:layout_column="0"
+                android:layout_row="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/Bull_Type" />
+
+            <EditText
+                android:id="@+id/UserNameEditText"
+                android:layout_column="1"
+                android:layout_row="0"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:hint="@string/Username_hint"
+                android:inputType="textNoSuggestions|textVisiblePassword"
+                android:singleLine="true" />
+
+            <Spinner
+                android:id="@+id/BullTypeSpinner"
+                android:layout_column="1"
+                android:layout_row="1"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:singleLine="true" />
+        </GridLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/linearlayoutButtons"
+        android:layout_below="@+id/relativelayout1"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_nearest_showroom"
+            android:text="@string/findShowroom"
+            android:layout_marginLeft="40dp"
+            android:background="@android:color/transparent"
+            android:textColor="#808080"
+            android:textStyle="bold|normal" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_check_later"
+            android:text="@string/maybeLater"
+            android:layout_marginLeft="40dp"
+            android:background="@android:color/transparent"
+            android:textColor="#808080"
+            android:textStyle="bold|normal" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativelayout2"
+        android:layout_below="@+id/linearlayoutButtons"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentStart="true">
+
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:columnCount="3"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/gridlayout2">
+
+            <TextView
+                style="@style/DetailText"
+                android:id="@+id/MileageTextView"
+                android:layout_column="0"
+                android:layout_row="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/Mileage" />
+
+            <TextView
+                style="@style/DetailText"
+                android:id="@+id/FuelCosrTextView"
+                android:layout_column="0"
+                android:layout_row="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/fuelCost" />
+
+            <TextView
+                style="@style/DetailText"
+                android:id="@+id/MailTextView"
+                android:layout_column="0"
+                android:layout_row="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/emailId" />
+
+            <EditText
+                android:id="@+id/MileageEditText"
+                android:layout_column="1"
+                android:layout_row="0"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:hint="@string/MileageHint"
+                android:inputType="number"
+                android:singleLine="true" />
+
+            <Spinner
+                android:id="@+id/FuelCostSpinner"
+                android:layout_column="1"
+                android:layout_row="1"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:hint="@string/fuelcostHint"
+                android:singleLine="true" />
+
+            <EditText
+                android:id="@+id/MailEditText"
+                android:layout_column="1"
+                android:layout_row="2"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:hint="@string/emailidHint"
+                android:singleLine="true" />
+        </GridLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/buttonSave"
+            android:text="@string/ButtonProceed"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:background="@android:color/transparent"
+            android:textColor="#808080"
+            android:textSize="20sp"
+            android:textStyle="bold|normal"
+            android:layout_below="@+id/gridlayout2"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

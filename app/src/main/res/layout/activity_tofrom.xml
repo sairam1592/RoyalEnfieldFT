@@ -107,10 +107,9 @@
                 android:textStyle="bold|normal" />
         </RelativeLayout>
 
-
         <RelativeLayout
             android:id="@+id/relativelayout2"
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/relativelayout1"
             android:layout_marginTop="5dp">
@@ -118,7 +117,6 @@
             <View
                 android:id="@+id/view"
                 style="@style/view"
-
                 android:layout_centerHorizontal="true" />
 
             <ListView
@@ -127,20 +125,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/view"
                 android:layout_marginTop="3dp" />
-
         </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/relativelayout3"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/relativelayout2"
-            android:layout_marginTop="5dp">
-
-            <TextView style="@style/DetailText"
-                android:id="@+id/textview_detail"/>
-        </RelativeLayout>
-
 
     </RelativeLayout>
 

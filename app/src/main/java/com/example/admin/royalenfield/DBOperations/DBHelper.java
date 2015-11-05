@@ -12,6 +12,9 @@ import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
+
+import com.example.admin.royalenfield.misc.Constants;
 
 public class DBHelper extends SQLiteOpenHelper {
 
@@ -39,7 +42,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("create table riderdetails "
                 + "(id integer primary key AUTOINCREMENT, name text,bulltype TEXT,mileage TEXT,fuelcost TEXT,mailid TEXT)");
         db.execSQL("create table traveldetails "
-                + "(id integer primary key AUTOINCREMENT,fromplace text,toplace TEXT,distance TEXT,litre TEXT,amount TEXT,url TEXT)");
+                + "(id integer primary key AUTOINCREMENT,fromlabel text,tolabel text,fromplace text,toplace TEXT,distance TEXT,duration TEXT,litre TEXT,amount TEXT,url TEXT)");
     }
 
     @Override
@@ -82,15 +85,21 @@ public class DBHelper extends SQLiteOpenHelper {
         return numRows;
     }
 
-    public boolean insertDistanceDetail(String fromPlace, String toPlace, String dist, String litre, String amount, String mapsUrl) {
+    public boolean insertDistanceDetail(ArrayList<HashMap<String, String>> travelDetails) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("fromplace", fromPlace);
-        contentValues.put("toplace", toPlace);
-        contentValues.put("distance", dist);
-        contentValues.put("litre", litre);
-        contentValues.put("amount", amount);
-        contentValues.put("url", mapsUrl);
+        Log.i("DBHelper", "TravelDetails passed are:" + travelDetails);
+        for (int i = 0; i < travelDetails.size(); i++) {
+            contentValues.put(Constants.TAG_LABELORIGIN, travelDetails.get(i).get(Constants.TAG_LABELORIGIN));
+            contentValues.put(Constants.TAG_LABELDEST, travelDetails.get(i).get(Constants.TAG_LABELDEST));
+            contentValues.put(Constants.TAG_ORIGIN, travelDetails.get(i).get(Constants.TAG_ORIGIN));
+            contentValues.put(Constants.TAG_DEST, travelDetails.get(i).get(Constants.TAG_DEST));
+            contentValues.put(Constants.TAG_DIST, travelDetails.get(i).get(Constants.TAG_DIST));
+            contentValues.put(Constants.TAG_DUR, travelDetails.get(i).get(Constants.TAG_DUR));
+            contentValues.put(Constants.TAG_LITRE, travelDetails.get(i).get(Constants.TAG_LITRE));
+            contentValues.put(Constants.TAG_AMOUNT, travelDetails.get(i).get(Constants.TAG_AMOUNT));
+            contentValues.put(Constants.TAG_URL, travelDetails.get(i).get(Constants.TAG_URL));
+        }
         db.insert("traveldetails", null, contentValues);
         return true;
     }

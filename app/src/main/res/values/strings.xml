@@ -35,6 +35,7 @@
     <string name="maybeLater">Maybe Later</string>
     <string name="PlanTrip">Plan my Trip</string>
     <string name="ViewTrip">View my Trip</string>
+    <string name="myTrips">My Trips</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Ex action</string>

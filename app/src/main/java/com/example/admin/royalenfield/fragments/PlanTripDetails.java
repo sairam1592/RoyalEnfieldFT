@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,14 +15,23 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 
+import com.example.admin.royalenfield.DBOperations.DBHelper;
 import com.example.admin.royalenfield.NavMainActivity;
 import com.example.admin.royalenfield.R;
 import com.example.admin.royalenfield.misc.Constants;
 import com.example.admin.royalenfield.misc.MyClientTask;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 /**
@@ -29,13 +39,24 @@ import java.util.concurrent.ExecutionException;
  */
 public class PlanTripDetails extends Activity {
 
-    RelativeLayout rel1, rel2;
+    RelativeLayout rel1;
     EditText from, to;
     Button fetch;
     CheckBox tick;
     String url;
     Intent i;
     JSONObject jObj;
+    ArrayList<HashMap<String, String>> jsonList;
+    ListView lv;
+    private DBHelper mydb;
+
+    private static final String TAG_DESTADDR = "destination_addresses";
+    private static final String TAG_ORIGINADDR = "origin_addresses";
+    private static final String TAG_ROWS = "rows";
+    private static final String TAG_ELEMENTS = "elements";
+    private static final String TAG_DISTANCE = "distance";
+    private static final String TAG_DURATION = "duration";
+    private static final String TAG_TEXT = "text";
 
 
     @Override
@@ -43,22 +64,24 @@ public class PlanTripDetails extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tofrom);
         rel1 = (RelativeLayout) findViewById(R.id.relativelayout2);
-        rel2 = (RelativeLayout) findViewById(R.id.relativelayout3);
         from = (EditText) findViewById(R.id.FromEditText);
         to = (EditText) findViewById(R.id.ToEditText);
         tick = (CheckBox) findViewById(R.id.checkBox);
         fetch = (Button) findViewById(R.id.buttonGet);
+        lv = (ListView) findViewById(R.id.listview_info);
+        mydb = new DBHelper(this);
+        jsonList = new ArrayList<HashMap<String, String>>();
         onFormLoad();
-        onFetchClick();
+        onFetchClick(mydb);
+        listViewItemSelect();
     }
 
 
     public void onFormLoad() {
         rel1.setVisibility(RelativeLayout.GONE);
-        rel2.setVisibility(RelativeLayout.GONE);
     }
 
-    public void onFetchClick() {
+    public void onFetchClick(final DBHelper mydb) {
         fetch.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
                 if (isValidEditText(from) && isValidEditText(to)) {
@@ -67,7 +90,8 @@ public class PlanTripDetails extends Activity {
                         url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" + from.getText().toString().replace(" ", "%20") + "&destinations=" + to.getText().toString().replace(" ", "%20") + "&mode=driving&language=en-EN&key=" + Constants.TAG_APIKEY + "";
                         try {
                             jObj = new MyClientTask(url, PlanTripDetails.this).execute().get();
-                            Toast.makeText(PlanTripDetails.this, "JSON OBJ returned is:" + jObj, Toast.LENGTH_LONG).show();
+                            jsonList = extractJsonDetails(jObj);
+                            populateListView(jsonList, mydb);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         } catch (ExecutionException e) {
@@ -77,6 +101,31 @@ public class PlanTripDetails extends Activity {
                         Toast.makeText(PlanTripDetails.this, "No internet connection", Toast.LENGTH_SHORT).show();
                     }
                 }
+            }
+        });
+    }
+
+
+    public void populateListView(ArrayList<HashMap<String, String>> fromJson, final DBHelper mydb) {
+        rel1.setVisibility(RelativeLayout.VISIBLE);
+        String[] from = {Constants.TAG_LABELORIGIN, Constants.TAG_LABELDEST, Constants.TAG_DIST, Constants.TAG_DUR};
+        int[] to = {R.id.textView_from, R.id.textView_to, R.id.textView_distdur, R.id.textView_duration};
+        SimpleAdapter adapter = new SimpleAdapter(this, fromJson, R.layout.tab_frag_tofrom, from, to);
+        lv.setAdapter(adapter);
+        boolean flag = mydb.insertDistanceDetail(jsonList);
+        if (flag) {
+            Toast.makeText(PlanTripDetails.this, "Details saved", Toast.LENGTH_LONG).show();
+        }
+    }
+
+
+    public void listViewItemSelect() {
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                HashMap<String, String> map = (HashMap<String, String>) lv.getItemAtPosition(position);
+                Toast.makeText(PlanTripDetails.this, "Values are: origin" + map.get(Constants.TAG_ORIGIN) + "Dest:" + map.get(Constants.TAG_DEST) + "Dist" + map.get(Constants.TAG_DIST) + "Duration" + map.get(Constants.TAG_DUR), Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -127,5 +176,47 @@ public class PlanTripDetails extends Activity {
         } else {
             return false;
         }
+    }
+
+    private ArrayList<HashMap<String, String>> extractJsonDetails(JSONObject json) {
+        JSONArray dest, origin;
+        ArrayList<HashMap<String, String>> aList = new ArrayList<HashMap<String, String>>();
+        JSONArray rowsArray = null;
+        String distance, duration, destination, source;
+        try {
+            dest = json.getJSONArray(TAG_DESTADDR);
+            destination = dest.getString(0);
+            origin = json.getJSONArray(TAG_ORIGINADDR);
+            source = origin.getString(0);
+            rowsArray = json.getJSONArray(TAG_ROWS);
+            JSONObject rowsObject = rowsArray.getJSONObject(0);//only one element in this array
+            JSONArray elementsArray = rowsObject.getJSONArray(TAG_ELEMENTS);
+            JSONObject elementsObject = elementsArray.getJSONObject(0);//only one element in this array
+            JSONObject distanceObject = elementsObject.getJSONObject(TAG_DISTANCE);
+            JSONObject durationObject = elementsObject.getJSONObject(TAG_DURATION);
+            distance = distanceObject.getString(TAG_TEXT); //distance in kms
+            duration = durationObject.getString(TAG_TEXT);
+
+            if (!destination.equalsIgnoreCase("") && !source.equalsIgnoreCase("") && !distance.equalsIgnoreCase("") && !duration.equalsIgnoreCase("")) {
+                Log.i("JSONRESULE", "Result is:" + destination + source + distance + duration);
+                HashMap<String, String> hm = new HashMap<String, String>();
+                hm.put(Constants.TAG_LABELORIGIN, from.getText().toString());
+                hm.put(Constants.TAG_LABELDEST, to.getText().toString());
+                hm.put(Constants.TAG_ORIGIN, source);
+                hm.put(Constants.TAG_DEST, destination);
+                hm.put(Constants.TAG_DIST, distance);
+                hm.put(Constants.TAG_DUR, duration);
+                hm.put(Constants.TAG_LITRE, "litre");
+                hm.put(Constants.TAG_AMOUNT, "amount");
+                hm.put(Constants.TAG_URL, "url");
+                aList.add(hm);
+            } else {
+                Log.i("JSONRESULT", "SOMETHINGMISSING" + destination + source + distance + duration);
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return aList;
     }
 }

@@ -1,42 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:id="@+id/relativelayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
 
     <RelativeLayout
+        android:id="@+id/relativelayout2"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content">
+
         <ImageView
             android:id="@+id/imageView_img"
             android:layout_width="75dp"
-            android:layout_height="67dp"
-            android:src="@drawable/maps"
-            android:layout_alignParentStart="true"
+            android:layout_height="90dp"
             android:layout_alignParentTop="true"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerInside"
+            android:src="@drawable/maps" />
 
-        <TextView
-            style="@style/bikeName"
-            android:id="@+id/textView_fromto"
-            android:text="@string/sample_text"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="8dp"
-            android:layout_toRightOf="@+id/imageView_img"
-            android:layout_toEndOf="@+id/imageView_img" />
 
-        <TextView
-            style="@style/SubText"
-            android:text="@string/sample_text"
-            android:id="@+id/textView_distdur"
-            android:layout_alignLeft="@+id/textView_fromto"
-            android:layout_alignStart="@+id/textView_fromto"
-            android:layout_centerVertical="true" />
-
-        <View
-            style="@style/viewlist"
-            android:id="@+id/view"
+        <RelativeLayout
+            android:id="@+id/relativelayout3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/imageView_img"
-            android:layout_toEndOf="@+id/imageView_img" />
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/imageView_img"
+            android:layout_toRightOf="@+id/imageView_img">
+
+            <TextView
+                android:id="@+id/textView_fromlabel"
+                style="@style/MapText"
+                android:text="From:" />
+
+            <TextView
+                android:id="@+id/textView_from"
+                style="@style/MapText"
+                android:layout_alignEnd="@+id/view"
+                android:layout_alignParentTop="true"
+                android:layout_alignRight="@+id/view"
+                android:layout_toRightOf="@+id/textView_fromlabel"
+                android:text="@string/sample_text" />
+
+            <TextView
+                android:id="@+id/textView_tolabel"
+                style="@style/MapText"
+                android:layout_below="@+id/textView_fromlabel"
+                android:text="To:" />
+
+            <TextView
+                android:id="@+id/textView_to"
+                style="@style/MapText"
+                android:layout_alignEnd="@+id/textView_from"
+                android:layout_alignRight="@+id/textView_from"
+                android:layout_below="@+id/textView_fromlabel"
+                android:layout_toEndOf="@+id/textView_fromlabel"
+                android:layout_toRightOf="@+id/textView_fromlabel"
+                android:text="@string/sample_text" />
+
+            <TextView
+                android:id="@+id/textView_distlabel"
+                style="@style/MapText"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textView_to"
+                android:layout_toLeftOf="@+id/textView_to"
+                android:layout_toStartOf="@+id/textView_to"
+                android:text="Dist:" />
+
+
+            <TextView
+                android:id="@+id/textView_distdur"
+                style="@style/MapSubText"
+                android:layout_alignBottom="@+id/textView_distlabel"
+                android:layout_alignEnd="@+id/textView_to"
+                android:layout_alignRight="@+id/textView_to"
+                android:layout_toRightOf="@+id/textView_fromlabel"
+                android:text="Distdur" />
+
+            <TextView
+                android:id="@+id/textView_durlabel"
+                style="@style/MapText"
+                android:layout_below="@+id/textView_distlabel"
+                android:text="Time:" />
+
+            <TextView
+                android:id="@+id/textView_duration"
+                style="@style/MapSubText"
+                android:layout_alignBottom="@+id/textView_durlabel"
+                android:layout_alignEnd="@+id/textView_distdur"
+                android:layout_alignLeft="@+id/textView_distdur"
+                android:layout_alignRight="@+id/textView_distdur"
+                android:layout_alignStart="@+id/textView_distdur"
+                android:text="duration" />
+
+            <View
+                android:id="@+id/view"
+                style="@style/viewlist"
+                android:layout_alignParentBottom="true" />
+
+        </RelativeLayout>
+
 
     </RelativeLayout>
 
+
 </RelativeLayout>
+
