@@ -150,7 +150,7 @@ public class PlanTripDetails extends Activity {
                 /*Intent itnt = new Intent(PlanTripDetails.this, ViewAllActivity.class);
                 itnt.putExtra(Constants.TAG_ID, map.get(Constants.TAG_ID));
                 startActivity(itnt);*/
-                Toast.makeText(PlanTripDetails.this, "Values are: \norigin" + map.get(Constants.TAG_ORIGIN) + "\nDest:" + map.get(Constants.TAG_DEST) + "\nDist" + map.get(Constants.TAG_DIST) + "\nDuration" + map.get(Constants.TAG_DUR)+ "\nId" + map.get(Constants.TAG_ID), Toast.LENGTH_LONG).show();
+                Toast.makeText(PlanTripDetails.this, "Values are: \norigin" + map.get(Constants.TAG_ORIGIN) + "\nDest:" + map.get(Constants.TAG_DEST) + "\nDist" + map.get(Constants.TAG_DIST) + "\nDuration" + map.get(Constants.TAG_DUR) + "\nId" + map.get(Constants.TAG_ID), Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -279,7 +279,7 @@ public class PlanTripDetails extends Activity {
         int dis;
         if (dist.contains(".")) {
             dis = Integer.parseInt(dist.toString().substring(0, dist.indexOf(".")));
-            Log.i("PlanTripDetails","Distance as int is:"+dis);
+            Log.i("PlanTripDetails", "Distance as int is:" + dis);
         } else {
             dis = Integer.parseInt(dist.toString());
         }

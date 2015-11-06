@@ -3,10 +3,12 @@ package com.example.admin.royalenfield.fragments;
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,9 +27,9 @@ import java.util.regex.Pattern;
 public class ViewAllActivity extends Activity {
 
     Intent i;
-    String id;
+    String id, mapUrl;
     private DBHelper mydb;
-    TextView from, to, distance, duration, amount, litre, type_of_journey;
+    TextView from, to, distance, amount, litre, type_of_journey;
     Button view_in_map;
 
     @Override
@@ -43,8 +45,9 @@ public class ViewAllActivity extends Activity {
         amount = (TextView) findViewById(R.id.AmountValue);
         litre = (TextView) findViewById(R.id.LitreValue);
         type_of_journey = (TextView) findViewById(R.id.TypeOfJourneyValue);
-
+        view_in_map = (Button) findViewById(R.id.buttonURL);
         fillLayoutFromDB(id, mydb);
+        onViewMapClick();
         onViewMapClick();
         //Toast.makeText(ViewAllActivity.this, "ID passed is::" + id, Toast.LENGTH_LONG).show();
     }
@@ -53,6 +56,7 @@ public class ViewAllActivity extends Activity {
         Cursor rs = mydb.getDataFromId(_id);
         if (rs.getCount() > 0) {
             rs.moveToFirst();
+            mapUrl = rs.getString(rs.getColumnIndex(Constants.TAG_URL));
             from.setText(rs.getString(rs.getColumnIndex(Constants.TAG_ORIGIN)));
             to.setText(rs.getString(rs.getColumnIndex(Constants.TAG_DEST)));
             amount.setText("Rs. " + rs.getString(rs.getColumnIndex(Constants.TAG_AMOUNT)));
@@ -80,8 +84,13 @@ public class ViewAllActivity extends Activity {
 
 
     public void onViewMapClick() {
-
-
+        view_in_map.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                Intent intent = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse(mapUrl));
+                startActivity(intent);
+            }
+        });
     }
 
 
