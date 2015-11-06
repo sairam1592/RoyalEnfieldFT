@@ -3,6 +3,7 @@ package com.example.admin.royalenfield.fragments;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -33,6 +34,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by arun on 11/2/2015.
@@ -55,6 +58,7 @@ public class PlanTripDetails extends Activity {
     private static final String TAG_ROWS = "rows";
     private static final String TAG_ELEMENTS = "elements";
     private static final String TAG_DISTANCE = "distance";
+    private static final String TAG_STATUS = "status";
     private static final String TAG_DURATION = "duration";
     private static final String TAG_TEXT = "text";
 
@@ -107,15 +111,33 @@ public class PlanTripDetails extends Activity {
 
 
     public void populateListView(ArrayList<HashMap<String, String>> fromJson, final DBHelper mydb) {
-        rel1.setVisibility(RelativeLayout.VISIBLE);
-        String[] from = {Constants.TAG_LABELORIGIN, Constants.TAG_LABELDEST, Constants.TAG_DIST, Constants.TAG_DUR};
-        int[] to = {R.id.textView_from, R.id.textView_to, R.id.textView_distdur, R.id.textView_duration};
-        SimpleAdapter adapter = new SimpleAdapter(this, fromJson, R.layout.tab_frag_tofrom, from, to);
-        lv.setAdapter(adapter);
-        boolean flag = mydb.insertDistanceDetail(jsonList);
-        if (flag) {
-            Toast.makeText(PlanTripDetails.this, "Details saved", Toast.LENGTH_LONG).show();
+        if (fromJson.get(0).containsKey("Error")) {
+            rel1.setVisibility(RelativeLayout.GONE);
+            Toast.makeText(PlanTripDetails.this, "Kindly provide proper details", Toast.LENGTH_LONG).show();
+        } else {
+            rel1.setVisibility(RelativeLayout.VISIBLE);
+            String[] from = {Constants.TAG_LABELORIGIN, Constants.TAG_LABELDEST, Constants.TAG_DIST, Constants.TAG_DUR, Constants.TAG_ID};
+            int[] to = {R.id.textView_from, R.id.textView_to, R.id.textView_distdur, R.id.textView_duration, R.id.textView_id};
+            SimpleAdapter adapter = new SimpleAdapter(this, fromJson, R.layout.tab_frag_tofrom, from, to);
+            lv.setAdapter(adapter);
+            Cursor rs = mydb.getSelecedTravelData(jsonList);
+            if (rs.getCount() > 0) {
+                rs.moveToFirst();
+                int count = rs.getInt(0);
+                // Log.i("PlanTripDetails", "count is:" + count);
+                if (count > 0) {
+                    Toast.makeText(PlanTripDetails.this, "Details already exists", Toast.LENGTH_LONG).show();
+                } else {
+                    boolean flag = mydb.insertDistanceDetail(jsonList);
+                    if (flag) {
+                        Toast.makeText(PlanTripDetails.this, "Saved successfully", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+
+
         }
+
     }
 
 
@@ -125,7 +147,10 @@ public class PlanTripDetails extends Activity {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 HashMap<String, String> map = (HashMap<String, String>) lv.getItemAtPosition(position);
-                Toast.makeText(PlanTripDetails.this, "Values are: origin" + map.get(Constants.TAG_ORIGIN) + "Dest:" + map.get(Constants.TAG_DEST) + "Dist" + map.get(Constants.TAG_DIST) + "Duration" + map.get(Constants.TAG_DUR), Toast.LENGTH_LONG).show();
+                /*Intent itnt = new Intent(PlanTripDetails.this, ViewAllActivity.class);
+                itnt.putExtra(Constants.TAG_ID, map.get(Constants.TAG_ID));
+                startActivity(itnt);*/
+                Toast.makeText(PlanTripDetails.this, "Values are: \norigin" + map.get(Constants.TAG_ORIGIN) + "\nDest:" + map.get(Constants.TAG_DEST) + "\nDist" + map.get(Constants.TAG_DIST) + "\nDuration" + map.get(Constants.TAG_DUR)+ "\nId" + map.get(Constants.TAG_ID), Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -192,31 +217,84 @@ public class PlanTripDetails extends Activity {
             JSONObject rowsObject = rowsArray.getJSONObject(0);//only one element in this array
             JSONArray elementsArray = rowsObject.getJSONArray(TAG_ELEMENTS);
             JSONObject elementsObject = elementsArray.getJSONObject(0);//only one element in this array
-            JSONObject distanceObject = elementsObject.getJSONObject(TAG_DISTANCE);
-            JSONObject durationObject = elementsObject.getJSONObject(TAG_DURATION);
-            distance = distanceObject.getString(TAG_TEXT); //distance in kms
-            duration = durationObject.getString(TAG_TEXT);
+            String status = elementsObject.getString(TAG_STATUS);
+            Log.i("PlanTripDetails", "Status fetched is:" + status);
+            HashMap<String, String> hm = new HashMap<String, String>();
+            if (!status.equalsIgnoreCase("ZERO_RESULTS") && !status.equalsIgnoreCase("NOT_FOUND")) {
+                JSONObject distanceObject = elementsObject.getJSONObject(TAG_DISTANCE);
+                JSONObject durationObject = elementsObject.getJSONObject(TAG_DURATION);
+                distance = distanceObject.getString(TAG_TEXT); //distance in kms
+                duration = durationObject.getString(TAG_TEXT);
+                Log.i("JSONRESULE", "Result is:" + destination + source + distance + duration + status);
 
-            if (!destination.equalsIgnoreCase("") && !source.equalsIgnoreCase("") && !distance.equalsIgnoreCase("") && !duration.equalsIgnoreCase("")) {
-                Log.i("JSONRESULE", "Result is:" + destination + source + distance + duration);
-                HashMap<String, String> hm = new HashMap<String, String>();
+                HashMap<String, String> otherDetails = new HashMap<String, String>();
                 hm.put(Constants.TAG_LABELORIGIN, from.getText().toString());
                 hm.put(Constants.TAG_LABELDEST, to.getText().toString());
                 hm.put(Constants.TAG_ORIGIN, source);
                 hm.put(Constants.TAG_DEST, destination);
                 hm.put(Constants.TAG_DIST, distance);
                 hm.put(Constants.TAG_DUR, duration);
-                hm.put(Constants.TAG_LITRE, "litre");
-                hm.put(Constants.TAG_AMOUNT, "amount");
-                hm.put(Constants.TAG_URL, "url");
+
+                Pattern pattern = Pattern.compile("\\d+(?:\\.\\d+)?"); // Match int or float
+                Matcher matcher = pattern.matcher(distance);
+                if (matcher.find()) {
+                    System.out.println("MATCHER is:" + matcher.group());
+                }
+
+                if (tick.isChecked()) {
+                    otherDetails = finalCalc(matcher.group(), true);
+                    hm.put(Constants.TAG_RETURNTICK, "true");
+                } else {
+                    otherDetails = finalCalc(matcher.group(), false);
+                    hm.put(Constants.TAG_RETURNTICK, "false");
+                }
+                hm.put(Constants.TAG_LITRE, otherDetails.get(Constants.TAG_LITRE));
+                hm.put(Constants.TAG_AMOUNT, otherDetails.get(Constants.TAG_AMOUNT));
+                hm.put(Constants.TAG_URL, "https://www.google.com/maps/dir/" + source + "/" + destination + "/");
                 aList.add(hm);
             } else {
-                Log.i("JSONRESULT", "SOMETHINGMISSING" + destination + source + distance + duration);
+                Log.i("JSONRESULE", "Result is NONE");
+                hm.put("Error", "null");
+                aList.add(hm);
             }
-
         } catch (JSONException e) {
             e.printStackTrace();
         }
         return aList;
     }
+
+    public HashMap<String, String> finalCalc(String dist, boolean isChecked) {
+        ArrayList<String> details = new ArrayList<String>();
+        HashMap<String, String> al = new HashMap<String, String>();
+        Cursor rs = mydb.getUserData();
+        if (rs.getCount() > 0) {
+            rs.moveToFirst();
+            for (int i = 1; i <= 5; i++) {
+                System.out.println(rs.getString(i));
+                details.add(rs.getString(i));
+            }
+        }
+        int mi = Integer.parseInt(details.get(2).toString());
+        int fu = Integer.parseInt(details.get(3).toString().substring(0, 2));
+        int dis;
+        if (dist.contains(".")) {
+            dis = Integer.parseInt(dist.toString().substring(0, dist.indexOf(".")));
+            Log.i("PlanTripDetails","Distance as int is:"+dis);
+        } else {
+            dis = Integer.parseInt(dist.toString());
+        }
+        float totalAmt;
+        if (isChecked) {
+            totalAmt = (fu * (dis * 2)) / mi;
+        } else {
+            totalAmt = (fu * dis) / mi;
+        }
+        String totalAmount = String.valueOf(totalAmt);
+        float litre = totalAmt / fu;
+        String litres = String.valueOf(litre);
+        al.put(Constants.TAG_LITRE, litres);
+        al.put(Constants.TAG_AMOUNT, totalAmount);
+        return al;
+    }
+
 }

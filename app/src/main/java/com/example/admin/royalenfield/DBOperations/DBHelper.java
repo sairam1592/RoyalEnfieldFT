@@ -42,7 +42,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("create table riderdetails "
                 + "(id integer primary key AUTOINCREMENT, name text,bulltype TEXT,mileage TEXT,fuelcost TEXT,mailid TEXT)");
         db.execSQL("create table traveldetails "
-                + "(id integer primary key AUTOINCREMENT,fromlabel text,tolabel text,fromplace text,toplace TEXT,distance TEXT,duration TEXT,litre TEXT,amount TEXT,url TEXT)");
+                + "(id integer primary key AUTOINCREMENT,fromlabel text,tolabel text,fromplace text,toplace TEXT,distance TEXT,duration TEXT,litre TEXT,amount TEXT,url TEXT,returntick TEXT)");
     }
 
     @Override
@@ -78,6 +78,29 @@ public class DBHelper extends SQLiteOpenHelper {
         return res;
     }
 
+
+    public Cursor getSelecedTravelData(ArrayList<HashMap<String, String>> travelDetails) {
+        Log.i("DBHELPER", "jsonlist is" + travelDetails);
+        SQLiteDatabase db = this.getReadableDatabase();
+        String labelOrigin = null, labelDest = null, dist = null, duration = null, returnCheck = null;
+        for (int i = 0; i < travelDetails.size(); i++) {
+            labelOrigin = travelDetails.get(i).get(Constants.TAG_ORIGIN);
+            labelDest = travelDetails.get(i).get(Constants.TAG_DEST);
+            dist = travelDetails.get(i).get(Constants.TAG_DIST);
+            duration = travelDetails.get(i).get(Constants.TAG_DUR);
+            returnCheck = travelDetails.get(i).get(Constants.TAG_RETURNTICK);
+        }
+        Cursor res = db.rawQuery("SELECT count(*) from traveldetails WHERE fromplace='" + labelOrigin + "' and toplace='" + labelDest + "' and returntick='" + returnCheck + "'", null);
+        return res;
+    }
+
+    public Cursor getDataFromId(String id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res = db.rawQuery("select * from traveldetails where id='" + id + "'", null);
+        return res;
+    }
+
+
     public int numberOfRows(String fromTable) {
         SQLiteDatabase db = this.getReadableDatabase();
         int numRows = (int) DatabaseUtils.queryNumEntries(db,
@@ -99,6 +122,7 @@ public class DBHelper extends SQLiteOpenHelper {
             contentValues.put(Constants.TAG_LITRE, travelDetails.get(i).get(Constants.TAG_LITRE));
             contentValues.put(Constants.TAG_AMOUNT, travelDetails.get(i).get(Constants.TAG_AMOUNT));
             contentValues.put(Constants.TAG_URL, travelDetails.get(i).get(Constants.TAG_URL));
+            contentValues.put(Constants.TAG_RETURNTICK, travelDetails.get(i).get(Constants.TAG_RETURNTICK));
         }
         db.insert("traveldetails", null, contentValues);
         return true;

@@ -26,9 +26,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/imageView_img"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
-            android:layout_toEndOf="@+id/imageView_img"
-            android:layout_toRightOf="@+id/imageView_img">
+            android:layout_toRightOf="@+id/imageView_img"
+            android:padding="2dp">
 
             <TextView
                 android:id="@+id/textView_fromlabel"
@@ -38,10 +40,10 @@
             <TextView
                 android:id="@+id/textView_from"
                 style="@style/MapText"
-                android:layout_alignEnd="@+id/view"
                 android:layout_alignParentTop="true"
-                android:layout_alignRight="@+id/view"
+                android:layout_toLeftOf="@+id/textView_id"
                 android:layout_toRightOf="@+id/textView_fromlabel"
+                android:layout_toStartOf="@+id/textView_id"
                 android:text="@string/sample_text" />
 
             <TextView
@@ -91,15 +93,19 @@
                 style="@style/MapSubText"
                 android:layout_alignBottom="@+id/textView_durlabel"
                 android:layout_alignEnd="@+id/textView_distdur"
-                android:layout_alignLeft="@+id/textView_distdur"
                 android:layout_alignRight="@+id/textView_distdur"
-                android:layout_alignStart="@+id/textView_distdur"
+                android:layout_toRightOf="@+id/textView_durlabel"
                 android:text="duration" />
 
-            <View
-                android:id="@+id/view"
-                style="@style/viewlist"
-                android:layout_alignParentBottom="true" />
+            <TextView
+                style="@style/MapSubText"
+                android:id="@+id/textView_id"
+                android:text="id"
+                android:visibility="invisible"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_alignTop="@+id/textView_duration"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
 
         </RelativeLayout>
 

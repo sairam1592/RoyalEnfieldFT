@@ -45,6 +45,10 @@
             android:name=".fragments.ViewTripDetails"
             android:label="@string/view"
             android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".fragments.ViewAllActivity"
+            android:label="@string/viewAll"
+            android:screenOrientation="portrait"></activity>
 
     </application>
 

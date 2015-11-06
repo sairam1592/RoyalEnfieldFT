@@ -59,7 +59,7 @@ public class MyTripFragment extends Fragment {
                     if (rs.moveToFirst()) {
                         while (true) {
                             details = new HashMap<String, String>();
-                            for (int i = 1; i < rs.getColumnCount(); i++) {
+                            for (int i = 0; i < rs.getColumnCount(); i++) { //changing i value from 1 to 0 -Arun-Nov 6
                                 details.put(rs.getColumnName(i), rs.getString(i));
                             }
                             viewDetails.add(details);

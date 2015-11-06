@@ -8,7 +8,6 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:alpha=".20"
         android:scaleType="fitXY"
@@ -62,23 +61,19 @@
             android:textStyle="bold|normal" />
     </RelativeLayout>
 
-    <View
-        android:id="@+id/view"
-        style="@style/view"
-        android:layout_below="@+id/relativelayout1"
-        android:layout_centerHorizontal="true" />
-
     <RelativeLayout
         android:id="@+id/relativelayout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/view">
+        android:layout_below="@+id/relativelayout1">
 
+        <View
+            style="@style/viewlist"
+            android:id="@+id/view"/>
         <ListView
             android:id="@+id/listview_gas"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
             android:layout_marginTop="10dp" />
 
     </RelativeLayout>

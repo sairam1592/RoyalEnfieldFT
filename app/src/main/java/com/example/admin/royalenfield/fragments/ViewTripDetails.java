@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.admin.royalenfield.DBOperations.DBHelper;
@@ -44,10 +45,11 @@ public class ViewTripDetails extends Activity {
     }
 
     public void loadListView() {
-        String[] from = {Constants.TAG_LABELORIGIN, Constants.TAG_LABELDEST, Constants.TAG_DIST, Constants.TAG_DUR};
-        int[] to = {R.id.textView_from, R.id.textView_to, R.id.textView_distdur, R.id.textView_duration};
+        String[] from = {Constants.TAG_LABELORIGIN, Constants.TAG_LABELDEST, Constants.TAG_DIST, Constants.TAG_DUR, Constants.TAG_ID};
+        int[] to = {R.id.textView_from, R.id.textView_to, R.id.textView_distdur, R.id.textView_duration, R.id.textView_id};
         SimpleAdapter adapter = new SimpleAdapter(this, details, R.layout.tab_frag_tofrom, from, to);
         lv.setAdapter(adapter);
+        Log.i("VIEWTRIPDETAILS", "Details to view are:" + details.toString());
     }
 
     public void listViewItemSelect() {
@@ -56,7 +58,10 @@ public class ViewTripDetails extends Activity {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 HashMap<String, String> map = (HashMap<String, String>) lv.getItemAtPosition(position);
-                Toast.makeText(ViewTripDetails.this, "Values are: origin" + map.get(Constants.TAG_ORIGIN) + "Dest:" + map.get(Constants.TAG_DEST) + "Dist" + map.get(Constants.TAG_DIST) + "Duration" + map.get(Constants.TAG_DUR), Toast.LENGTH_LONG).show();
+                Toast.makeText(ViewTripDetails.this, "Values are: \norigin" + map.get(Constants.TAG_ORIGIN) + "\nDest:" + map.get(Constants.TAG_DEST) + "\nDist" + map.get(Constants.TAG_DIST) + "\nDuration" + map.get(Constants.TAG_DUR) + "\nId" + map.get(Constants.TAG_ID), Toast.LENGTH_LONG).show();
+                Intent itnt = new Intent(ViewTripDetails.this, ViewAllActivity.class);
+                itnt.putExtra(Constants.TAG_ID, map.get(Constants.TAG_ID));
+                startActivity(itnt);
             }
         });
     }

@@ -5,6 +5,7 @@
     <string name="PersonalDetails">Enter Details</string>
     <string name="plan">Plan My Trip</string>
     <string name="view">View My Trip</string>
+    <string name="viewAll">My Trip Details</string>
     <string name="title_section1">About</string>
     <string name="title_section2">MotorCycles</string>
     <string name="title_section3">RE History</string>
@@ -32,6 +33,10 @@
     <string name="To">To</string>
     <string name="FromHint">From</string>
     <string name="ToHint">To</string>
+    <string name="Distance">Distance</string>
+    <string name="Type">Journey Type</string>
+    <string name="Amount">Amount</string>
+    <string name="Litre">Litre</string>
     <string name="maybeLater">Maybe Later</string>
     <string name="PlanTrip">Plan my Trip</string>
     <string name="ViewTrip">View my Trip</string>
