@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:id="@+id/imageView_img"
+        android:layout_width="65dp"
+        android:layout_height="75dp"
+        android:src="@drawable/maps"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:scaleType="centerInside" />
+
+    <TextView
+        android:id="@+id/textView_gasStation"
+        style="@style/DetailText"
+        android:text="@string/sample_text"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/imageView_img"
+        android:layout_alignRight="@+id/textView_address"
+        android:layout_alignEnd="@+id/textView_address" />
+
+    <View
+        style="@style/viewlist"
+        android:id="@+id/view"
+        android:layout_alignBottom="@+id/imageView_img"
+        android:layout_toEndOf="@+id/imageView_img" />
+
+    <TextView
+        android:id="@+id/textView_address"
+        style="@style/MapSubText"
+        android:layout_alignEnd="@+id/view"
+        android:layout_alignRight="@+id/view"
+        android:layout_below="@+id/textView_gasStation"
+        android:layout_toEndOf="@+id/imageView_img"
+        android:layout_toRightOf="@+id/imageView_img"
+        android:text="@string/sample_text" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="id"
+        android:id="@+id/textView_url"
+        android:visibility="invisible"
+        android:layout_above="@+id/view"
+        android:layout_toRightOf="@+id/imageView_img"
+        android:layout_toEndOf="@+id/imageView_img" />
+
+</RelativeLayout>

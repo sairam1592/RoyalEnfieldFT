@@ -39,5 +39,4 @@
         android:layout_toRightOf="@+id/imageView_img"
         android:text="@string/sample_text" />
 
-
 </RelativeLayout>

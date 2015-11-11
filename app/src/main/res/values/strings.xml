@@ -1,11 +1,12 @@
 <resources>
-    <string name="app_name">Royal Enfield</string>
+    <string name="app_name">Enfield Throttler</string>
     <string name="page_bike">Gallery</string>
     <string name="history">RE History</string>
     <string name="PersonalDetails">Enter Details</string>
     <string name="plan">Plan My Trip</string>
     <string name="view">View My Trip</string>
     <string name="viewAll">My Trip Details</string>
+    <string name="techspec">Tech Spec</string>
     <string name="title_section1">About</string>
     <string name="title_section2">MotorCycles</string>
     <string name="title_section3">RE History</string>
@@ -36,7 +37,7 @@
     <string name="Distance">Distance</string>
     <string name="Type">Journey Type</string>
     <string name="Amount">Amount</string>
-    <string name="Litre">Litre</string>
+    <string name="Litre">Fuel Quantity</string>
     <string name="maybeLater">Maybe Later</string>
     <string name="PlanTrip">Plan my Trip</string>
     <string name="ViewTrip">View my Trip</string>
@@ -44,8 +45,10 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Ex action</string>
+    <string name="action_fuelprice">Check Fuel Price</string>
     <string name="action_settings">Settings</string>
     <string name="action_back">Back</string>
+    <string name="action_share">Share</string>
 
     <string-array name="bikeName">
         <item>Standard Bullet 350</item>
@@ -143,4 +146,145 @@
         <item>@drawable/tbfivr_img</item>
         <item>@drawable/gt_img</item>
     </array>
+
+
+    <array name="StandardBullet350">
+    <item>Engine Displacement(CC): 346cc</item>
+    <item>Engine Type: Single Cylinder, 4 stroke, Twinspark</item>
+    <item>Power(PS@rpm): 19.8 bhp @ 5250 rpm</item>
+    <item>Torque(Nm@rpm): 28 Nm @ 4000 rpm</item>
+    <item>Gear Box: 5 Speed Constant Mesh</item>
+    <item>Shift Pattern: 1-down,4-up</item>
+    <item>Start Type: Kick Only</item>
+    <item>Brakes Front: 7 inh Twin lead internal expanding drum brake</item>
+    <item>Brakes Back: 153mm Drum, Single Lead Internal Expanding</item>
+    <item>Kerb Weight: 180 Kg (with 90% Fuel and Oil)</item>
+    <item>Wheelbase(mm): 1370 mm</item>
+    <item>Ground Clearance(mm): 135mm</item>
+    <item>Fuel Capacity(Litres): 13.5 Ltr</item>
+    <item>Price: 1.10 lakh(Approx.)</item>
+    </array>
+
+
+    <array name="BulletElectra350">
+    <item>Engine Displacement(CC): 346cc</item>
+    <item>Engine Type: Single Cylinder, 4 stroke, Twinspark</item>
+    <item>Power(PS@rpm): 19.8 bhp @ 5250 rpm</item>
+    <item>Torque(Nm@rpm): 28 Nm @ 4000 rpm</item>
+    <item>Gear Box: 5 Speed Constant Mesh</item>
+    <item>Shift Pattern: 1-down,4-up</item>
+    <item>Start Type: Electric/Kick</item>
+    <item>Brakes Front: 280mm Disc, 2-Piston caliper</item>
+    <item>Brakes Back: 153mm Drum, Single Lead Internal Expanding</item>
+    <item>Kerb Weight: 187 Kg (with 90% Fuel and Oil)</item>
+    <item>Wheelbase(mm): 1370mm</item>
+    <item>Ground Clearance(mm): 135mm</item>
+    <item>Fuel Capacity(Litres): 13.5 Ltr</item>
+    <item>Price: 1.25 lakh(Approx.)</item>
+    </array>
+
+    <array name="Bullet500">
+    <item>Engine Displacement(CC): 499cc</item>
+    <item>Engine Type: Single Cylinder, 4 stroke, Twinspark, Aircooled</item>
+    <item>Power(PS@rpm): 26.1 bhp @ 5100 rpm</item>
+    <item>Torque(Nm@rpm): 40.9 Nm @ 3800 rpm</item>
+    <item>Gear Box: 5 Speed Constant Mesh</item>
+    <item>Shift Pattern: 1-down,4-up</item>
+    <item>Start Type: Electric/Kick</item>
+    <item>Brakes Front: 280mm Disc, 2-Piston caliper</item>
+    <item>Brakes Back: 153mm Drum, Single Lead Internal Expanding</item>
+    <item>Kerb Weight: 193 Kg</item>
+    <item>Wheelbase(mm): 1370 mm</item>
+    <item>Ground Clearance(mm): 135mm</item>
+    <item>Fuel Capacity(Litres): 13.5 Ltr</item>
+    <item>Price: 1.70 lakh(Approx.)</item>
+</array>
+
+    <array name="Classic_350">
+    <item>Engine Displacement(CC): 346cc</item>
+    <item>Engine Type: Single Cylinder, 4 stroke, Twinspark</item>
+    <item>Power(PS@rpm): 19.8 bhp @ 5250 rpm</item>
+    <item>Torque(Nm@rpm): 28 Nm @ 4000 rpm</item>
+    <item>Gear Box: 5 Speed Constant Mesh</item>
+    <item>Shift Pattern: 1-down,4-up</item>
+    <item>Start Type: Electric/Kick</item>
+    <item>Brakes Front: 280mm Disc, 2-Piston caliper</item>
+    <item>Brakes Back: 153mm Drum, Single Lead Internal Expanding</item>
+    <item>Kerb Weight: 187 Kg (with 90% Fuel and Oil)</item>
+    <item>Wheelbase(mm): 1370 mm</item>
+    <item>Ground Clearance(mm): 135 mm</item>
+    <item>Fuel Capacity(Litres): 13.5 Ltr</item>
+    <item>Price: 1.35 lakh (Approx.)</item>
+    </array>
+
+
+    <array name="Classic_DS_BG_500">
+    <item>Engine Displacement(CC): 499cc</item>
+    <item>Engine Type: Single Cylinder, 4 stroke,Twinspark</item>
+    <item>Power(PS@rpm): 27.2 bhp @ 5250 rpm</item>
+    <item>Torque(Nm@rpm): 41.3 Nm @ 4000 rpm</item>
+    <item>Gear Box: 5 Speed Constant Mesh</item>
+    <item>Shift Pattern: 1-down,4-up</item>
+    <item>Start Type: Electric/Kick</item>
+    <item>Brakes Front: 280mm Disc, 2-Piston caliper</item>
+    <item>Brakes Back: 153mm Drum, Single Lead Internal Expanding</item>
+    <item>Kerb Weight: 187 Kg (with 90% Fuel and Oil)</item>
+    <item>Wheelbase(mm): 1370mm</item>
+    <item>Ground Clearance(mm): 135mm</item>
+    <item>Fuel Capacity(Litres): 14.5 ± 1 Ltr</item>
+    <item>Price: 1.78 lakh(Approx.)</item>
+    </array>
+
+
+<array name="Thunderbird_350">
+    <item>Engine Displacement(CC): 346cc</item>
+    <item>Engine Type: Single Cylinder, 4 stroke, Twinspark, Air cooled</item>
+    <item>Power(PS@rpm): 19.8 bhp @ 5250 rpm</item>
+    <item>Torque(Nm@rpm): 28 Nm @ 4000 rpm</item>
+    <item>Gear Box: 5 Speed Constant Mesh</item>
+    <item>Shift Pattern: 1-down,4-up</item>
+    <item>Start Type: Electric/Kick</item>
+    <item>Brakes Front: 280mm Disc, 2-Piston caliper</item>
+    <item>Brakes Back: 240mm Disc, Single piston caliper</item>
+    <item>Kerb Weight: 192 Kgs</item>
+    <item>Wheelbase(mm): 1350mm</item>
+    <item>Ground Clearance(mm): 140mm</item>
+    <item>Fuel Capacity(Litres): 20 Ltrs</item>
+    <item>Price: 1.45 lakh(Approx.)</item>
+    </array>
+
+    <array name="Thunderbird_500">
+        <item>Engine Displacement(CC): 500cc</item>
+        <item>Engine Type: Single Cylinder, 4 stroke, Twinspark, Air cooled</item>
+        <item>Power(PS@rpm): 19.8 bhp @ 5250 rpm</item>
+        <item>Torque(Nm@rpm): 28 Nm @ 4000 rpm</item>
+        <item>Gear Box: 5 Speed Constant Mesh</item>
+        <item>Shift Pattern: 1-down,4-up</item>
+        <item>Start Type: Electric/Kick</item>
+        <item>Brakes Front: 280mm Disc, 2-Piston caliper</item>
+        <item>Brakes Back: 240mm Disc, Single piston caliper</item>
+        <item>Kerb Weight: 192 Kgs</item>
+        <item>Wheelbase(mm): 1350mm</item>
+        <item>Ground Clearance(mm): 140mm</item>
+        <item>Fuel Capacity(Litres): 20 Ltrs</item>
+        <item>Price: 1.45 lakh(Approx.)</item>
+    </array>
+
+<array name="Continental_GT">
+    <item>Engine Displacement(CC): 535 cc</item>
+    <item>Engine Type: Single Cylinder, 4 stroke, Air cooled</item>
+    <item>Power(PS@rpm): 29.1 bhp (21.4 kW) @ 5100 rpm</item>
+    <item>Torque(Nm@rpm): 44 Nm @ 4000 rpm</item>
+    <item>Gear Box: 5 Speed Constant Mesh</item>
+    <item>Shift Pattern: 1-down,4-up</item>
+    <item>Start Type: Electric/Kick</item>
+    <item>Brakes Front: Brembo 300mm Floating disc, 2-Piston floating caliper</item>
+    <item>Brakes Back: 240mm Disc, Single piston floating caliper</item>
+    <item>Kerb Weight: 184 Kgs</item>
+    <item>Wheelbase(mm): 1360mm</item>
+    <item>Ground Clearance(mm): 140mm</item>
+    <item>Fuel Capacity(Litres): 13.5 Ltrs</item>
+    <item>Price: 2.09 lakh(Approx.)</item>
+    </array>
+
 </resources>
