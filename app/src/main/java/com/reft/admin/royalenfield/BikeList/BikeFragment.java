@@ -7,6 +7,7 @@ package com.reft.admin.royalenfield.BikeList;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -23,6 +24,7 @@ public class BikeFragment extends Fragment {
     public static final String EXTRA_MESSAGE = "EXTRA_MESSAGE";
     public static final String EXTRA_IMAGE = "EXTRA_IMAGE";
     Intent i;
+
     public static final BikeFragment newInstance(String message, int imageId) {
         BikeFragment f = new BikeFragment();
         Bundle bdl = new Bundle();
@@ -47,8 +49,8 @@ public class BikeFragment extends Fragment {
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu,MenuInflater inflater) {
-        inflater.inflate(R.menu.back_menu,menu);
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.back_menu, menu);
     }
 
     @Override
@@ -64,4 +66,5 @@ public class BikeFragment extends Fragment {
 
         return super.onOptionsItemSelected(item);
     }
+
 }

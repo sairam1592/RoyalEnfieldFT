@@ -139,7 +139,7 @@ public class NavigationDrawerFragment extends Fragment {
         mDrawerToggle = new ActionBarDrawerToggle(
                 getActivity(),                    /* host Activity */
                 mDrawerLayout,                    /* DrawerLayout object */
-                com.reft.admin.royalenfield.R.drawable.ic_drawer,             /* nav drawer image to replace 'Up' caret */
+                R.drawable.ic_drawer,            /* nav drawer image to replace 'Up' caret */
                 com.reft.admin.royalenfield.R.string.navigation_drawer_open,  /* "open drawer" description for accessibility */
                 com.reft.admin.royalenfield.R.string.navigation_drawer_close  /* "close drawer" description for accessibility */
         ) {

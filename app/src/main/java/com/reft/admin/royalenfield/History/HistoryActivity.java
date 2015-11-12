@@ -13,6 +13,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -136,13 +137,20 @@ public class HistoryActivity extends FragmentActivity implements ActionBar.TabLi
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_back) {
-            i = new Intent(HistoryActivity.this, NavMainActivity.class);
-            startActivity(i);
+           onBackPressed();
+           // i = new Intent(HistoryActivity.this, NavMainActivity.class);
+            //startActivity(i);
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onBackPressed() {
+        //Display alert message when back button has been pressed
+        finish();
+        return;
+    }
 }
 

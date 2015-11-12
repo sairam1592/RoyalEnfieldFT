@@ -135,8 +135,9 @@ public class ViewAllActivity extends Activity {
         //noinspection SimplifiableIfStatement
         switch (id) {
             case R.id.action_back:
-                i = new Intent(ViewAllActivity.this, NavMainActivity.class);
-                startActivity(i);
+                onBackPressed();
+               // i = new Intent(ViewAllActivity.this, NavMainActivity.class);
+               // startActivity(i);
                 break;
             case R.id.action_share:
                 onShareClick();
@@ -145,4 +146,10 @@ public class ViewAllActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onBackPressed() {
+        //Display alert message when back button has been pressed
+        finish();
+        return;
+    }
 }

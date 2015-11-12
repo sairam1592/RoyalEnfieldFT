@@ -159,6 +159,7 @@
             android:gravity="center"
             android:textColor="#808080"
             android:textSize="20sp"
+            android:text="Update"
             android:textStyle="bold|normal" />
 
     </RelativeLayout>

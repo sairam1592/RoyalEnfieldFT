@@ -177,8 +177,9 @@ public class PlanTripDetails extends Activity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_back) {
-            i = new Intent(PlanTripDetails.this, NavMainActivity.class);
-            startActivity(i);
+          onBackPressed();
+           // i = new Intent(PlanTripDetails.this, NavMainActivity.class);
+           // startActivity(i);
             return true;
         }
 
@@ -306,4 +307,10 @@ public class PlanTripDetails extends Activity {
         return al;
     }
 
+    @Override
+    public void onBackPressed() {
+        //Display alert message when back button has been pressed
+        finish();
+        return;
+    }
 }

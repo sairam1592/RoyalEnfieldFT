@@ -69,6 +69,7 @@ public class MyDetailsFragment extends Fragment implements AdapterView.OnItemSel
         Mileage = (EditText) rootView.findViewById(R.id.MileageEditText);
         mailId = (EditText) rootView.findViewById(R.id.MailEditText);
         bText = (Button) rootView.findViewById(R.id.buttonText);
+        bText.setVisibility(Button.GONE);
         details = new ArrayList<String>();
         userDetails = new LinkedHashMap<String, String>();
         mydb = new DBHelper(getActivity());
@@ -100,7 +101,7 @@ public class MyDetailsFragment extends Fragment implements AdapterView.OnItemSel
 
     public void loadDetails(final DBHelper mydb) {
         layoutChildDisable();
-        bText.setText("Back");
+        bText.setVisibility(Button.INVISIBLE);
         Cursor rs = mydb.getUserData();
         System.out.println("Count:" + rs.getCount());
         if (rs.getCount() > 0) {
@@ -135,7 +136,7 @@ public class MyDetailsFragment extends Fragment implements AdapterView.OnItemSel
                                         int which) {
                         layoutChildEnable();
                         userName.setEnabled(false);
-                        bText.setText("Update");
+                        bText.setVisibility(Button.VISIBLE);
                         dialog.dismiss();
                     }
                 });
@@ -144,7 +145,7 @@ public class MyDetailsFragment extends Fragment implements AdapterView.OnItemSel
                     public void onClick(DialogInterface dialog,
                                         int which) {
                         layoutChildDisable();
-                        bText.setText("Back");
+                        bText.setVisibility(Button.INVISIBLE);
                         dialog.dismiss();
                     }
                 });
@@ -175,20 +176,22 @@ public class MyDetailsFragment extends Fragment implements AdapterView.OnItemSel
 
         bText.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                if (bText.getText().toString().equalsIgnoreCase("Back")) {
+               /* if (bText.getText().toString().equalsIgnoreCase("Back")) {
                     onButtonPressIntent();
-                } else if (bText.getText().toString().equalsIgnoreCase("Update")) {
-                    // int count = mydb.deleteAllDetails();
-                    if (isValidEmail() && isValidMileage() && isValidSpinnerBull() && isValidSpinnerFuel()) {
-                        if (mydb.updateRiderDetail(userDetails, userName.getText().toString())) {
-                            Toast.makeText(getActivity(), "Details Updated", Toast.LENGTH_SHORT).show();
-                            onButtonPressIntent();
-                        } else {
-                            Toast.makeText(getActivity(), "Error while updating,Kindly enter again.", Toast.LENGTH_SHORT).show();
-                        }
+                } else*/
+
+                //if (bText.getText().toString().equalsIgnoreCase("Update")) {
+                // int count = mydb.deleteAllDetails();
+                if (isValidEmail() && isValidMileage() && isValidSpinnerBull() && isValidSpinnerFuel()) {
+                    if (mydb.updateRiderDetail(userDetails, userName.getText().toString())) {
+                        Toast.makeText(getActivity(), "Details Updated", Toast.LENGTH_SHORT).show();
+                        onButtonPressIntent();
+                    } else {
+                        Toast.makeText(getActivity(), "Error while updating,Kindly enter again.", Toast.LENGTH_SHORT).show();
                     }
-                    mydb.close();
                 }
+                mydb.close();
+                // }
             }
         });
 

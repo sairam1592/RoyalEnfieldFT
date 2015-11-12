@@ -157,4 +157,11 @@ public class NavMainActivity extends Activity
 
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void onBackPressed() {
+        //Display alert message when back button has been pressed
+        finish();
+        return;
+    }
 }

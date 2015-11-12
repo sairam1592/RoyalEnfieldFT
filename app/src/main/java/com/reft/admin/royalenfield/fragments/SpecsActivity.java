@@ -3,6 +3,7 @@ package com.reft.admin.royalenfield.fragments;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -54,11 +55,19 @@ public class SpecsActivity extends Activity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_back) {
-            Intent i = new Intent(SpecsActivity.this, NavMainActivity.class);
-            startActivity(i);
+           onBackPressed();
+           // Intent i = new Intent(SpecsActivity.this, NavMainActivity.class);
+           // startActivity(i);
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        //Display alert message when back button has been pressed
+        finish();
+        return;
     }
 }

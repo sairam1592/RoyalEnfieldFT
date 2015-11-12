@@ -76,11 +76,19 @@ public class ViewTripDetails extends Activity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_back) {
-            i = new Intent(ViewTripDetails.this, NavMainActivity.class);
-            startActivity(i);
+            onBackPressed();
+           // i = new Intent(ViewTripDetails.this, NavMainActivity.class);
+            //startActivity(i);
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        //Display alert message when back button has been pressed
+        finish();
+        return;
     }
 }
