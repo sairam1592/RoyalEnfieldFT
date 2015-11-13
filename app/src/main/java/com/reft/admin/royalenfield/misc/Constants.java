@@ -39,15 +39,21 @@ public interface Constants {
     public static final String TAG_TECH = "Technology";
     public static final String TAG_APIKEY = "AIzaSyBMfmvAsBOlvWt1r_hLsu_-FUqBrDyR1es";
     public static final String TAG_TYPE = "gas_station";
-    public static final String TAG_ID="id";
+    public static final String TAG_ID = "id";
     public static final String TAG_LABELORIGIN = "fromlabel";
     public static final String TAG_LABELDEST = "tolabel";
     public static final String TAG_ORIGIN = "fromplace";
     public static final String TAG_DEST = "toplace";
     public static final String TAG_DIST = "distance";
-    public static final String TAG_DUR="duration";
+    public static final String TAG_DUR = "duration";
     public static final String TAG_LITRE = "litre";
     public static final String TAG_AMOUNT = "amount";
-    public static final String TAG_URL="url";
-    public static final String TAG_RETURNTICK="returntick";
+    public static final String TAG_URL = "url";
+    public static final String TAG_RETURNTICK = "returntick";
+    public static final String TAG_ITEMTIPS = "Useful Tips";
+    public static final String TAG_ITEMSENDMAIL = "Contact";
+    public static final String TAG_ITEMGITHUB = "GitHub Link";
+    public static final String TAG_ITEMANDROIDDEV = "Concepts used";
+    public static final String TAG_ITEMGOOGLEMAPS = "Google APIs";
+    public static final String TAG_ITEMDATABASE = "Database";
 }

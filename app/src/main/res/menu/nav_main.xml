@@ -4,4 +4,14 @@
         android:id="@+id/action_checkfuel"
         android:showAsAction="never"
         android:title="@string/action_fuelprice" />
+
+    <item
+        android:id="@+id/action_share"
+        android:showAsAction="never"
+        android:title="@string/action_tell" />
+
+    <item
+        android:id="@+id/action_developer"
+        android:showAsAction="never"
+        android:title="@string/action_dev" />
 </menu>

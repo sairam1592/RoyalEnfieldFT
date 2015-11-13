@@ -10,11 +10,13 @@ import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.reft.admin.royalenfield.R;
 import com.reft.admin.royalenfield.BikeList.MotorCycleList;
 import com.reft.admin.royalenfield.History.HistoryActivity;
 import com.reft.admin.royalenfield.fragments.AboutFragment;
+import com.reft.admin.royalenfield.fragments.DeveloperFragment;
 import com.reft.admin.royalenfield.fragments.MyDetailsFragment;
 import com.reft.admin.royalenfield.fragments.MyTripFragment;
 import com.reft.admin.royalenfield.fragments.NearbyGasStatFragment;
@@ -84,6 +86,9 @@ public class NavMainActivity extends Activity
             case 5:
                 fragment = new NearbyGasStatFragment();
                 break;
+            case 6:
+                rateApp();
+                break;
         }
 
         if (fragment != null) {
@@ -114,6 +119,9 @@ public class NavMainActivity extends Activity
                 break;
             case 5:
                 mTitle = getString(R.string.title_section6);
+                break;
+            case 6:
+                mTitle = getString(R.string.title_section7);
                 break;
         }
     }
@@ -155,6 +163,15 @@ public class NavMainActivity extends Activity
             return true;
         }
 
+        if (id == R.id.action_share) {
+            onShareClick();
+            return true;
+        }
+
+        if (id == R.id.action_developer) {
+            onDevClick();
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -163,5 +180,34 @@ public class NavMainActivity extends Activity
         //Display alert message when back button has been pressed
         finish();
         return;
+    }
+
+    public void rateApp() {
+        Toast.makeText(this, "Rate App-After available in App store", Toast.LENGTH_SHORT).show();
+       /* Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("market://details?id=com.reft.admin.royalenfield"));
+        startActivity(intent);*/
+    }
+
+    public void onShareClick() {
+        Toast.makeText(this, "tell a friend app link", Toast.LENGTH_SHORT).show();
+        /*StringBuilder sb = new StringBuilder();
+        sb.append("Hey there!!..\nCheck out the new Enfield Throttler app\n");
+        sb.append("You can plan trips, view Royal Enfield bikes & its specifications,share trip plan with buddies and find the nearest gas station too.\n Its totally cool check it out!\n");
+        Intent sendIntent = new Intent();
+        sendIntent.setType("text/plain");
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, sb.toString());
+        startActivity(sendIntent); */
+    }
+
+    public void onDevClick() {
+        Fragment fragment = new DeveloperFragment();
+        if (fragment != null) {
+            FragmentManager fragmentManager = getFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.container, fragment)
+                    .commit();
+        }
     }
 }

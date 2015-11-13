@@ -81,6 +81,18 @@
         <item name="android:paddingLeft">2dp</item>
     </style>
 
+    <style name="ExpSubText">
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+        <item name="android:textSize">13dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">#555555</item>
+        <item name="android:gravity">left</item>
+        <item name="android:layout_marginTop">6dp</item>
+        <item name="android:paddingLeft">2dp</item>
+    </style>
+
     <style name="DetailText">
         <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
         <item name="android:textSize">18dp</item>
@@ -88,6 +100,21 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">#003366</item>
+        <item name="android:gravity">left</item>
+        <item name="android:layout_marginTop">14dp</item>
+        <item name="android:paddingLeft">2dp</item>
+        <item name="android:paddingRight">2dp</item>
+        <item name="android:paddingTop">2dp</item>
+        <item name="android:paddingBottom">2dp</item>
+    </style>
+
+    <style name="ExpText">
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">#A5685B</item>
         <item name="android:gravity">left</item>
         <item name="android:layout_marginTop">14dp</item>
         <item name="android:paddingLeft">2dp</item>

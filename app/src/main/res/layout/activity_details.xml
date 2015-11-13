@@ -1,218 +1,224 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true"
     android:orientation="vertical"
     android:padding="3dp">
 
-    <ImageView
-        android:id="@+id/imageView"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:alpha=".10"
-        android:scaleType="fitXY"
-        android:src="@drawable/re_bg"
-        android:layout_centerHorizontal="true"/>
+        android:orientation="vertical"
+        android:padding="3dp">
 
-
-    <RelativeLayout
-        android:id="@+id/relativelayout1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="30dp">
-
-        <GridLayout
-            android:id="@+id/gridlayout1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_alignParentStart="true"
-            android:columnCount="2">
-
-            <TextView
-                android:id="@+id/UsernameTextView"
-                style="@style/DetailText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="0"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="10dp"
-                android:layout_row="0"
-                android:text="@string/Username" />
-
-
-            <TextView
-                android:id="@+id/BullTypeTextView"
-                style="@style/DetailText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="0"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="10dp"
-                android:layout_row="1"
-                android:text="@string/Bull_Type" />
-
-            <EditText
-                android:id="@+id/UserNameEditText"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:layout_row="0"
-                android:gravity="left"
-                android:hint="@string/Username_hint"
-                android:inputType="textNoSuggestions|textVisiblePassword"
-                android:singleLine="true"/>
-
-            <Spinner
-                android:id="@+id/BullTypeSpinner"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:layout_marginTop="10dp"
-                android:layout_row="1"
-                android:gravity="left"
-                android:singleLine="true"/>
-        </GridLayout>
-    </RelativeLayout>
-
-    <LinearLayout
-        android:id="@+id/linearlayoutButtons"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/relativelayout1"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/button_nearest_showroom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:background="@android:color/transparent"
-            android:text="@string/findShowroom"
-            android:textColor="#808080"
-            android:textStyle="bold|normal" />
-
-        <Button
-            android:id="@+id/button_check_later"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:background="@android:color/transparent"
-            android:text="@string/maybeLater"
-            android:textColor="#808080"
-            android:textStyle="bold|normal" />
-    </LinearLayout>
-
-    <RelativeLayout
-        android:id="@+id/relativelayout2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/linearlayoutButtons"
-        android:layout_marginTop="10dp">
-
-        <GridLayout
-            android:id="@+id/gridlayout2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="10dp"
-            android:columnCount="3">
-
-            <TextView
-                android:id="@+id/MileageTextView"
-                style="@style/DetailText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="0"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="10dp"
-                android:layout_row="0"
-                android:text="@string/Mileage" />
-
-            <TextView
-                android:id="@+id/FuelCosrTextView"
-                style="@style/DetailText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="0"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="10dp"
-                android:layout_row="1"
-                android:text="@string/fuelCost" />
-
-            <TextView
-                android:id="@+id/MailTextView"
-                style="@style/DetailText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="0"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="10dp"
-                android:layout_row="2"
-                android:text="@string/emailId" />
-
-            <EditText
-                android:id="@+id/MileageEditText"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:layout_row="0"
-                android:gravity="left"
-                android:hint="@string/MileageHint"
-                android:inputType="number"
-                android:singleLine="true" />
-
-            <Spinner
-                android:id="@+id/FuelCostSpinner"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:layout_marginTop="10dp"
-                android:layout_row="1"
-                android:gravity="left"
-                android:hint="@string/fuelcostHint"
-                android:singleLine="true" />
-
-            <EditText
-                android:id="@+id/MailEditText"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:layout_row="2"
-                android:gravity="left"
-                android:hint="@string/emailidHint"
-                android:singleLine="true" />
-        </GridLayout>
-
-        <Button
-            android:id="@+id/buttonSave"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/gridlayout2"
+            android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="8dp"
-            android:background="@android:color/transparent"
-            android:gravity="center"
-            android:text="@string/ButtonProceed"
-            android:textColor="#808080"
-            android:textSize="20sp"
-            android:textStyle="bold|normal" />
+            android:alpha=".10"
+            android:scaleType="fitXY"
+            android:src="@drawable/re_bg" />
+
+
+        <RelativeLayout
+            android:id="@+id/relativelayout1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="30dp">
+
+            <GridLayout
+                android:id="@+id/gridlayout1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true"
+                android:columnCount="2">
+
+                <TextView
+                    android:id="@+id/UsernameTextView"
+                    style="@style/DetailText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_row="0"
+                    android:text="@string/Username" />
+
+
+                <TextView
+                    android:id="@+id/BullTypeTextView"
+                    style="@style/DetailText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_row="1"
+                    android:text="@string/Bull_Type" />
+
+                <EditText
+                    android:id="@+id/UserNameEditText"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_row="0"
+                    android:gravity="left"
+                    android:hint="@string/Username_hint"
+                    android:inputType="textNoSuggestions|textVisiblePassword"
+                    android:singleLine="true" />
+
+                <Spinner
+                    android:id="@+id/BullTypeSpinner"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_marginTop="10dp"
+                    android:layout_row="1"
+                    android:gravity="left"
+                    android:singleLine="true" />
+            </GridLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/linearlayoutButtons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/relativelayout1"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button_nearest_showroom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:background="@android:color/transparent"
+                android:text="@string/findShowroom"
+                android:textColor="#808080"
+                android:textStyle="bold|normal" />
+
+            <Button
+                android:id="@+id/button_check_later"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:background="@android:color/transparent"
+                android:text="@string/maybeLater"
+                android:textColor="#808080"
+                android:textStyle="bold|normal" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativelayout2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/linearlayoutButtons"
+            android:layout_marginTop="10dp">
+
+            <GridLayout
+                android:id="@+id/gridlayout2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="10dp"
+                android:columnCount="3">
+
+                <TextView
+                    android:id="@+id/MileageTextView"
+                    style="@style/DetailText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_row="0"
+                    android:text="@string/Mileage" />
+
+                <TextView
+                    android:id="@+id/FuelCosrTextView"
+                    style="@style/DetailText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_row="1"
+                    android:text="@string/fuelCost" />
+
+                <TextView
+                    android:id="@+id/MailTextView"
+                    style="@style/DetailText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_row="2"
+                    android:text="@string/emailId" />
+
+                <EditText
+                    android:id="@+id/MileageEditText"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_row="0"
+                    android:gravity="left"
+                    android:hint="@string/MileageHint"
+                    android:inputType="number"
+                    android:singleLine="true" />
+
+                <Spinner
+                    android:id="@+id/FuelCostSpinner"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_marginTop="10dp"
+                    android:layout_row="1"
+                    android:gravity="left"
+                    android:hint="@string/fuelcostHint"
+                    android:singleLine="true" />
+
+                <EditText
+                    android:id="@+id/MailEditText"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_row="2"
+                    android:gravity="left"
+                    android:hint="@string/emailidHint"
+                    android:singleLine="true" />
+            </GridLayout>
+
+            <Button
+                android:id="@+id/buttonSave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/gridlayout2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:text="@string/ButtonProceed"
+                android:textColor="#808080"
+                android:textSize="20sp"
+                android:textStyle="bold|normal" />
+        </RelativeLayout>
     </RelativeLayout>
-
-
-</RelativeLayout>
+</ScrollView>

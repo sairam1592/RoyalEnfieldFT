@@ -59,12 +59,10 @@ public class BikeFragment extends Fragment {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_back) {
-            i = new Intent(getActivity(), NavMainActivity.class);
-            startActivity(i);
+            getActivity().finish();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
-
 }
