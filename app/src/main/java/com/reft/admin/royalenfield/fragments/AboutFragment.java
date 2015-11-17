@@ -6,6 +6,7 @@ package com.reft.admin.royalenfield.fragments;
 
 import android.app.Fragment;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.os.Handler;
@@ -21,6 +22,8 @@ import android.widget.ViewFlipper;
 
 import com.reft.admin.royalenfield.R;
 
+import org.w3c.dom.Text;
+
 
 public class AboutFragment extends Fragment {
 
@@ -29,11 +32,11 @@ public class AboutFragment extends Fragment {
 
     Handler handler;
     Runnable runnable;
-    TextView about;
-    ViewFlipper flipper;
+    ViewFlipper flipper1, flipper2;
     TypedArray bikeApp;
     ScreenResolution screenRes;
-    RelativeLayout.LayoutParams params;
+    RelativeLayout.LayoutParams params1, params2;
+    String[] message;
 
 
     @Override
@@ -41,28 +44,48 @@ public class AboutFragment extends Fragment {
                              Bundle savedInstanceState) {
         screenRes = deviceDimensions();
         //Log.i("Height width", "Width:" + screenRes.width + "Height:" + screenRes.height);
-        params = new RelativeLayout.LayoutParams(screenRes.width, screenRes.height / 2);
-
+        params1 = new RelativeLayout.LayoutParams(screenRes.width, screenRes.height / 2);
+        params2 = new RelativeLayout.LayoutParams(screenRes.width, 500);
         View rootView = inflater.inflate(R.layout.fragment_about, container, false);
-        about = (TextView) rootView.findViewById(R.id.textView_abt);
-        flipper = (ViewFlipper) rootView.findViewById(R.id.flipper1);
+        message = getResources().getStringArray(R.array.textMessage);
+        flipper1 = (ViewFlipper) rootView.findViewById(R.id.flipper1);
+        flipper2 = (ViewFlipper) rootView.findViewById(R.id.flipper2);
         bikeApp = getResources().obtainTypedArray(R.array.AppOpen);
         System.out.println(bikeApp.length());
         timer1();
+        timer2();
         runnable = new Runnable() {
 
             public void run() {
-                handler.postDelayed(runnable, 3000);
-                flipper.showNext();
+                handler.postDelayed(runnable, 4000);
+                flipper1.showNext();
+                flipper2.showNext();
             }
         };
         handler = new Handler();
         handler.postDelayed(runnable, 500);
 
-        setTextView();
         return rootView;
     }
 
+
+    public void timer2() {
+        for (int i = 0; i < message.length; i++) {
+            setFlipperText(message[i]);
+        }
+    }
+
+    public void setFlipperText(String abtMsg) {
+        TextView msg = new TextView(getActivity());
+        params2.addRule(RelativeLayout.CENTER_IN_PARENT);
+        params2.addRule(RelativeLayout.CENTER_HORIZONTAL);
+        msg.setLayoutParams(params2);
+        msg.setTextSize(18);
+        msg.setTextColor(Color.BLUE);
+        msg.setTextAppearance(getActivity(), android.R.style.TextAppearance_Medium);
+        msg.setText(abtMsg);
+        flipper2.addView(msg);
+    }
 
     public void timer1() {
         for (int i = 0; i < bikeApp.length(); i++) {
@@ -73,25 +96,12 @@ public class AboutFragment extends Fragment {
     private void setFlipperImage(int res) {
         //Log.i("Set Filpper Called", res + "");
         ImageView image = new ImageView(getActivity());
-        params.addRule(RelativeLayout.CENTER_IN_PARENT);
-        params.addRule(RelativeLayout.CENTER_HORIZONTAL);
+        params1.addRule(RelativeLayout.CENTER_IN_PARENT);
+        params1.addRule(RelativeLayout.CENTER_HORIZONTAL);
         image.setScaleType(ImageView.ScaleType.CENTER);
-        image.setLayoutParams(params);
+        image.setLayoutParams(params1);
         image.setBackgroundResource(res);
-        flipper.addView(image);
-    }
-
-    public void setTextView() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Welcome to Royal Enfield Fuel Tracker app.\n");
-        sb.append("\nThis app serves as the heartbeat for all Royal Enfield lovers out there!\n");
-        sb.append("\nPeople who wish to buy a Royal Enfield can view motorcycle specifications,pictures and history of RE.\n");
-        sb.append("\nPeople who own a Royal Enfield can plan for trips,share trip plan with others.\n");
-        sb.append("\nIf you run out of fuel, you can find the nearest gas station, also the current fuel price in the market.\n");
-        sb.append("\nAs most Royal Enfield bikes come without a fuel indicator, the important feature in this app is to compute the amount of fuel required to travel.\n");
-        sb.append("\nHappy Riding! Thump it up...");
-        //sb.append("\n\nNote: This is not the official Android app of RoyalEnfield (Eicher Motors).\n");
-        about.setText(sb.toString());
+        flipper1.addView(image);
     }
 
     private class ScreenResolution {

@@ -1,6 +1,9 @@
 package com.reft.admin.royalenfield.fragments;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,8 +11,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 import com.reft.admin.royalenfield.R;
 import com.reft.admin.royalenfield.DBOperations.DBHelper;
@@ -28,6 +33,8 @@ public class ViewTripDetails extends Activity {
     ArrayList<HashMap<String, String>> details;
     private DBHelper mydb;
     ListView lv;
+    AlertDialog.Builder alert;
+    AlertDialog dialog;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -64,9 +71,40 @@ public class ViewTripDetails extends Activity {
         });
     }
 
+
+    public void onShowDialog() {
+        alert = new AlertDialog.Builder(this);
+        dialog = alert.create();
+        dialog.setTitle("Alert");
+        dialog.setMessage("Do you wish to clear all trip details?");
+        dialog.setButton(Dialog.BUTTON_POSITIVE, "Yes",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,
+                                        int which) {
+                        int i = mydb.deleteTravelDetails();
+                        Log.i("VIEWTRIPDETAILS", "Return int is" + i);
+                        if (i > 0) {
+                            onBackPressed();
+                            dialog.dismiss();
+                        } else {
+                            Toast.makeText(ViewTripDetails.this, "Some error while deleting or no data found", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                });
+        dialog.setButton(Dialog.BUTTON_NEGATIVE, "No",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,
+                                        int which) {
+                        dialog.dismiss();
+                    }
+                });
+        dialog.show();
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.back_menu, menu);
+        getMenuInflater().inflate(R.menu.viewtrip_menu, menu);
         return true;
     }
 
@@ -77,9 +115,13 @@ public class ViewTripDetails extends Activity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_back) {
             onBackPressed();
-           // i = new Intent(ViewTripDetails.this, NavMainActivity.class);
+            // i = new Intent(ViewTripDetails.this, NavMainActivity.class);
             //startActivity(i);
             return true;
+        }
+
+        if (id == R.id.action_clear) {
+            onShowDialog();
         }
 
         return super.onOptionsItemSelected(item);

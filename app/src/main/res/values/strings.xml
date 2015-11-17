@@ -49,10 +49,11 @@
     <string name="action_example">Ex action</string>
     <string name="action_fuelprice">Check Fuel Price</string>
     <string name="action_tell">Tell A Friend</string>
-    <string name="action_dev">Dev Details</string>
+    <string name="action_dev">App Info</string>
     <string name="action_settings">Settings</string>
     <string name="action_back">Back</string>
     <string name="action_share">Share</string>
+    <string name="action_clear">Clear All</string>
 
     <string-array name="bikeName">
         <item>Standard Bullet 350</item>
@@ -290,5 +291,17 @@
         <item>Fuel Capacity(Litres): 13.5 Ltrs</item>
         <item>Price: 2.09 lakh(Approx.)</item>
     </array>
+
+
+    <string-array name="textMessage">
+        <item>Welcome to Royal Enfield Fuel Tracker app.\nThis app provides basic information about \n\n * Royal Enfields rich history\n\n * Motorcycle collections\n\n * Motorcycle specifications\n\nfor users information...</item>
+        <item>This app serves as the heartbeat for all Royal Enfield lovers out there!\n\nRoyal Enfield is a leading motorcycle seller in India currently providing top quality motorcycles in both 350cc and 500cc range.\n\nAs of 2015,Royal Enfield has expanded its flagship empire throughout the world.</item>
+        <item>People who wish to buy a Royal Enfield can \n\n * View exquisite motorcycle available with Royal Enfield\n\n * Check out each motorcycles in different angles\n\n * Individual Motorcycle specifications</item>
+        <item>People who own a Royal Enfield can \n\n * Plan for trips\n\n * Share trip plan with mates\n\n * View directions of their trip in Google Maps.</item>
+        <item>If you run out of fuel, you can \n\n * Find the nearest gas station\n\n * Also get to know updated fuel price in the market.</item>
+        <item>As most Royal Enfield bikes come without a fuel indicator, the important feature in this app is to compute the amount of fuel required to travel\n\nFor every Royal Enfield owners, monitoring fuel consumption is pretty hard as 350cc/500cc bikes consume more fuel.</item>
+        <item>Our beloved users will be provided with latest updates happening in Royal Enfield.\n\nUsers will be able to receive important notifications about events taking place within the Royal Enfield community every now and then.</item>
+        <item>Happy Riding! Thump it up...</item>
+    </string-array>
 
 </resources>
