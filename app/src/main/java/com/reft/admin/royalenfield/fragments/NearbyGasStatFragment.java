@@ -105,14 +105,14 @@ public class NearbyGasStatFragment extends Fragment implements AdapterView.OnIte
                         if (gps.canGetLocation()) {
                             latitude = gps.getLatitude();
                             longitude = gps.getLongitude();
-                            //Log.i("NEARBYGAS", "Lat and Long returned is:Lat " + latitude + "\tLong " + longitude);
+                          //  Log.i("NEARBYGAS", "Lat and Long returned is:Lat " + latitude + "\tLong " + longitude);
                             if (latitude == 0.0 || longitude == 0.0) {
-                                Toast.makeText(getActivity(), "Error in fetching location details,kindly restart app and try again.", Toast.LENGTH_SHORT).show();
+                               // Toast.makeText(getActivity(), "Error in fetching location details,kindly restart app and try again.", Toast.LENGTH_SHORT).show();
                             } else {
                                 url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + latitude + "," + longitude + "&radius=" + range.getSelectedItem().toString() + "000&types=" + Constants.TAG_TYPE + "&key=" + Constants.TAG_APIKEY + "";
                                 try {
                                     jObj = new MyClientTask(url, getActivity()).execute().get();
-                                    //Toast.makeText(getActivity(), "JSON OBJ returned is:" + jObj, Toast.LENGTH_LONG).show();
+                                //   Toast.makeText(getActivity(), "JSON OBJ returned is:" + jObj, Toast.LENGTH_LONG).show();
                                     jsonList = extractJsonDetails(jObj);
                                     populateListView(jsonList);
                                 } catch (InterruptedException e) {

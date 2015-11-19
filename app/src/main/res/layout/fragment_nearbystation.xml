@@ -20,6 +20,12 @@
         android:layout_centerHorizontal="true"
         android:text="@string/header2" />
 
+    <View
+        android:id="@+id/view"
+        style="@style/view"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true" />
+
 
     <RelativeLayout
         android:id="@+id/relativelayout1"
@@ -68,8 +74,9 @@
         android:layout_below="@+id/relativelayout1">
 
         <View
-            style="@style/viewlist"
-            android:id="@+id/view"/>
+            android:id="@+id/view1"
+            style="@style/viewlist" />
+
         <ListView
             android:id="@+id/listview_gas"
             android:layout_width="fill_parent"
