@@ -124,7 +124,6 @@ public class PlanTripDetails extends Activity {
             if (rs.getCount() > 0) {
                 rs.moveToFirst();
                 int count = rs.getInt(0);
-                rs.close();
                 // Log.i("PlanTripDetails", "count is:" + count);
                 if (count > 0) {
                     Toast.makeText(PlanTripDetails.this, "Details already exists", Toast.LENGTH_LONG).show();
@@ -149,10 +148,37 @@ public class PlanTripDetails extends Activity {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 HashMap<String, String> map = (HashMap<String, String>) lv.getItemAtPosition(position);
-                Toast.makeText(PlanTripDetails.this, "View trip details in View My Trip section", Toast.LENGTH_LONG).show();
+                String _id = getIdFromTable();
+                if (_id.equalsIgnoreCase("error")) {
+                    Toast.makeText(PlanTripDetails.this, "View trip details in View My Trip section", Toast.LENGTH_LONG).show();
+                } else {
+                    Log.i("LISTVIEWSELECT", "ID returned is:" + _id);
+                    Intent itnt = new Intent(PlanTripDetails.this, ViewAllActivity.class);
+                    itnt.putExtra(Constants.TAG_ID, _id);
+                    startActivity(itnt);
+                }
+
                 //Toast.makeText(PlanTripDetails.this, "Values are: \norigin" + map.get(Constants.TAG_ORIGIN) + "\nDest:" + map.get(Constants.TAG_DEST) + "\nDist" + map.get(Constants.TAG_DIST) + "\nDuration" + map.get(Constants.TAG_DUR) + "\nId" + map.get(Constants.TAG_ID), Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+
+    public String getIdFromTable() {
+        String id = "";
+        Cursor rs = mydb.getPlannedTravelData(jsonList);
+        if (rs.getCount() > 0) {
+            rs.moveToFirst();
+            int count = rs.getInt(0);
+            if (count > 0) {
+                id = rs.getString(rs.getColumnIndex(Constants.TAG_ID));
+            } else {
+                id = "error";
+            }
+        }
+        rs.close();
+        mydb.close();
+        return id;
     }
 
     public boolean isValidEditText(EditText view) {
@@ -177,9 +203,9 @@ public class PlanTripDetails extends Activity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_back) {
-          onBackPressed();
-           // i = new Intent(PlanTripDetails.this, NavMainActivity.class);
-           // startActivity(i);
+            onBackPressed();
+            // i = new Intent(PlanTripDetails.this, NavMainActivity.class);
+            // startActivity(i);
             return true;
         }
 

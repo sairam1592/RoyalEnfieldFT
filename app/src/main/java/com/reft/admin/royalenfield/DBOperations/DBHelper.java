@@ -94,6 +94,22 @@ public class DBHelper extends SQLiteOpenHelper {
         return res;
     }
 
+
+    public Cursor getPlannedTravelData(ArrayList<HashMap<String, String>> travelDetails) {
+        //Log.i("DBHELPER", "jsonlist is" + travelDetails);
+        SQLiteDatabase db = this.getReadableDatabase();
+        String labelOrigin = null, labelDest = null, dist = null, duration = null, returnCheck = null;
+        for (int i = 0; i < travelDetails.size(); i++) {
+            labelOrigin = travelDetails.get(i).get(Constants.TAG_ORIGIN);
+            labelDest = travelDetails.get(i).get(Constants.TAG_DEST);
+            dist = travelDetails.get(i).get(Constants.TAG_DIST);
+            duration = travelDetails.get(i).get(Constants.TAG_DUR);
+            returnCheck = travelDetails.get(i).get(Constants.TAG_RETURNTICK);
+        }
+        Cursor res = db.rawQuery("SELECT id from traveldetails WHERE fromplace='" + labelOrigin + "' and toplace='" + labelDest + "' and returntick='" + returnCheck + "' and distance='" + dist + "'", null);
+        return res;
+    }
+
     public Cursor getDataFromId(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor res = db.rawQuery("select * from traveldetails where id='" + id + "'", null);
@@ -130,7 +146,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return true;
     }
 
-    public boolean updateRiderDetail(HashMap<String, String> key,String name) {
+    public boolean updateRiderDetail(HashMap<String, String> key, String name) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         for (Map.Entry<String, String> entry : key.entrySet()) {

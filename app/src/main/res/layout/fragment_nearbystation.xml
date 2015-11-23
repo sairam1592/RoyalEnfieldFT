@@ -36,7 +36,7 @@
         <TextView
             android:id="@+id/RangeTextView"
             style="@style/DetailText"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
@@ -47,7 +47,7 @@
             android:id="@+id/RangeSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
+            android:layout_alignTop="@+id/RangeTextView"
             android:layout_toEndOf="@+id/RangeTextView"
             android:layout_toRightOf="@+id/RangeTextView"
             android:gravity="center"
@@ -65,6 +65,7 @@
             android:textColor="#808080"
             android:textSize="20sp"
             android:textStyle="bold|normal" />
+
     </RelativeLayout>
 
     <RelativeLayout

@@ -18,7 +18,7 @@
     <string name="header1">Royal Enfield Motorcycles</string>
     <string name="header2">Nearby Gas Station</string>
     <string name="header3">For Developers</string>
-    <string name="Range">Range</string>
+    <string name="Range">Range (in kms)</string>
     <string name="Username">Username</string>
     <string name="Username_hint">Username</string>
     <string name="Bull_Type">Bull Type</string>
