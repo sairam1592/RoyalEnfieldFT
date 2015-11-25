@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/splash_bgmain">
+    android:orientation="vertical">
 
-    <TextView
-        style="@style/splashText"
-        android:id="@+id/textView_1"
-        android:text="t1"
-        android:layout_marginTop="60dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="71dp"
-        android:layout_marginStart="71dp" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:alpha=".50"
+        android:scaleType="centerCrop"
+        android:src="@drawable/rf_lg_1" />
 
     <TextView
+        android:id="@+id/textView_1"
         style="@style/splashText"
-        android:id="@+id/textView_2"
-        android:text="t2"
-        android:layout_alignTop="@+id/textView_1"
-        android:layout_toRightOf="@+id/textView_1"
-        android:layout_toEndOf="@+id/textView_1" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        android:text="@string/sample_text" />
 
 </RelativeLayout>

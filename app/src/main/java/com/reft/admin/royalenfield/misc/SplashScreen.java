@@ -6,6 +6,7 @@ package com.reft.admin.royalenfield.misc;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.animation.Animation;
@@ -36,14 +37,16 @@ public class SplashScreen extends Activity {
     public void animText() {
         reText1 = (TextView) findViewById(R.id.textView_1);
 
-        reText2 = (TextView) findViewById(R.id.textView_2);
+        Typeface face = Typeface.createFromAsset(getAssets(), "fonts/Capture_it.ttf");
+        reText1.setTypeface(face);
+        // reText2 = (TextView) findViewById(R.id.textView_2);
         fadeIn = AnimationUtils.loadAnimation(getApplicationContext(),
                 R.anim.fade_in);
 
-        reText1.setText("Enfield");
+        reText1.setText("Enfield Throttler");
         reText1.startAnimation(fadeIn);
-        reText2.setText("Throttler");
-        reText2.startAnimation(fadeIn);
+        // reText2.setText("Throttler");
+        // reText2.startAnimation(fadeIn);
 
     }
 

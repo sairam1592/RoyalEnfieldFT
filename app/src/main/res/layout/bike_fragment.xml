@@ -7,14 +7,14 @@
     android:padding="3dp">
 
     <ImageView
+        android:id="@+id/imageView_bg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/imageView_bg"
-        android:src="@drawable/re_bg"
-        android:scaleType="fitXY"
-        android:alpha=".07"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:alpha=".07"
+        android:scaleType="fitXY"
+        android:src="@drawable/re_bg" />
 
     <TextView
         android:id="@+id/textView_name"
@@ -24,15 +24,15 @@
         android:layout_marginTop="54dp"
         android:text="@string/sample_text" />
 
-    <ImageView
+    <com.reft.admin.royalenfield.misc.ScaleImageView
         android:id="@+id/imageView_bike"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:scaleType="fitCenter"
-        android:src="@drawable/logomain"
         android:layout_below="@+id/view"
         android:layout_centerHorizontal="true"
-        android:background="@android:color/transparent"/>
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/logomain" />
 
     <View
         android:id="@+id/view"

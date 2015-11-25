@@ -8,8 +8,8 @@ android {
         applicationId "com.reft.admin.royalenfield"
         minSdkVersion 14
         targetSdkVersion 21
-        versionCode 6
-        versionName "1.5"
+        versionCode 7
+        versionName "1.6"
     }
     buildTypes {
         release {
@@ -20,7 +20,8 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:support-v4:22.2.1'
     compile 'com.google.android.gms:play-services:8.3.0'
+    compile files('libs/pinchzoom.jar')
 }

@@ -98,14 +98,14 @@
                 android:text="duration" />
 
             <TextView
-                style="@style/MapSubText"
                 android:id="@+id/textView_id"
-                android:text="id"
-                android:visibility="invisible"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:layout_alignTop="@+id/textView_duration"
+                style="@style/MapSubText"
+                android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true" />
+                android:layout_alignTop="@+id/textView_duration"
+                android:text="id"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:visibility="invisible" />
 
         </RelativeLayout>
 
