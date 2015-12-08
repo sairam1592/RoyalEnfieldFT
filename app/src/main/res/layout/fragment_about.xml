@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#E7EBDA"
+    android:background="#FCFBF1"
     android:fillViewport="false"
     android:orientation="vertical"
     android:padding="3dp">
@@ -10,7 +10,7 @@
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#E7EBDA"
+        android:background="#FCFBF1"
         android:orientation="vertical">
 
 

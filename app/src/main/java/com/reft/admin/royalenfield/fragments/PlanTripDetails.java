@@ -22,7 +22,6 @@ import android.widget.Toast;
 
 import com.reft.admin.royalenfield.R;
 import com.reft.admin.royalenfield.DBOperations.DBHelper;
-import com.reft.admin.royalenfield.NavMainActivity;
 import com.reft.admin.royalenfield.misc.Constants;
 import com.reft.admin.royalenfield.misc.MyClientTask;
 
@@ -89,7 +88,6 @@ public class PlanTripDetails extends Activity {
             public void onClick(View arg0) {
                 if (isValidEditText(from) && isValidEditText(to)) {
                     if (ConnectionCheck()) {
-                        //  url = "https://maps.googleapis.com/maps/api/directions/json?origin=" + from.getText().toString() + "&destination=" + to.getText().toString() + "&key=" + Constants.TAG_APIKEY + "";
                         url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" + from.getText().toString().replace(" ", "%20") + "&destinations=" + to.getText().toString().replace(" ", "%20") + "&mode=driving&language=en-EN&key=" + Constants.TAG_APIKEY + "";
                         try {
                             jObj = new MyClientTask(url, PlanTripDetails.this).execute().get();
@@ -102,7 +100,7 @@ public class PlanTripDetails extends Activity {
                             e.printStackTrace();
                         }
                     } else {
-                        Toast.makeText(PlanTripDetails.this, "No internet connection", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(PlanTripDetails.this, Constants.TAG_CHECKINTERNET, Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -113,7 +111,7 @@ public class PlanTripDetails extends Activity {
     public void populateListView(ArrayList<HashMap<String, String>> fromJson, final DBHelper mydb) {
         if (fromJson.get(0).containsKey("Error")) {
             rel1.setVisibility(RelativeLayout.GONE);
-            Toast.makeText(PlanTripDetails.this, "Kindly provide proper details", Toast.LENGTH_LONG).show();
+            Toast.makeText(PlanTripDetails.this, Constants.TAG_PROVIDEDETAILS, Toast.LENGTH_LONG).show();
         } else {
             rel1.setVisibility(RelativeLayout.VISIBLE);
             String[] from = {Constants.TAG_LABELORIGIN, Constants.TAG_LABELDEST, Constants.TAG_DIST, Constants.TAG_DUR, Constants.TAG_ID};

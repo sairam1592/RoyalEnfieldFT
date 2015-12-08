@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.reft.admin.royalenfield.R;
 import com.reft.admin.royalenfield.DBOperations.DBHelper;
 import com.reft.admin.royalenfield.NavMainActivity;
+import com.reft.admin.royalenfield.misc.Constants;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -176,12 +177,6 @@ public class MyDetailsFragment extends Fragment implements AdapterView.OnItemSel
 
         bText.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-               /* if (bText.getText().toString().equalsIgnoreCase("Back")) {
-                    onButtonPressIntent();
-                } else*/
-
-                //if (bText.getText().toString().equalsIgnoreCase("Update")) {
-                // int count = mydb.deleteAllDetails();
                 if (isValidEmail() && isValidMileage() && isValidSpinnerBull() && isValidSpinnerFuel()) {
                     if (mydb.updateRiderDetail(userDetails, userName.getText().toString())) {
                         Toast.makeText(getActivity(), "Details Updated", Toast.LENGTH_SHORT).show();
@@ -191,7 +186,6 @@ public class MyDetailsFragment extends Fragment implements AdapterView.OnItemSel
                     }
                 }
                 mydb.close();
-                // }
             }
         });
 
@@ -203,7 +197,7 @@ public class MyDetailsFragment extends Fragment implements AdapterView.OnItemSel
             // userDetails.put("name", userName.getText().toString());
             return true;
         } else {
-            userName.setError("Enter username");
+            userName.setError(Constants.TAG_USERNAMEENTER);
             return false;
         }
     }
@@ -213,7 +207,7 @@ public class MyDetailsFragment extends Fragment implements AdapterView.OnItemSel
             userDetails.put("mileage", Mileage.getText().toString());
             return true;
         } else {
-            Mileage.setError("Enter mileage");
+            Mileage.setError(Constants.TAG_MILEAGEENTER);
             return false;
         }
     }
@@ -224,7 +218,7 @@ public class MyDetailsFragment extends Fragment implements AdapterView.OnItemSel
             userDetails.put("bulltype", bullType_spinner.getSelectedItem().toString() + "_" + bullType_spinner.getSelectedItemPosition());
             return true;
         } else {
-            Toast.makeText(getActivity(), "Kindly select your enfield type", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), Constants.TAG_BULLTYPEENTER, Toast.LENGTH_SHORT).show();
             return false;
         }
     }
@@ -234,7 +228,7 @@ public class MyDetailsFragment extends Fragment implements AdapterView.OnItemSel
             userDetails.put("fuelcost", fuelCost_spinner.getSelectedItem().toString() + "_" + fuelCost_spinner.getSelectedItemPosition());
             return true;
         } else {
-            Toast.makeText(getActivity(), "Kindly select fuel cost per liter", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), Constants.TAG_FUELCOSTENTER, Toast.LENGTH_SHORT).show();
             return false;
         }
     }
@@ -251,7 +245,7 @@ public class MyDetailsFragment extends Fragment implements AdapterView.OnItemSel
             userDetails.put("mailid", mailId.getText().toString());
             return true;
         } else {
-            mailId.setError("Enter proper emailid ex:user@domain.com");
+            mailId.setError(Constants.TAG_MAILIDENTER);
             return false;
         }
     }

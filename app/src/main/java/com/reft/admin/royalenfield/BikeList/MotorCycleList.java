@@ -156,31 +156,6 @@ public class MotorCycleList extends Fragment {
         return rootView;
     }
 
-
-   /* @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bikelist);
-        String[] bikeName = getResources().getStringArray(R.array.bikeName);
-        TypedArray bikeImage = getResources().obtainTypedArray(R.array.bikeImage);
-        List<HashMap<String, String>> aList = new ArrayList<HashMap<String, String>>();
-        b = new Bundle();
-        for (int i = 0; i < bikeName.length; i++) {
-            HashMap<String, String> hm = new HashMap<String, String>();
-            hm.put(Constants.TAG_TXT, bikeName[i]);
-            hm.put(Constants.TAG_IMAGE, Integer.toString(bikeImage.getResourceId(i, -1)));
-            hm.put(Constants.TAG_CAT, "Category: " + bikeCategory[i]);
-            aList.add(hm);
-        }
-        String[] from = {Constants.TAG_IMAGE, Constants.TAG_TXT, Constants.TAG_CAT};
-        int[] to = {R.id.imageView_img, R.id.textView_bikeName, R.id.textView_category};
-        SimpleAdapter adapter = new SimpleAdapter(getBaseContext(), aList, R.layout.simple_list_item, from, to);
-        listView = (ListView) findViewById(R.id.listview_bike);
-        listView.setAdapter(adapter);
-        listViewItemSelect();
-    }
-*/
-
     public void listViewOnLongClick() {
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
@@ -189,54 +164,42 @@ public class MotorCycleList extends Fragment {
                 // TODO Auto-generated method stub
                 HashMap<String, String> map = (HashMap<String, String>) listView.getItemAtPosition(pos);
                 String bikeName = map.get(Constants.TAG_TXT);
-               // Toast.makeText(getActivity(), "BIKE NAME ISSSS LONG PRESSED", Toast.LENGTH_LONG).show();
                 i = new Intent(getActivity(), SpecsActivity.class);
                 Bundle bn = new Bundle();
                 bn.putString(Constants.TAG_BIKENAME, bikeName);
 
                 switch (bikeName) {
                     case Constants.TAG_STDBUL:
-                       // bn.putInt(Constants.TAG_BIKEIMG, R.drawable.bullet_1);
                         bn.putStringArray(Constants.TAG_BIKESPECS, stdBull);
                         break;
                     case Constants.TAG_BUL500:
-                      //  bn.putInt(Constants.TAG_BIKEIMG, R.drawable.bulletfive_1);
                         bn.putStringArray(Constants.TAG_BIKESPECS, Bull500);
                         break;
                     case Constants.TAG_ELECTRA:
-                      //  bn.putInt(Constants.TAG_BIKEIMG, R.drawable.electra_1);
                         bn.putStringArray(Constants.TAG_BIKESPECS, bullElec);
                         break;
                     case Constants.TAG_CLS350:
-                       // bn.putInt(Constants.TAG_BIKEIMG, R.drawable.classicblue_3);
                         bn.putStringArray(Constants.TAG_BIKESPECS, Cls350);
                         break;
                     case Constants.TAG_CLS500:
-                      //  bn.putInt(Constants.TAG_BIKEIMG, R.drawable.classicfive_5);
                         bn.putStringArray(Constants.TAG_BIKESPECS, Cls_500);
                         break;
                     case Constants.TAG_CLSCHROME:
-                      //  bn.putInt(Constants.TAG_BIKEIMG, R.drawable.classicchrome_2);
                         bn.putStringArray(Constants.TAG_BIKESPECS, Cls350);
                         break;
                     case Constants.TAG_CLSBG:
-                      //  bn.putInt(Constants.TAG_BIKEIMG, R.drawable.military_2);
                         bn.putStringArray(Constants.TAG_BIKESPECS, Cls_DS_BG);
                         break;
                     case Constants.TAG_CLSDS:
-                       // bn.putInt(Constants.TAG_BIKEIMG, R.drawable.desertstorm_1);
                         bn.putStringArray(Constants.TAG_BIKESPECS, Cls_DS_BG);
                         break;
                     case Constants.TAG_TB350:
-                      //  bn.putInt(Constants.TAG_BIKEIMG, R.drawable.tb_5);
                         bn.putStringArray(Constants.TAG_BIKESPECS, Thunder_350);
                         break;
                     case Constants.TAG_TB500:
-                       // bn.putInt(Constants.TAG_BIKEIMG, R.drawable.tbfive_4);
                         bn.putStringArray(Constants.TAG_BIKESPECS, Thunder_500);
                         break;
                     case Constants.TAG_CGT:
-                       // bn.putInt(Constants.TAG_BIKEIMG, R.drawable.gt_3);
                         bn.putStringArray(Constants.TAG_BIKESPECS, Continental);
                         break;
                     default:

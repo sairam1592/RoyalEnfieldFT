@@ -22,6 +22,7 @@ import android.widget.Toast;
 import com.reft.admin.royalenfield.R;
 import com.reft.admin.royalenfield.DBOperations.DBHelper;
 import com.reft.admin.royalenfield.NavMainActivity;
+import com.reft.admin.royalenfield.misc.Constants;
 
 import java.util.LinkedHashMap;
 import java.util.regex.Matcher;
@@ -72,8 +73,6 @@ public class PersonalDetailsFragment extends Activity implements OnItemSelectedL
         onBullTypeSelection();
         onFuelCostSelection();
         layPos.setVisibility(LinearLayout.GONE);
-       // onShowDialog();
-       // onMaybeLaterClick();
 
         Button save = (Button) findViewById(R.id.buttonSave);
         save.setOnClickListener(new View.OnClickListener() {
@@ -88,84 +87,6 @@ public class PersonalDetailsFragment extends Activity implements OnItemSelectedL
             }
         });
         mydb.close();
-    }
-
-    public void onMaybeLaterClick() {
-        Button later = (Button) findViewById(R.id.button_check_later);
-        later.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View arg0) {
-                layoutChildEnable();
-                layPos.setVisibility(LinearLayout.GONE);
-            }
-        });
-    }
-
-    public void onShowDialog() {
-        final Context context = this;
-        alert = new AlertDialog.Builder(context);
-        dialog = alert.create();
-        dialog.setTitle("Note");
-        dialog.setMessage("Are you a proud owner of Royal Enfield?");
-        dialog.setButton(Dialog.BUTTON_POSITIVE, "Yes",
-                new DialogInterface.OnClickListener() {
-
-                    public void onClick(DialogInterface dialog,
-                                        int which) {
-                        layoutChildEnable();
-                        layPos.setVisibility(LinearLayout.GONE);
-                        dialog.dismiss();
-                    }
-                });
-        dialog.setButton(Dialog.BUTTON_NEGATIVE, "No",
-                new DialogInterface.OnClickListener() {
-
-                    public void onClick(DialogInterface dialog,
-                                        int which) {
-                        layoutChildDisable();
-                        layPos.setVisibility(LinearLayout.VISIBLE);
-                        dialog.dismiss();
-                    }
-                });
-        dialog.show();
-    }
-
-
-    public void layoutChildEnable() {
-        for (int i = 0; i < rel1.getChildCount(); i++) {
-            View child = rel1.getChildAt(i);
-            child.setEnabled(true);
-        }
-        for (int i = 0; i < rel2.getChildCount(); i++) {
-            View child = rel2.getChildAt(i);
-            child.setEnabled(true);
-        }
-        for (int i = 0; i < grid1.getChildCount(); i++) {
-            View child = grid1.getChildAt(i);
-            child.setEnabled(true);
-        }
-        for (int i = 0; i < grid2.getChildCount(); i++) {
-            View child = grid2.getChildAt(i);
-            child.setEnabled(true);
-        }
-    }
-
-    public void layoutChildDisable() {
-        for (int i = 0; i < rel1.getChildCount(); i++) {
-            View child = rel1.getChildAt(i);
-            child.setEnabled(false);
-        }
-        for (int i = 0; i < rel2.getChildCount(); i++) {
-            View child = rel2.getChildAt(i);
-            child.setEnabled(false);
-        }
-        for (int i = 0; i < grid1.getChildCount(); i++) {
-            View child = grid1.getChildAt(i);
-            child.setEnabled(false);
-        }
-        for (int i = 0; i < grid2.getChildCount(); i++) {
-            View child = grid2.getChildAt(i);
-            child.setEnabled(false);
-        }
     }
 
     public void onBullTypeSelection() {
@@ -194,7 +115,7 @@ public class PersonalDetailsFragment extends Activity implements OnItemSelectedL
             userDetails.put("name", userName.getText().toString());
             return true;
         } else {
-            userName.setError("Enter username");
+            userName.setError(Constants.TAG_USERNAMEENTER);
             return false;
         }
     }
@@ -205,7 +126,7 @@ public class PersonalDetailsFragment extends Activity implements OnItemSelectedL
             userDetails.put("mileage", mileage.getText().toString());
             return true;
         } else {
-            mileage.setError("Enter mileage");
+            mileage.setError(Constants.TAG_MILEAGEENTER);
             return false;
         }
     }
@@ -214,10 +135,10 @@ public class PersonalDetailsFragment extends Activity implements OnItemSelectedL
 
         if (!bullType_spinner.getSelectedItem().toString().equalsIgnoreCase("-- Select --")) {
 
-            userDetails.put("bulltype", bullType_spinner.getSelectedItem().toString()+"_"+bullType_spinner.getSelectedItemPosition());
+            userDetails.put("bulltype", bullType_spinner.getSelectedItem().toString() + "_" + bullType_spinner.getSelectedItemPosition());
             return true;
         } else {
-            Toast.makeText(PersonalDetailsFragment.this, "Kindly select your enfield type", Toast.LENGTH_SHORT).show();
+            Toast.makeText(PersonalDetailsFragment.this, Constants.TAG_BULLTYPEENTER, Toast.LENGTH_SHORT).show();
             return false;
         }
     }
@@ -225,10 +146,10 @@ public class PersonalDetailsFragment extends Activity implements OnItemSelectedL
     public boolean isValidSpinnerFuel() {
 
         if (!fuelCost_spinner.getSelectedItem().toString().equalsIgnoreCase("-- Select --")) {
-            userDetails.put("fuelcost", fuelCost_spinner.getSelectedItem().toString()+"_"+fuelCost_spinner.getSelectedItemPosition());
+            userDetails.put("fuelcost", fuelCost_spinner.getSelectedItem().toString() + "_" + fuelCost_spinner.getSelectedItemPosition());
             return true;
         } else {
-            Toast.makeText(PersonalDetailsFragment.this, "Kindly select fuel cost per liter", Toast.LENGTH_SHORT).show();
+            Toast.makeText(PersonalDetailsFragment.this, Constants.TAG_FUELCOSTENTER, Toast.LENGTH_SHORT).show();
             return false;
         }
     }
@@ -246,7 +167,7 @@ public class PersonalDetailsFragment extends Activity implements OnItemSelectedL
             userDetails.put("mailid", emailid.getText().toString());
             return true;
         } else {
-            emailid.setError("Enter proper emailid ex:user@domain.com");
+            emailid.setError(Constants.TAG_MAILIDENTER);
             return false;
         }
     }

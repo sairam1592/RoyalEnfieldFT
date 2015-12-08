@@ -50,8 +50,6 @@ public class MyTripFragment extends Fragment {
         view.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
                 Cursor rs = mydb.getTravelData();
-                System.out.println("Count is:" + rs.getCount());
-                System.out.println("Column count is:" + rs.getColumnCount());
                 if (rs.getCount() > 0) {
                     // looping through all rows and adding to list
                     if (rs.moveToFirst()) {

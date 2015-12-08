@@ -3,7 +3,7 @@
     android:id="@+id/scrollview1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E7EBDA"
+    android:background="#FCFBF1"
     android:fillViewport="true"
     android:orientation="vertical"
     android:padding="3dp">

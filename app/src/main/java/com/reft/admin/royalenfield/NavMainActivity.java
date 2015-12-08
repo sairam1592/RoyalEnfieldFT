@@ -12,7 +12,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.reft.admin.royalenfield.R;
 import com.reft.admin.royalenfield.BikeList.MotorCycleList;
 import com.reft.admin.royalenfield.History.HistoryActivity;
 import com.reft.admin.royalenfield.fragments.AboutFragment;
@@ -183,22 +182,21 @@ public class NavMainActivity extends Activity
     }
 
     public void rateApp() {
-        Toast.makeText(this, "Rate App-After available in App store", Toast.LENGTH_SHORT).show();
-       /* Intent intent = new Intent(Intent.ACTION_VIEW);
+        Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse("market://details?id=com.reft.admin.royalenfield"));
-        startActivity(intent);*/
+        startActivity(intent);
     }
 
     public void onShareClick() {
-        Toast.makeText(this, "tell a friend app link", Toast.LENGTH_SHORT).show();
-        /*StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         sb.append("Hey there!!..\nCheck out the new Enfield Throttler app\n");
-        sb.append("You can plan trips, view Royal Enfield bikes & its specifications,share trip plan with buddies and find the nearest gas station too.\n Its totally cool check it out!\n");
+        sb.append(Uri.parse("https://play.google.com/store/apps/details?id=com.reft.admin.royalenfield"));
+        sb.append("\nYou can plan trips, view Royal Enfield bike gallery & its specifications,share trip plan with buddies,set reminder and find the nearest gas station too.\n Its totally cool,check it out!\n");
         Intent sendIntent = new Intent();
         sendIntent.setType("text/plain");
         sendIntent.setAction(Intent.ACTION_SEND);
         sendIntent.putExtra(Intent.EXTRA_TEXT, sb.toString());
-        startActivity(sendIntent); */
+        startActivity(sendIntent);
     }
 
     public void onDevClick() {

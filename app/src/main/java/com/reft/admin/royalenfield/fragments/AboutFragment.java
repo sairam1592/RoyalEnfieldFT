@@ -8,10 +8,8 @@ import android.app.Fragment;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.Point;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,8 +20,6 @@ import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 import com.reft.admin.royalenfield.R;
-
-import org.w3c.dom.Text;
 
 
 public class AboutFragment extends Fragment {
@@ -44,7 +40,6 @@ public class AboutFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         screenRes = deviceDimensions();
-        //Log.i("Height width", "Width:" + screenRes.width + "Height:" + screenRes.height);
         params1 = new RelativeLayout.LayoutParams(screenRes.width, screenRes.height / 2);
         params2 = new RelativeLayout.LayoutParams(screenRes.width, 500);
         View rootView = inflater.inflate(R.layout.fragment_about, container, false);
@@ -95,7 +90,6 @@ public class AboutFragment extends Fragment {
     }
 
     private void setFlipperImage(int res) {
-        //Log.i("Set Filpper Called", res + "");
         ImageView image = new ImageView(getActivity());
         params1.addRule(RelativeLayout.CENTER_IN_PARENT);
         params1.addRule(RelativeLayout.CENTER_HORIZONTAL);

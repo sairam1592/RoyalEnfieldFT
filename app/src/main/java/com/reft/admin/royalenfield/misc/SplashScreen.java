@@ -21,7 +21,7 @@ import com.reft.admin.royalenfield.fragments.PersonalDetailsFragment;
 public class SplashScreen extends Activity {
 
     Animation fadeIn;
-    TextView reText1, reText2;
+    TextView reText1;
     private DBHelper mydb;
     Intent i;
 
@@ -39,15 +39,11 @@ public class SplashScreen extends Activity {
 
         Typeface face = Typeface.createFromAsset(getAssets(), "fonts/Capture_it.ttf");
         reText1.setTypeface(face);
-        // reText2 = (TextView) findViewById(R.id.textView_2);
         fadeIn = AnimationUtils.loadAnimation(getApplicationContext(),
                 R.anim.fade_in);
 
         reText1.setText("Enfield Throttler");
         reText1.startAnimation(fadeIn);
-        // reText2.setText("Throttler");
-        // reText2.startAnimation(fadeIn);
-
     }
 
     public void moveToNavActivity(final DBHelper mydb) {

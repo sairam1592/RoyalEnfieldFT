@@ -56,4 +56,15 @@ public interface Constants {
     public static final String TAG_ITEMANDROIDDEV = "Concepts used";
     public static final String TAG_ITEMGOOGLEMAPS = "Google APIs";
     public static final String TAG_ITEMDATABASE = "Database";
+    public static final String TAG_MYEMAIL = "sairam.a1592@gmail.com";
+    public static final String TAG_USERNAMEENTER = "Enter username";
+    public static final String TAG_MILEAGEENTER = "Enter mileage";
+    public static final String TAG_BULLTYPEENTER = "Kindly select your enfield type";
+    public static final String TAG_FUELCOSTENTER = "Kindly select fuel cost per litre";
+    public static final String TAG_MAILIDENTER = "Enter proper emailid ex:user@domain.com";
+    public static final String TAG_CHECKINTERNET = "No internet connection";
+    public static final String TAG_RANGEENTER = "Kindly select range.";
+    public static final String TAG_ASKTOCLEAR = "Do you wish to clear all trip details?";
+    public static final String TAG_PROVIDEDETAILS = "Kindly provide proper details";
+    public static final String TAG_LOCATIONMESSAGE = "Current Location not detected, kindly try again after some time.";
 }

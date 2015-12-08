@@ -54,6 +54,7 @@
     <string name="action_back">Back</string>
     <string name="action_share">Share</string>
     <string name="action_clear">Clear All</string>
+    <string name="action_reminder">Set Reminder</string>
 
     <string-array name="bikeName">
         <item>Standard Bullet 350</item>

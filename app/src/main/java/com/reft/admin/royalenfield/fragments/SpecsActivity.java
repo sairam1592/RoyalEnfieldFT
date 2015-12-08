@@ -18,7 +18,6 @@ import com.reft.admin.royalenfield.misc.Constants;
 public class SpecsActivity extends Activity {
 
     TextView name, detailText;
-    //ImageView img;
     String[] detail;
 
     public void onCreate(Bundle savedInstanceState) {
@@ -26,13 +25,11 @@ public class SpecsActivity extends Activity {
         setContentView(R.layout.activity_spec);
 
         name = (TextView) findViewById(R.id.textView_name);
-       // img = (ImageView) findViewById(R.id.imageView_img);
         detailText = (TextView) findViewById(R.id.textView_detail);
 
         Intent i = getIntent();
         Bundle b = this.getIntent().getExtras();
         name.setText(b.getString(Constants.TAG_BIKENAME));
-        //img.setImageResource(b.getInt(Constants.TAG_IMAGE));
 
         StringBuilder sb = new StringBuilder();
         detail = b.getStringArray(Constants.TAG_BIKESPECS);
@@ -55,9 +52,7 @@ public class SpecsActivity extends Activity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_back) {
-           onBackPressed();
-           // Intent i = new Intent(SpecsActivity.this, NavMainActivity.class);
-           // startActivity(i);
+            onBackPressed();
             return true;
         }
 

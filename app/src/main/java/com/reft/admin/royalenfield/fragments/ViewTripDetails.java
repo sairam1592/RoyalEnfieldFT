@@ -11,14 +11,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import com.reft.admin.royalenfield.R;
 import com.reft.admin.royalenfield.DBOperations.DBHelper;
-import com.reft.admin.royalenfield.NavMainActivity;
 import com.reft.admin.royalenfield.misc.Constants;
 
 import java.util.ArrayList;
@@ -54,7 +52,6 @@ public class ViewTripDetails extends Activity {
         int[] to = {R.id.textView_from, R.id.textView_to, R.id.textView_distdur, R.id.textView_duration, R.id.textView_id};
         SimpleAdapter adapter = new SimpleAdapter(this, details, R.layout.tab_frag_tofrom, from, to);
         lv.setAdapter(adapter);
-        //Log.i("VIEWTRIPDETAILS", "Details to view are:" + details.toString());
     }
 
     public void listViewItemSelect() {
@@ -63,7 +60,6 @@ public class ViewTripDetails extends Activity {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 HashMap<String, String> map = (HashMap<String, String>) lv.getItemAtPosition(position);
-                //Toast.makeText(ViewTripDetails.this, "Values are: \norigin" + map.get(Constants.TAG_ORIGIN) + "\nDest:" + map.get(Constants.TAG_DEST) + "\nDist" + map.get(Constants.TAG_DIST) + "\nDuration" + map.get(Constants.TAG_DUR) + "\nId" + map.get(Constants.TAG_ID), Toast.LENGTH_LONG).show();
                 Intent itnt = new Intent(ViewTripDetails.this, ViewAllActivity.class);
                 itnt.putExtra(Constants.TAG_ID, map.get(Constants.TAG_ID));
                 startActivity(itnt);
@@ -76,13 +72,12 @@ public class ViewTripDetails extends Activity {
         alert = new AlertDialog.Builder(this);
         dialog = alert.create();
         dialog.setTitle("Alert");
-        dialog.setMessage("Do you wish to clear all trip details?");
+        dialog.setMessage(Constants.TAG_ASKTOCLEAR);
         dialog.setButton(Dialog.BUTTON_POSITIVE, "Yes",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog,
                                         int which) {
                         int i = mydb.deleteTravelDetails();
-                        Log.i("VIEWTRIPDETAILS", "Return int is" + i);
                         if (i > 0) {
                             onBackPressed();
                             dialog.dismiss();
@@ -115,8 +110,6 @@ public class ViewTripDetails extends Activity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_back) {
             onBackPressed();
-            // i = new Intent(ViewTripDetails.this, NavMainActivity.class);
-            //startActivity(i);
             return true;
         }
 

@@ -13,12 +13,10 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.reft.admin.royalenfield.R;
-import com.reft.admin.royalenfield.NavMainActivity;
 import com.reft.admin.royalenfield.misc.Constants;
 
 public class HistoryActivity extends FragmentActivity implements ActionBar.TabListener {
@@ -135,11 +133,8 @@ public class HistoryActivity extends FragmentActivity implements ActionBar.TabLi
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_back) {
            onBackPressed();
-           // i = new Intent(HistoryActivity.this, NavMainActivity.class);
-            //startActivity(i);
             return true;
         }
 

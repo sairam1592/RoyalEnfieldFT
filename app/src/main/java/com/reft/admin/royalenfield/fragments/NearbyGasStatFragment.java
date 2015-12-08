@@ -3,12 +3,10 @@ package com.reft.admin.royalenfield.fragments;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +19,6 @@ import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.reft.admin.royalenfield.DBOperations.DBHelper;
 import com.reft.admin.royalenfield.R;
 import com.reft.admin.royalenfield.misc.Constants;
 import com.reft.admin.royalenfield.misc.GPSTracker;
@@ -33,7 +30,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 
@@ -105,14 +101,12 @@ public class NearbyGasStatFragment extends Fragment implements AdapterView.OnIte
                         if (gps.canGetLocation()) {
                             latitude = gps.getLatitude();
                             longitude = gps.getLongitude();
-                          //  Log.i("NEARBYGAS", "Lat and Long returned is:Lat " + latitude + "\tLong " + longitude);
                             if (latitude == 0.0 || longitude == 0.0) {
-                               // Toast.makeText(getActivity(), "Error in fetching location details,kindly restart app and try again.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), Constants.TAG_LOCATIONMESSAGE, Toast.LENGTH_SHORT).show();
                             } else {
                                 url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + latitude + "," + longitude + "&radius=" + range.getSelectedItem().toString() + "000&types=" + Constants.TAG_TYPE + "&key=" + Constants.TAG_APIKEY + "";
                                 try {
                                     jObj = new MyClientTask(url, getActivity()).execute().get();
-                                //   Toast.makeText(getActivity(), "JSON OBJ returned is:" + jObj, Toast.LENGTH_LONG).show();
                                     jsonList = extractJsonDetails(jObj);
                                     populateListView(jsonList);
                                 } catch (InterruptedException e) {
@@ -125,7 +119,7 @@ public class NearbyGasStatFragment extends Fragment implements AdapterView.OnIte
                             gps.showSettingsAlert();
                         }
                     } else {
-                        Toast.makeText(getActivity(), "No internet connection", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), Constants.TAG_CHECKINTERNET, Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -164,7 +158,7 @@ public class NearbyGasStatFragment extends Fragment implements AdapterView.OnIte
         if (!range.getSelectedItem().toString().equalsIgnoreCase("-- Select --")) {
             return true;
         } else {
-            Toast.makeText(getActivity(), "Kindly select range", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), Constants.TAG_RANGEENTER, Toast.LENGTH_SHORT).show();
             return false;
         }
     }
@@ -214,9 +208,7 @@ public class NearbyGasStatFragment extends Fragment implements AdapterView.OnIte
                     aList.add(hm);
                 }
 
-               // Log.i("NEARBY", "Arraylist Result is" + aList);
             } else {
-                //Log.i("NEARBY", "Result is NONE");
                 hm = new HashMap<String, String>();
                 hm.put("Error", "null");
                 aList.add(hm);
@@ -227,37 +219,6 @@ public class NearbyGasStatFragment extends Fragment implements AdapterView.OnIte
         return aList;
     }
 
-    //not used currently
-    public String generateURLfromGeocoder(String toAddr, Double _lat, Double _long) {
-        //Apply reverse geocoding to fetch address from lat,long of current location
-        String gMapUrl = "";
-        String fromAddr;
-        JSONArray resultsArr = null;
-        try {
-            url = " https://maps.googleapis.com/maps/api/geocode/json?latlng=" + _lat + "," + _long + "&key=" + Constants.TAG_APIKEY + "";
-            try {
-                jObj = new MyClientTask(url, getActivity()).execute().get();
-                //Log.i("NEARBY", "JSON OBJ reverse geocoding returned is:" + jObj);
-                String status = jObj.getString(TAG_STATUS);
-                if (status.equalsIgnoreCase("OK")) {
-                    resultsArr = jObj.getJSONArray(TAG_RESULTS);
-                    JSONObject firstObj = resultsArr.getJSONObject(0);
-                    fromAddr = firstObj.getString(TAG_ADDRESS);
-                    gMapUrl = "https://www.google.com/maps/dir/" + fromAddr + "/" + toAddr + "/";
-                } else {
-                    gMapUrl = "Error";
-                }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            } catch (ExecutionException e) {
-                e.printStackTrace();
-            }
-        } catch (JSONException e) {
-           // Log.i("NEARBY", "Error with URL creation");
-            e.printStackTrace();
-        }
-        return gMapUrl;
-    }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {

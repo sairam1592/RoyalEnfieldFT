@@ -12,13 +12,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
-import android.widget.Toast;
 
 import com.reft.admin.royalenfield.R;
 import com.reft.admin.royalenfield.misc.Constants;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -76,7 +74,7 @@ public class DeveloperFragment extends Fragment {
                     // Toast.makeText(getActivity(), expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition), Toast.LENGTH_SHORT).show();
                 } else if (expandableListTitle.get(groupPosition).toString().equalsIgnoreCase(Constants.TAG_ITEMSENDMAIL)) {
                     Intent email = new Intent(Intent.ACTION_SEND);
-                    email.putExtra(Intent.EXTRA_EMAIL, new String[]{"sairam.a1592@gmail.com"});
+                    email.putExtra(Intent.EXTRA_EMAIL, new String[]{Constants.TAG_MYEMAIL});
                     email.putExtra(Intent.EXTRA_SUBJECT, "Reg: RoyalEnfield App");
                     email.putExtra(Intent.EXTRA_TEXT, "your message...");
                     email.setType("message/rfc822");

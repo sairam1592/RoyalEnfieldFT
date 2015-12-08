@@ -41,7 +41,8 @@ public class ExpandableListItem {
         appTips.add("Kindly provide approximate fuel cost and mileage for approx calculation.");
         appTips.add("Users can check current fuel price and update in My Details tab frequently.");
         appTips.add("Users can share trip plan with others across different applications.");
-        appTips.add("Promote this app by performing Tell A Friend (Sharing) with other.");
+        appTips.add("Users can set reminder of trip plan in their Calendar application.");
+        appTips.add("Promote this app by Tell A Friend (Sharing) with other.");
 
         List githubLink = new ArrayList();
         githubLink.add("https://github.com/sairam1592/RoyalEnfieldFT");

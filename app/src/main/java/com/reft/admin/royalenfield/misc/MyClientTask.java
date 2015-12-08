@@ -3,7 +3,6 @@ package com.reft.admin.royalenfield.misc;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
-import android.util.Log;
 
 import org.json.JSONObject;
 
@@ -36,7 +35,6 @@ public class MyClientTask extends AsyncTask<String, Void, JSONObject> {
         JSONParser jParser = new JSONParser();
         jObj = jParser.getJSONFromUrl(_url);
         try {
-            //Log.i("MyClientTask", "JSON String returned is:" + jObj.toString());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -45,7 +43,6 @@ public class MyClientTask extends AsyncTask<String, Void, JSONObject> {
 
     @Override
     protected void onPostExecute(JSONObject result) {
-        //Log.i("MyClientTask", "JSON Object returned is:" + result);
         dialog.dismiss();
 
     }

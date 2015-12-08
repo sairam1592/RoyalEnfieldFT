@@ -6,7 +6,6 @@ import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import com.reft.admin.royalenfield.misc.Constants;
 
@@ -53,7 +52,6 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public boolean insertRiderDetail(LinkedHashMap<String, String> userDetails) {
-        System.out.println("insert rider details method");
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         for (Map.Entry<String, String> entry : userDetails.entrySet()) {
@@ -65,14 +63,12 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public Cursor getUserData() {
-        System.out.println("get rider Data method");
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor res = db.rawQuery("select * from riderdetails", null);
         return res;
     }
 
     public Cursor getTravelData() {
-        System.out.println("get travel Data method");
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor res = db.rawQuery("select * from traveldetails", null);
         return res;
@@ -80,7 +76,6 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
     public Cursor getSelecedTravelData(ArrayList<HashMap<String, String>> travelDetails) {
-        //Log.i("DBHELPER", "jsonlist is" + travelDetails);
         SQLiteDatabase db = this.getReadableDatabase();
         String labelOrigin = null, labelDest = null, dist = null, duration = null, returnCheck = null;
         for (int i = 0; i < travelDetails.size(); i++) {
@@ -96,7 +91,6 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
     public Cursor getPlannedTravelData(ArrayList<HashMap<String, String>> travelDetails) {
-        //Log.i("DBHELPER", "jsonlist is" + travelDetails);
         SQLiteDatabase db = this.getReadableDatabase();
         String labelOrigin = null, labelDest = null, dist = null, duration = null, returnCheck = null;
         for (int i = 0; i < travelDetails.size(); i++) {
@@ -128,7 +122,6 @@ public class DBHelper extends SQLiteOpenHelper {
     public boolean insertDistanceDetail(ArrayList<HashMap<String, String>> travelDetails) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        //Log.i("DBHelper", "TravelDetails passed are:" + travelDetails);
         for (int i = 0; i < travelDetails.size(); i++) {
             contentValues.put(Constants.TAG_LABELORIGIN, travelDetails.get(i).get(Constants.TAG_LABELORIGIN));
             contentValues.put(Constants.TAG_LABELDEST, travelDetails.get(i).get(Constants.TAG_LABELDEST));
@@ -152,7 +145,6 @@ public class DBHelper extends SQLiteOpenHelper {
         for (Map.Entry<String, String> entry : key.entrySet()) {
             contentValues.put(entry.getKey(), entry.getValue());
         }
-        // contentValues.put("fromplace", fromPlace);
         db.update("riderdetails", contentValues, "name = ? ",
                 new String[]{name.toString()});
         db.close();
@@ -161,19 +153,16 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
     public Integer deleteRiderDetail(String key) {
-        System.out.println("Delete rider details method");
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete("riderdetails", "name = ? ", new String[]{key.toString()});
     }
 
     public Integer deleteTravelDetails() {
-        System.out.println("Delete travel details method");
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete("traveldetails", null, null);
     }
 
     public Integer deleteAllDetails() {
-        System.out.println("Delete all rider details method");
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete("riderdetails", null, null);
     }

@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
+import android.provider.CalendarContract;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,9 +14,9 @@ import android.widget.TextView;
 
 import com.reft.admin.royalenfield.R;
 import com.reft.admin.royalenfield.DBOperations.DBHelper;
-import com.reft.admin.royalenfield.NavMainActivity;
 import com.reft.admin.royalenfield.misc.Constants;
 
+import java.util.Calendar;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -122,6 +122,23 @@ public class ViewAllActivity extends Activity {
         startActivity(sendIntent);
     }
 
+    public void openCalendar() {
+        String desc = "Kindly set reminder for your road trip, from: " + from.getText().toString() + " ,to: " + to.getText().toString();
+        Calendar beginTime = Calendar.getInstance();
+        beginTime.set(2016, 0, 1, 7, 00);
+        Calendar endTime = Calendar.getInstance();
+        //endTime.set(2016, 0, 10, 8, 30);
+        Intent intent = new Intent(Intent.ACTION_INSERT)
+                .setData(CalendarContract.Events.CONTENT_URI)
+                .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, beginTime.getTimeInMillis())
+                .putExtra(CalendarContract.Events.TITLE, "Road Trip")
+                .putExtra(CalendarContract.Events.DESCRIPTION, desc)
+                .putExtra(CalendarContract.Events.EVENT_LOCATION, to.getText().toString())
+                .putExtra(CalendarContract.Events.AVAILABILITY, CalendarContract.Events.AVAILABILITY_BUSY);
+        startActivity(intent);
+    }
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.viewall_menu, menu);
@@ -136,11 +153,12 @@ public class ViewAllActivity extends Activity {
         switch (id) {
             case R.id.action_back:
                 onBackPressed();
-               // i = new Intent(ViewAllActivity.this, NavMainActivity.class);
-               // startActivity(i);
                 break;
             case R.id.action_share:
                 onShareClick();
+                break;
+            case R.id.action_remind:
+                openCalendar();
                 break;
         }
         return super.onOptionsItemSelected(item);
