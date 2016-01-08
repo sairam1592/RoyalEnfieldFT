@@ -5,11 +5,11 @@ android {
     buildToolsVersion "21.1.2"
 
     defaultConfig {
-        applicationId "com.reft.admin.royalenfield"
+        applicationId "com.reft.admin.ridersdelight"
         minSdkVersion 14
         targetSdkVersion 21
-        versionCode 9
-        versionName "1.8"
+        versionCode 12
+        versionName "2.1"
     }
     buildTypes {
         release {

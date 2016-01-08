@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Enfield Throttler</string>
+    <string name="app_name">Riders Delight</string>
     <string name="page_bike">Gallery</string>
     <string name="history">RE History</string>
     <string name="PersonalDetails">Enter Details</string>
@@ -15,7 +15,7 @@
     <string name="title_section6">Find Gas Station</string>
     <string name="title_section7">Rate App</string>
     <string name="sample_text">check</string>
-    <string name="header1">Royal Enfield Motorcycles</string>
+    <string name="header1">RE Motorcycles</string>
     <string name="header2">Nearby Gas Station</string>
     <string name="header3">Info for Users/Developers</string>
     <string name="Range">Range (in kms)</string>
@@ -295,13 +295,13 @@
 
 
     <string-array name="textMessage">
-        <item>Welcome to Royal Enfield Fuel Tracker app.\nThis app provides basic information about \n\n * Royal Enfields rich history\n\n * Motorcycle collections\n\n * Motorcycle specifications\n\nfor users information...</item>
-        <item>This app serves as the heartbeat for all Royal Enfield lovers out there!\n\nRoyal Enfield is a leading motorcycle seller in India currently providing top quality motorcycles in both 350cc and 500cc range.\n\nAs of 2015,Royal Enfield has expanded its flagship empire throughout the world.</item>
-        <item>People who wish to buy a Royal Enfield can \n\n * View exquisite motorcycle available with Royal Enfield\n\n * Check out each motorcycles in different angles\n\n * Individual Motorcycle specifications</item>
-        <item>People who own a Royal Enfield can \n\n * Plan for trips\n\n * Share trip plan with mates\n\n * View directions of their trip in Google Maps.</item>
+        <item>Welcome to Riders Delight Fuel Tracker app.\nThis app provides basic information about \n\n * RE rich history\n\n * Motorcycle collections\n\n * Motorcycle specifications\n\nfor users information...</item>
+        <item>This app serves as the heartbeat for all RE lovers out there!\n\nRE is a leading motorcycle seller in India currently providing top quality motorcycles in both 350cc and 500cc range.\n\nAs of 2015,RE has expanded its flagship empire throughout the world.</item>
+        <item>People who wish to buy a RE can \n\n * View exquisite motorcycle available with RE\n\n * Check out each motorcycles in different angles\n\n * Individual Motorcycle specifications</item>
+        <item>People who own a RE can \n\n * Plan for trips\n\n * Share trip plan with mates\n\n * View directions of their trip in Google Maps.</item>
         <item>If you run out of fuel, you can \n\n * Find the nearest gas station\n\n * Also get to know updated fuel price in the market.</item>
-        <item>As most Royal Enfield bikes come without a fuel indicator, the important feature in this app is to compute the amount of fuel required to travel\n\nFor every Royal Enfield owners, monitoring fuel consumption is pretty hard as 350cc/500cc bikes consume more fuel.</item>
-        <item>Our beloved users will be provided with latest updates happening in Royal Enfield.\n\nUsers will be able to receive important notifications about events taking place within the Royal Enfield community every now and then.</item>
+        <item>As most RE bikes come without a fuel indicator, the important feature in this app is to compute the amount of fuel required to travel\n\nFor every RE owners, monitoring fuel consumption is pretty hard as 350cc/500cc bikes consume more fuel.</item>
+        <item>Our beloved users will be provided with latest updates happening in RE.\n\nUsers will be able to receive important notifications about events taking place within the RE community every now and then.</item>
         <item>Happy Riding! Thump it up...</item>
     </string-array>
 
