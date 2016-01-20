@@ -1,11 +1,15 @@
 package com.reft.admin.ridersdelight.fragments;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -22,6 +26,7 @@ import android.widget.Toast;
 
 import com.reft.admin.ridersdelight.R;
 import com.reft.admin.ridersdelight.DBOperations.DBHelper;
+import com.reft.admin.ridersdelight.misc.ConnectionHelper;
 import com.reft.admin.ridersdelight.misc.Constants;
 import com.reft.admin.ridersdelight.misc.MyClientTask;
 
@@ -50,6 +55,10 @@ public class PlanTripDetails extends Activity {
     ArrayList<HashMap<String, String>> jsonList;
     ListView lv;
     private DBHelper mydb;
+    static final String CONNECTIVITY_CHANGE_ACTION = "android.net.conn.CONNECTIVITY_CHANGE";
+    private boolean isPaused;
+    private ProgressDialog dialog;
+
 
     private static final String TAG_DESTADDR = "destination_addresses";
     private static final String TAG_ORIGINADDR = "origin_addresses";
@@ -74,35 +83,110 @@ public class PlanTripDetails extends Activity {
         mydb = new DBHelper(this);
         jsonList = new ArrayList<HashMap<String, String>>();
         onFormLoad();
-        onFetchClick(mydb);
+        onFetchClick();
         listViewItemSelect();
+        dialog = new ProgressDialog(this);
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        isPaused = true;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        IntentFilter filter = new IntentFilter(CONNECTIVITY_CHANGE_ACTION);
+        this.registerReceiver(mChangeConnectionReceiver, filter);
+        isPaused = false;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mChangeConnectionReceiver != null) {
+            this.unregisterReceiver(mChangeConnectionReceiver);
+        }
+    }
+
+    private final BroadcastReceiver mChangeConnectionReceiver = new BroadcastReceiver() {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+
+            if (CONNECTIVITY_CHANGE_ACTION.equals(action) && !isPaused) {
+                //check internet connection
+                if (!ConnectionHelper.isConnectedOrConnecting(getApplicationContext())) {
+                    if (context != null) {
+                        boolean show = false;
+                        if (ConnectionHelper.lastNoConnectionTs == -1) {//first time
+                            show = true;
+                            ConnectionHelper.lastNoConnectionTs = System.currentTimeMillis();
+                        } else {
+                            if (System.currentTimeMillis() - ConnectionHelper.lastNoConnectionTs > 1000) {
+                                show = true;
+                                ConnectionHelper.lastNoConnectionTs = System.currentTimeMillis();
+                            }
+                        }
+
+                        if (show && ConnectionHelper.isOnline) {
+                            rel1.setVisibility(RelativeLayout.GONE);
+                            Toast.makeText(PlanTripDetails.this, Constants.TAG_CHECKINTERNET, Toast.LENGTH_SHORT).show();
+                            ConnectionHelper.isOnline = false;
+                            dialog.setCancelable(false);
+                            dialog.setMessage("Checking connection..");
+                            dialog.show();
+                        }
+                    }
+                } else {
+                    if (dialog.isShowing()) {
+                        dialog.dismiss();
+                    }
+                    try {
+                        doJsonOperation();
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    ConnectionHelper.isOnline = true;
+                }
+            }
+        }
+    };
 
 
     public void onFormLoad() {
         rel1.setVisibility(RelativeLayout.GONE);
     }
 
-    public void onFetchClick(final DBHelper mydb) {
+    public void doJsonOperation() throws ExecutionException, InterruptedException {
+        if (isValidEditText(from) && isValidEditText(to)) {
+            url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" + from.getText().toString().replace(" ", "%20") + "&destinations=" + to.getText().toString().replace(" ", "%20") + "&mode=driving&language=en-EN&key=" + Constants.TAG_APIKEY + "";
+            jObj = new MyClientTask(url, PlanTripDetails.this).execute().get();
+            jsonList = extractJsonDetails(jObj);
+            populateListView(jsonList, mydb);
+        }
+    }
+
+    public void onFetchClick() {
         fetch.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                if (isValidEditText(from) && isValidEditText(to)) {
-                    if (ConnectionCheck()) {
-                        url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" + from.getText().toString().replace(" ", "%20") + "&destinations=" + to.getText().toString().replace(" ", "%20") + "&mode=driving&language=en-EN&key=" + Constants.TAG_APIKEY + "";
-                        try {
-                            jObj = new MyClientTask(url, PlanTripDetails.this).execute().get();
-                            jsonList = extractJsonDetails(jObj);
-                            populateListView(jsonList, mydb);
-                            mydb.close();
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        } catch (ExecutionException e) {
-                            e.printStackTrace();
-                        }
-                    } else {
-                        Toast.makeText(PlanTripDetails.this, Constants.TAG_CHECKINTERNET, Toast.LENGTH_SHORT).show();
+                if (ConnectionCheck()) {
+                    try {
+                        doJsonOperation();
+                        mydb.close();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();
                     }
+                } else {
+                    Toast.makeText(PlanTripDetails.this, Constants.TAG_CHECKINTERNET, Toast.LENGTH_SHORT).show();
                 }
+
             }
         });
     }

@@ -62,6 +62,7 @@ public interface Constants {
     public static final String TAG_FUELCOSTENTER = "Kindly select fuel cost per litre";
     public static final String TAG_MAILIDENTER = "Enter proper emailid ex:user@domain.com";
     public static final String TAG_CHECKINTERNET = "No internet connection";
+    public static final String TAG_CHECKINTERNETCONNECTED = "Internet connection available";
     public static final String TAG_RANGEENTER = "Kindly select range.";
     public static final String TAG_ASKTOCLEAR = "Do you wish to clear all trip details?";
     public static final String TAG_PROVIDEDETAILS = "Kindly provide proper details";

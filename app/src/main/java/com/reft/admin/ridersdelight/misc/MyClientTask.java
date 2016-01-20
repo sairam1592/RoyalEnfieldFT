@@ -24,10 +24,6 @@ public class MyClientTask extends AsyncTask<String, Void, JSONObject> {
     protected void onPreExecute() {
         // TODO Auto-generated method stub
         super.onPreExecute();
-        dialog = new ProgressDialog(context);
-        dialog.setCancelable(false);
-        dialog.setMessage("fetching details..");
-        dialog.show();
     }
 
     @Override
@@ -44,7 +40,6 @@ public class MyClientTask extends AsyncTask<String, Void, JSONObject> {
 
     @Override
     protected void onPostExecute(JSONObject result) {
-        dialog.dismiss();
     }
 }
 
