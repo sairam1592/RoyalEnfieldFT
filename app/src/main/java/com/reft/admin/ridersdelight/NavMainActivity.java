@@ -11,11 +11,13 @@ import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.reft.admin.ridersdelight.BikeList.MotorCycleList;
 import com.reft.admin.ridersdelight.History.HistoryActivity;
 import com.reft.admin.ridersdelight.fragments.AboutFragment;
 import com.reft.admin.ridersdelight.fragments.DeveloperFragment;
+import com.reft.admin.ridersdelight.fragments.HimalayanFragment;
 import com.reft.admin.ridersdelight.fragments.MyDetailsFragment;
 import com.reft.admin.ridersdelight.fragments.MyTripFragment;
 import com.reft.admin.ridersdelight.fragments.NearbyGasStatFragment;
@@ -50,7 +52,7 @@ public class NavMainActivity extends Activity
                 (DrawerLayout) findViewById(R.id.drawer_layout));
         //setFragment(new AboutFragment()); Some issue with about fragment so removing it as of now.
         setFragment(new MotorCycleList());
-      //  new GcmRegistrationAsyncTask(this).execute();
+        //  new GcmRegistrationAsyncTask(this).execute();
     }
 
 
@@ -90,6 +92,9 @@ public class NavMainActivity extends Activity
             case 5:
                 rateApp();
                 break;
+            case 6:
+                fragment = new HimalayanFragment();
+                break;
         }
 
         if (fragment != null) {
@@ -123,6 +128,9 @@ public class NavMainActivity extends Activity
                 break;
             case 5:
                 mTitle = getString(R.string.title_section7);
+                break;
+            case 6:
+                mTitle = getString(R.string.title_section8);
                 break;
         }
     }

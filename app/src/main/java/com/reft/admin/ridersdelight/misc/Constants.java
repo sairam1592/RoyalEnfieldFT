@@ -69,4 +69,10 @@ public interface Constants {
     public static final String TAG_PLAYSTORE = "market://details?id=com.reft.admin.ridersdelight";
     public static final String TAG_PLAYSTOREURL = "https://play.google.com/store/apps/details?id=com.reft.admin.ridersdelight";
     public static final String TAG_LOCATIONMESSAGE = "Current Location not detected, kindly try again after some time.";
+    public static final String TAG_RELREVEAL = "https://www.youtube.com/watch?v=g4tCIoAv6UU";
+    public static final String TAG_RELFIRSTLOOK = "https://www.youtube.com/watch?v=25mN2hyR2as";
+    public static final String TAG_HIMOVERVIEW = "Overview";
+    public static final String TAG_HIMFEATURES = "Features";
+    public static final String TAG_HIMENGINE = "Engine";
+    public static final String TAG_HIMPRICE = "Price (Approx)";
 }

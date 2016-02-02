@@ -5,12 +5,12 @@
     android:orientation="vertical"
     android:padding="3dp">
 
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:alpha=".50"
         android:scaleType="centerCrop"
@@ -23,5 +23,16 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="22dp"
         android:text="@string/sample_text" />
+
+    <TextView
+        android:id="@+id/textView"
+        style="@style/SubText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:text="Check out the new Himalayan Tab"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>
