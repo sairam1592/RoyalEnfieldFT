@@ -8,8 +8,8 @@ android {
         applicationId "com.reft.admin.ridersdelight"
         minSdkVersion 14
         targetSdkVersion 23
-        versionCode 15
-        versionName "2.1.3"
+        versionCode 16
+        versionName "2.1.4"
     }
     buildTypes {
         release {

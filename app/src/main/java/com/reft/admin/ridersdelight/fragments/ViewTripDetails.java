@@ -61,6 +61,7 @@ public class ViewTripDetails extends Activity {
                 HashMap<String, String> map = (HashMap<String, String>) lv.getItemAtPosition(position);
                 Intent itnt = new Intent(ViewTripDetails.this, ViewAllActivity.class);
                 itnt.putExtra(Constants.TAG_ID, map.get(Constants.TAG_ID));
+                overridePendingTransition(R.anim.push_down_in, R.anim.push_down_out);
                 startActivity(itnt);
             }
         });
@@ -122,6 +123,7 @@ public class ViewTripDetails extends Activity {
     @Override
     public void onBackPressed() {
         //Display alert message when back button has been pressed
+        overridePendingTransition(R.anim.push_down_in, R.anim.push_down_out);
         finish();
         return;
     }

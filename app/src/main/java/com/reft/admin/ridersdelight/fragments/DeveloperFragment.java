@@ -71,6 +71,7 @@ public class DeveloperFragment extends Fragment {
                     Intent intent = new Intent(Intent.ACTION_VIEW,
                             Uri.parse(expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition)));
                     startActivity(intent);
+                    getActivity().overridePendingTransition(R.anim.push_up_in, R.anim.push_up_out);
                     // Toast.makeText(getActivity(), expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition), Toast.LENGTH_SHORT).show();
                 } else if (expandableListTitle.get(groupPosition).toString().equalsIgnoreCase(Constants.TAG_ITEMSENDMAIL)) {
                     Intent email = new Intent(Intent.ACTION_SEND);

@@ -24,8 +24,8 @@
         android:text="@string/sample_text" />
 
     <View
-        style="@style/viewlist"
         android:id="@+id/view"
+        style="@style/viewlist"
         android:layout_alignBottom="@+id/imageView_img"
         android:layout_toEndOf="@+id/imageView_img" />
 

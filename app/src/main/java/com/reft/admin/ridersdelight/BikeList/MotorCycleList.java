@@ -36,6 +36,7 @@ public class MotorCycleList extends Fragment {
     String[] Thunder_350;
     String[] Thunder_500;
     String[] Continental;
+    String[] Himalayan;
 
     String[] bikeCategory = new String[]{
             Constants.TAG_STDSTREET,
@@ -48,7 +49,8 @@ public class MotorCycleList extends Fragment {
             Constants.TAG_RETROSTREET,
             Constants.TAG_CRUISER,
             Constants.TAG_CRUISER,
-            Constants.TAG_CAFERACER
+            Constants.TAG_CAFERACER,
+            Constants.TAG_HIMALAYAN
     };
 
 
@@ -109,6 +111,11 @@ public class MotorCycleList extends Fragment {
             R.drawable.gt_3
     };
 
+    int[] himalayan = new int[]{
+            R.drawable.himalayan1,
+            R.drawable.himalayan2
+    };
+
 
     ListView listView;
     Intent i;
@@ -134,6 +141,7 @@ public class MotorCycleList extends Fragment {
         Thunder_350 = getResources().getStringArray(R.array.Thunderbird_350);
         Thunder_500 = getResources().getStringArray(R.array.Thunderbird_500);
         Continental = getResources().getStringArray(R.array.Continental_GT);
+        Himalayan = getResources().getStringArray(R.array.Himalayan);
 
         TypedArray bikeImage = getResources().obtainTypedArray(R.array.bikeImage);
 
@@ -202,12 +210,16 @@ public class MotorCycleList extends Fragment {
                     case Constants.TAG_CGT:
                         bn.putStringArray(Constants.TAG_BIKESPECS, Continental);
                         break;
+                    case Constants.TAG_HIM:
+                        bn.putStringArray(Constants.TAG_BIKESPECS, Himalayan);
+                        break;
                     default:
                         Log.e(Constants.TAG_REFT, "MessageType: UNKNOWN");
                         break;
                 }
                 i.putExtras(bn);
                 startActivity(i);
+                getActivity().overridePendingTransition(R.anim.push_down_in, R.anim.push_down_out);
                 return true;
             }
         });
@@ -262,12 +274,16 @@ public class MotorCycleList extends Fragment {
                     case Constants.TAG_CGT:
                         b.putIntArray(Constants.TAG_BIKEIMAGES, continental);
                         break;
+                    case Constants.TAG_HIM:
+                        b.putIntArray(Constants.TAG_BIKEIMAGES, himalayan);
+                        break;
                     default:
                         Log.e(Constants.TAG_REFT, "MessageType: UNKNOWN");
                         break;
                 }
                 i.putExtras(b);
                 startActivity(i);
+                getActivity().overridePendingTransition(R.anim.push_down_in, R.anim.push_down_out);
             }
         });
     }

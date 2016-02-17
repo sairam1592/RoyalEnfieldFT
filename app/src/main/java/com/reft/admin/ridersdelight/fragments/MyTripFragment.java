@@ -68,6 +68,7 @@ public class MyTripFragment extends Fragment {
                     mydb.close();
                     i = new Intent(getActivity(), ViewTripDetails.class);
                     i.putExtra("FullList", viewDetails);
+                    getActivity().overridePendingTransition(R.anim.push_down_in, R.anim.push_down_out);
                     startActivity(i);
                     viewDetails.clear();
                 } else {
@@ -83,6 +84,7 @@ public class MyTripFragment extends Fragment {
         plan.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
                 i = new Intent(getActivity(), PlanTripDetails.class);
+                getActivity().overridePendingTransition(R.anim.push_down_in, R.anim.push_down_out);
                 startActivity(i);
             }
         });

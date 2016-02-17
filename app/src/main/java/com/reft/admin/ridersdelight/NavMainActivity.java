@@ -78,6 +78,7 @@ public class NavMainActivity extends Activity
             case 1:
                 Intent i = new Intent(NavMainActivity.this, HistoryActivity.class);
                 startActivity(i);
+                overridePendingTransition(R.anim.push_down_in, R.anim.push_down_out);
                 break;
             case 2:
                 fragment = new MyDetailsFragment();

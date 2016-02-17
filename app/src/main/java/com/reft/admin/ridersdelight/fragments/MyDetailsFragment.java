@@ -166,6 +166,7 @@ public class MyDetailsFragment extends Fragment implements AdapterView.OnItemSel
 
     public void onButtonPressIntent() {
         i = new Intent(getActivity(), NavMainActivity.class);
+        getActivity().overridePendingTransition(R.anim.push_down_in, R.anim.push_down_out);
         startActivity(i);
     }
 

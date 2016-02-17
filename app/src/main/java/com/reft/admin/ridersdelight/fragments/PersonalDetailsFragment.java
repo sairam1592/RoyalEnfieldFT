@@ -36,8 +36,8 @@ public class PersonalDetailsFragment extends Activity implements OnItemSelectedL
     Spinner bullType_spinner, fuelCost_spinner;
     private String[] bullType = {"-- Select --", "Standard Bullet 350",
             "Bullet Electra 350", "Classic 350", "Thunderbird 350",
-            "Bullet 500", "Classic 500", "Desert Storm 500", "Thunderbird500",
-            "Continental GT 500"};
+            "Bullet 500", "Classic 500", "Desert Storm 500", "Thunderbird 500",
+            "Continental GT 500", "Himalayan"};
 
     private String[] fuelCost = {"-- Select --", "35", "36", "37", "38", "39",
             "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50",
@@ -78,6 +78,7 @@ public class PersonalDetailsFragment extends Activity implements OnItemSelectedL
                     if (mydb.insertRiderDetail(userDetails)) {
                         Toast.makeText(PersonalDetailsFragment.this, "Details Saved", Toast.LENGTH_SHORT).show();
                         Intent i = new Intent(PersonalDetailsFragment.this, NavMainActivity.class);
+                        overridePendingTransition(R.anim.push_down_in, R.anim.push_down_out);
                         startActivity(i);
                     }
                 }

@@ -161,6 +161,7 @@ public class NearbyGasStatFragment extends Fragment implements AdapterView.OnIte
                 gps.stopUsingGPS();
                 Intent intent = new Intent(Intent.ACTION_VIEW,
                         Uri.parse(map.get(TAG_URL)));
+                getActivity().overridePendingTransition(R.anim.push_down_in, R.anim.push_down_out);
                 startActivity(intent);
             }
         });

@@ -69,6 +69,7 @@
         <item>Thunderbird 350</item>
         <item>Thunderbird 500</item>
         <item>Continental GT 535</item>
+        <item>Himalayan</item>
     </string-array>
 
 
@@ -152,6 +153,7 @@
         <item>@drawable/tb_img</item>
         <item>@drawable/tbfivr_img</item>
         <item>@drawable/gt_img</item>
+        <item>@drawable/him_img</item>
     </array>
 
 
@@ -292,6 +294,23 @@
         <item>Ground Clearance(mm): 140mm</item>
         <item>Fuel Capacity(Litres): 13.5 Ltrs</item>
         <item>Price: 2.09 lakh(Approx.)</item>
+    </array>
+
+    <array name="Himalayan">
+        <item>Engine Displacement(CC): 411 cc</item>
+        <item>Engine Type: Single cylinder, air-cooled, 4 stroke, SOHC</item>
+        <item>Power(PS@rpm): 24.5 BHP (18.02 KW) @ 6500 RPM</item>
+        <item>Torque(Nm@rpm): 32 NM @ 4000 - 4500 RPM</item>
+        <item>Gear Box: 5 Speed Constant Mesh</item>
+        <item>Shift Pattern: 1-down,4-up</item>
+        <item>Start Type: Electric</item>
+        <item>Brakes Front: 300mm Floating disc, 2-Piston floating caliper</item>
+        <item>Brakes Back: 240mm Disc, Single piston floating caliper</item>
+        <item>Kerb Weight: 182 Kgs</item>
+        <item>Wheelbase(mm): 1465 mm</item>
+        <item>Ground Clearance(mm): 220mm</item>
+        <item>Fuel Capacity(Litres): 15 Ltrs</item>
+        <item>Price: Not revealed yet.</item>
     </array>
 
 

@@ -236,6 +236,7 @@ public class PlanTripDetails extends Activity {
                     Log.i("LISTVIEWSELECT", "ID returned is:" + _id);
                     Intent itnt = new Intent(PlanTripDetails.this, ViewAllActivity.class);
                     itnt.putExtra(Constants.TAG_ID, _id);
+                    overridePendingTransition(R.anim.push_down_in, R.anim.push_down_out);
                     startActivity(itnt);
                 }
             }

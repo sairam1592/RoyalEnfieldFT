@@ -17,6 +17,7 @@ public interface Constants {
     public static final String TAG_RETROSTREET = "Retro Street";
     public static final String TAG_CRUISER = "Cruiser";
     public static final String TAG_CAFERACER = "Cafe Racer";
+    public static final String TAG_HIMALAYAN = "Off-road Cruiser";
     public static final String TAG_STDBUL = "Standard Bullet 350";
     public static final String TAG_ELECTRA = "Bullet Electra 350";
     public static final String TAG_BUL500 = "Bullet 500";
@@ -28,6 +29,7 @@ public interface Constants {
     public static final String TAG_TB350 = "Thunderbird 350";
     public static final String TAG_TB500 = "Thunderbird 500";
     public static final String TAG_CGT = "Continental GT 535";
+    public static final String TAG_HIM = "Himalayan";
     public static final int SPLASH_TIME_OUT = 3800;
     public static final String TAG_BEGGINING = "Beginning";
     public static final String TAG_EARLYYEARS = "Early Years";

@@ -167,6 +167,7 @@ public class ViewAllActivity extends Activity {
     @Override
     public void onBackPressed() {
         //Display alert message when back button has been pressed
+        overridePendingTransition(R.anim.push_down_in, R.anim.push_down_out);
         finish();
         return;
     }

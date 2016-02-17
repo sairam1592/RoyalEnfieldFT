@@ -54,10 +54,12 @@ public class SplashScreen extends Activity {
                 if (num >= 1) {
                     i = new Intent(SplashScreen.this, NavMainActivity.class);
                     startActivity(i);
+                    overridePendingTransition(R.anim.push_down_in, R.anim.push_down_out);
                     finish();
                 } else {
                     i = new Intent(SplashScreen.this, PersonalDetailsFragment.class);
                     startActivity(i);
+                    overridePendingTransition(R.anim.push_down_in, R.anim.push_down_out);
                     finish();
                 }
             }
