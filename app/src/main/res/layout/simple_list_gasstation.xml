@@ -9,23 +9,24 @@
         android:id="@+id/imageView_img"
         android:layout_width="65dp"
         android:layout_height="75dp"
-        android:src="@drawable/fuel_logo"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:scaleType="centerInside" />
+        android:padding="3dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/fuel_logo" />
 
     <TextView
         android:id="@+id/textView_gasStation"
         style="@style/DetailText"
-        android:text="@string/sample_text"
+        android:layout_alignEnd="@+id/textView_address"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/imageView_img"
         android:layout_alignRight="@+id/textView_address"
-        android:layout_alignEnd="@+id/textView_address" />
+        android:layout_toRightOf="@+id/imageView_img"
+        android:text="@string/sample_text" />
 
     <View
-        style="@style/viewlist"
         android:id="@+id/view"
+        style="@style/viewlist"
         android:layout_alignBottom="@+id/imageView_img"
         android:layout_toEndOf="@+id/imageView_img" />
 
@@ -40,14 +41,14 @@
         android:text="@string/sample_text" />
 
     <TextView
+        android:id="@+id/textView_url"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="id"
-        android:id="@+id/textView_url"
-        android:visibility="invisible"
         android:layout_above="@+id/view"
+        android:layout_toEndOf="@+id/imageView_img"
         android:layout_toRightOf="@+id/imageView_img"
-        android:layout_toEndOf="@+id/imageView_img" />
+        android:text="id"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:visibility="invisible" />
 
 </RelativeLayout>
