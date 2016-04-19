@@ -101,7 +101,6 @@ public class NavigationDrawerFragment extends Fragment {
                 android.R.layout.simple_list_item_activated_1,
                 android.R.id.text1,
                 new String[]{
-                        /*getString(com.reft.admin.ridersdelight.R.string.title_section1),*/
                         getString(com.reft.admin.ridersdelight.R.string.title_section2),
                         getString(com.reft.admin.ridersdelight.R.string.title_section3),
                         getString(com.reft.admin.ridersdelight.R.string.title_section4),

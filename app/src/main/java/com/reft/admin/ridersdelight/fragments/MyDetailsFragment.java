@@ -127,6 +127,7 @@ public class MyDetailsFragment extends Fragment implements AdapterView.OnItemSel
         dialog = alert.create();
         dialog.setTitle("Details");
         dialog.setMessage("Do you wish to change your details?");
+        dialog.setCanceledOnTouchOutside(false);
         dialog.setButton(Dialog.BUTTON_POSITIVE, "Yes",
                 new DialogInterface.OnClickListener() {
 

@@ -12,18 +12,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.reft.admin.ridersdelight.R;
 
-
-/**
- * @author mwho
- */
 public class Tab3Fragment extends Fragment {
-    /**
-     * (non-Javadoc)
-     *
-     * @see Fragment#onCreateView(LayoutInflater, ViewGroup, Bundle)
-     */
 
     TextView txtMsg;
     ImageView iv;
@@ -35,6 +28,9 @@ public class Tab3Fragment extends Fragment {
         iv.setImageResource(R.drawable.historythird);
         txtMsg = (TextView) v.findViewById(R.id.textView_tabMsg);
         txtMsg.setText("At the time of the outbreak of WW I RE supplied consignments of their 6 HP sidecar Outfit motorcycles with Stretchers to the Crown. This same motorcycle also came with a Vickers machine Gun sidecar attachment which could also be turned skywards and used against low flying aircraft. RE supplied large numbers of motorcycles to the British War Department and also won a motorcycle contract for the Imperial Russian Government.");
+        YoYo.with(Techniques.FadeIn)
+                .duration(1000)
+                .playOn(txtMsg);
         return v;
     }
 

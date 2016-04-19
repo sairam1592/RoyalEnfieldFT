@@ -29,9 +29,12 @@ public class ExpandableListItem {
         androidConcepts.add("Navigation App Drawer - Friendly UI.");
         androidConcepts.add("ViewPager - RE-History.");
         androidConcepts.add("ViewPager supports swipe-able tab views.");
-        androidConcepts.add("ViewFlipper - About page.");
-        androidConcepts.add("ViewFlipper supports auto flipping of images.");
+        androidConcepts.add("Retrofit library for easy json parsing and loading the view");
+        androidConcepts.add("Picasso image loading library to load images from url");
+        androidConcepts.add("Robojucie dependency injection");
         androidConcepts.add("Fragments for re-usability, to support multiple screens.");
+        androidConcepts.add("Scale image view library for zooming images");
+        androidConcepts.add("Webview to view maps inside app");
 
         List appTips = new ArrayList();
         appTips.add("In Motorcycle tab Long press bike name to view specifications.");

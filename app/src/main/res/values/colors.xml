@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#FFFFFF</color>
+    <color name="dark_grey">#424242</color>
+    <color name="medium_grey">#9E9E9E</color>
+    <color name="button_grey">#757575</color>
+    <color name="transparent">#80FFFFFF</color>
+    <color name="colorPrimary">#386951</color>
+    <color name="colorPrimaryDark">#1B7548</color>
+    <color name="textColorPrimary">#FFFFFF</color>
+    <color name="windowBackground">#F7F3EE</color>
+    <color name="navigationBarColor">#F7F3EE</color>
+    <color name="colorAccent">#3C5A4B</color>
+</resources>

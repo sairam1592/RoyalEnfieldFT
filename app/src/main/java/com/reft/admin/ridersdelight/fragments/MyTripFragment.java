@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.reft.admin.ridersdelight.R;
 import com.reft.admin.ridersdelight.DBOperations.DBHelper;
 
@@ -38,6 +40,15 @@ public class MyTripFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_mytrip, container, false);
         plan = (Button) rootView.findViewById(R.id.buttonPlanTrip);
         view = (Button) rootView.findViewById(R.id.buttonViewTrip);
+
+        YoYo.with(Techniques.BounceInUp)
+                .duration(700)
+                .playOn(plan);
+
+        YoYo.with(Techniques.BounceInDown)
+                .duration(700)
+                .playOn(view);
+
         mydb = new DBHelper(getActivity());
 
         viewDetails = new ArrayList<HashMap<String, String>>();

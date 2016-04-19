@@ -3,7 +3,9 @@ package com.reft.admin.ridersdelight.fragments;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
@@ -20,6 +22,7 @@ import com.reft.admin.ridersdelight.R;
 import com.reft.admin.ridersdelight.DBOperations.DBHelper;
 import com.reft.admin.ridersdelight.NavMainActivity;
 import com.reft.admin.ridersdelight.misc.Constants;
+import com.reft.admin.ridersdelight.misc.MyIntro;
 
 import java.util.LinkedHashMap;
 import java.util.regex.Matcher;
@@ -46,8 +49,7 @@ public class PersonalDetailsFragment extends Activity implements OnItemSelectedL
             "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83",
             "84", "85", "86", "87", "88", "90", "91", "92", "93", "94", "95",
             "96", "97", "98", "99", "100"};
-    AlertDialog.Builder alert;
-    AlertDialog dialog;
+
     LinearLayout layPos;
     RelativeLayout rel1, rel2;
     GridLayout grid1, grid2;
@@ -77,15 +79,39 @@ public class PersonalDetailsFragment extends Activity implements OnItemSelectedL
                 if (isValidEmail() && isValidMileage() && isValidSpinnerBull() && isValidSpinnerFuel() && isValidUserName()) {
                     if (mydb.insertRiderDetail(userDetails)) {
                         Toast.makeText(PersonalDetailsFragment.this, "Details Saved", Toast.LENGTH_SHORT).show();
-                        Intent i = new Intent(PersonalDetailsFragment.this, NavMainActivity.class);
-                        overridePendingTransition(R.anim.push_down_in, R.anim.push_down_out);
-                        startActivity(i);
+                        loadActivity();
                     }
                 }
             }
         });
         mydb.close();
     }
+
+    public void loadActivity() {
+
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                SharedPreferences getPrefs = PreferenceManager
+                        .getDefaultSharedPreferences(getBaseContext());
+                boolean isFirstStart = getPrefs.getBoolean("firstStart", true);
+                if (isFirstStart) {
+                    Intent i = new Intent(PersonalDetailsFragment.this, MyIntro.class);
+                    startActivity(i);
+                    SharedPreferences.Editor e = getPrefs.edit();
+                    e.putBoolean("firstStart", false);
+                    e.apply();
+                }else{
+                    Intent i = new Intent(PersonalDetailsFragment.this, NavMainActivity.class);
+                    overridePendingTransition(R.anim.push_down_in, R.anim.push_down_out);
+                    startActivity(i);
+                }
+            }
+        });
+
+        t.start();
+    }
+
 
     public void onBullTypeSelection() {
         ArrayAdapter<String> adapter_bulltype = new ArrayAdapter<String>(this,

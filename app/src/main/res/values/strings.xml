@@ -73,74 +73,6 @@
     </string-array>
 
 
-    <array name="standardBullet">
-        <item>@drawable/bullet_1</item>
-        <item>@drawable/bullet_2</item>
-    </array>
-
-    <array name="bulletElectra">
-        <item>@drawable/electra_1</item>
-        <item>@drawable/electra_2</item>
-    </array>
-
-    <array name="bullet500">
-        <item>@drawable/bulletfive_1</item>
-        <item>@drawable/bulletfive_2</item>
-    </array>
-
-    <array name="classic350">
-        <item>@drawable/classicblue_3</item>
-        <item>@drawable/classicblue_4</item>
-    </array>
-
-    <array name="classic500">
-        <item>@drawable/classicfive_1</item>
-        <item>@drawable/classicfive_2</item>
-        <item>@drawable/classicfive_5</item>
-    </array>
-
-    <array name="classicChrome">
-        <item>@drawable/classicchrome_2</item>
-        <item>@drawable/classicchrome_3</item>
-    </array>
-
-    <array name="classicDS">
-        <item>@drawable/desertstorm_1</item>
-        <item>@drawable/desertstorm_3</item>
-    </array>
-
-    <array name="classicBG">
-        <item>@drawable/military_2</item>
-        <item>@drawable/military_3</item>
-    </array>
-
-    <array name="tb350">
-        <item>@drawable/tb_1</item>
-        <item>@drawable/tb_3</item>
-        <item>@drawable/tb_5</item>
-    </array>
-
-    <array name="tb500">
-        <item>@drawable/tbfive_2</item>
-        <item>@drawable/tbfive_4</item>
-    </array>
-
-    <array name="continental">
-        <item>@drawable/gt_1</item>
-        <item>@drawable/gt_3</item>
-    </array>
-
-    <array name="AppOpen">
-        <item>@drawable/timer_first1</item>
-        <item>@drawable/timer_bike2</item>
-        <item>@drawable/timer_bike4</item>
-        <item>@drawable/timer_showroom</item>
-        <item>@drawable/timer_trip1</item>
-        <item>@drawable/timer_trip2</item>
-        <item>@drawable/timer_trip3</item>
-        <item>@drawable/timer_fuel2</item>
-    </array>
-
     <array name="bikeImage">
         <item>@drawable/stb_img</item>
         <item>@drawable/elec_img</item>
@@ -156,6 +88,10 @@
         <item>@drawable/him_img</item>
     </array>
 
+    <array name="stdBulletLinks">
+        <item>http://royalenfield.com/images/data/motorcycles/slider1/bullet350UCE_right-side_black_600x463_motorcycle.png</item>
+        <item>http://royalenfield.com/images/data/motorcycles/slider1/bullet350UCE_slant-rear_black_600x463_motorcycle.png</item>
+    </array>
 
     <array name="StandardBullet350">
         <item>Engine Displacement(CC): 346cc</item>
@@ -171,9 +107,12 @@
         <item>Wheelbase(mm): 1370 mm</item>
         <item>Ground Clearance(mm): 135mm</item>
         <item>Fuel Capacity(Litres): 13.5 Ltr</item>
-        <item>Price: 1.10 lakh(Approx.)</item>
     </array>
 
+    <array name="BulletElectraLinks">
+        <item>http://royalenfield.com/images/data/motorcycles/slider1/electra_right-side_black_600x463_motorcycle.png</item>
+        <item> http://royalenfield.com/images/data/motorcycles/slider1/electra_slant-front_black_600x463_motorcycle.png</item>
+    </array>
 
     <array name="BulletElectra350">
         <item>Engine Displacement(CC): 346cc</item>
@@ -189,7 +128,11 @@
         <item>Wheelbase(mm): 1370mm</item>
         <item>Ground Clearance(mm): 135mm</item>
         <item>Fuel Capacity(Litres): 13.5 Ltr</item>
-        <item>Price: 1.25 lakh(Approx.)</item>
+    </array>
+
+    <array name="Bullet500Links">
+        <item>http://royalenfield.com/images/data/motorcycles/slider1/bullet-500-marsh-grey.png</item>
+        <item>http://royalenfield.com/images/data/motorcycles/slider1/bullet-500-marsh-grey-leftside.png</item>
     </array>
 
     <array name="Bullet500">
@@ -206,7 +149,11 @@
         <item>Wheelbase(mm): 1370 mm</item>
         <item>Ground Clearance(mm): 135mm</item>
         <item>Fuel Capacity(Litres): 13.5 Ltr</item>
-        <item>Price: 1.70 lakh(Approx.)</item>
+    </array>
+
+    <array name="Classic350Links">
+        <item>http://royalenfield.com/images/data/motorcycles/slider1/classic350_slant-front_white_600x463_motorcycle.png</item>
+        <item>http://royalenfield.com/images/data/motorcycles/slider1/classic350_left-side_white_600x463_motorcycle.png</item>
     </array>
 
     <array name="Classic_350">
@@ -223,9 +170,26 @@
         <item>Wheelbase(mm): 1370 mm</item>
         <item>Ground Clearance(mm): 135 mm</item>
         <item>Fuel Capacity(Litres): 13.5 Ltr</item>
-        <item>Price: 1.35 lakh (Approx.)</item>
     </array>
 
+    <array name="Classic500Links">
+        <item>http://royalenfield.com/images/data/motorcycles/slider1/classic500_left-side_tan_600x463_motorcycle.png</item>
+        <item>http://royalenfield.com/images/data/motorcycles/slider1/classic500_rear_tan_600x463_motorcycle.png</item>
+    </array>
+    <array name="ClassicDSLinks">
+        <item>http://royalenfield.com/images/data/motorcycles/slider1/desertstorm_left-side_600x463_motorcycle.png</item>
+        <item>http://royalenfield.com/images/data/motorcycles/slider1/desertstorm_right-side_600x463_motorcycle.png</item>
+    </array>
+
+    <array name="ClassicBGLinks">
+        <item>http://royalenfield.com/images/data/motorcycles/slider1/militarygreen_right-side_600x463_motorcycle.png</item>
+        <item>http://royalenfield.com/images/data/motorcycles/slider1/military_left-side_600x463_motorcycle.png</item>
+    </array>
+
+    <array name="ClassicChrLinks">
+        <item>http://royalenfield.com/images/data/motorcycles/slider1/classic500chrome_slant-front_black_600x463_motorcycle.png</item>
+        <item>http://royalenfield.com/images/data/motorcycles/slider1/classic500chrome_right-side_black_600x463_motorcycle.png</item>
+    </array>
 
     <array name="Classic_DS_BG_500">
         <item>Engine Displacement(CC): 499cc</item>
@@ -241,9 +205,12 @@
         <item>Wheelbase(mm): 1370mm</item>
         <item>Ground Clearance(mm): 135mm</item>
         <item>Fuel Capacity(Litres): 14.5 ± 1 Ltr</item>
-        <item>Price: 1.78 lakh(Approx.)</item>
     </array>
 
+    <array name="Tb350Links">
+        <item>http://royalenfield.com/images/data/motorcycles/slider1/tb350_slant-front_marine_600x463_motorcycle.png</item>
+        <item>http://royalenfield.com/images/data/motorcycles/slider1/tb350_right-side_marine_600x463_motorcycle.png</item>
+    </array>
 
     <array name="Thunderbird_350">
         <item>Engine Displacement(CC): 346cc</item>
@@ -259,7 +226,11 @@
         <item>Wheelbase(mm): 1350mm</item>
         <item>Ground Clearance(mm): 140mm</item>
         <item>Fuel Capacity(Litres): 20 Ltrs</item>
-        <item>Price: 1.45 lakh(Approx.)</item>
+    </array>
+
+    <array name="tb500Links">
+        <item>http://royalenfield.com/images/data/motorcycles/slider1/tb500_right-side_stoneblack_600x463_motorcycle.png</item>
+        <item>http://royalenfield.com/images/data/motorcycles/slider1/tb500_slant-front_stoneblack_600x463_motorcycle.png</item>
     </array>
 
     <array name="Thunderbird_500">
@@ -276,7 +247,11 @@
         <item>Wheelbase(mm): 1350mm</item>
         <item>Ground Clearance(mm): 140mm</item>
         <item>Fuel Capacity(Litres): 20 Ltrs</item>
-        <item>Price: 1.45 lakh(Approx.)</item>
+    </array>
+
+    <array name="ContinentalLinks">
+        <item>http://royalenfield.com/images/data/motorcycles/slider1/continentalGT_right-side_red_600x463_motorcycle.png</item>
+        <item>http://royalenfield.com/images/data/motorcycles/slider1/continentalGT_slant-front_red_600x463_motorcycle.png</item>
     </array>
 
     <array name="Continental_GT">
@@ -293,7 +268,11 @@
         <item>Wheelbase(mm): 1360mm</item>
         <item>Ground Clearance(mm): 140mm</item>
         <item>Fuel Capacity(Litres): 13.5 Ltrs</item>
-        <item>Price: 2.09 lakh(Approx.)</item>
+    </array>
+
+    <array name="HimalayanLinks">
+        <item>http://royalenfield.com/motorcycles/himalayan/images/product/granite/royalenfield-himalayan-bike-1.jpg?v=1</item>
+        <item>http://royalenfield.com/motorcycles/himalayan/images/product/granite/royalenfield-himalayan-bike-4.jpg?v=1</item>
     </array>
 
     <array name="Himalayan">
@@ -310,9 +289,37 @@
         <item>Wheelbase(mm): 1465 mm</item>
         <item>Ground Clearance(mm): 220mm</item>
         <item>Fuel Capacity(Litres): 15 Ltrs</item>
-        <item>Price: Not revealed yet.</item>
     </array>
 
+    <array name="BikePrice">
+        <item>Rs 1.10 Lakh</item>
+        <item>Rs 1.25 Lakh</item>
+        <item>Rs 1.70 Lakh</item>
+        <item>Rs 1.35 lakh</item>
+        <item>Rs 1.78 Lakh</item>
+        <item>Rs 1.78 Lakh</item>
+        <item>Rs 1.78 Lakh</item>
+        <item>Rs 1.78 Lakh</item>
+        <item>Rs 1.45 Lakh</item>
+        <item>Rs 1.82 Lakh</item>
+        <item>Rs 2.09 Lakh</item>
+        <item>Rs 1.56 Lakh</item>
+    </array>
+
+
+    <string-array name="introText">
+        <item>Check out your favourite bike gallery and specifications</item>
+        <item>Get to know the golden history of RE</item>
+        <item>Plan trips and share with friends</item>
+        <item>Find nearest petrol station in case you run out of fuel</item>
+        </string-array>
+
+    <array name="IntroImage">
+    <item>@drawable/ic_cls</item>
+    <item>@drawable/historysecond1</item>
+    <item>@drawable/plantrip_intro</item>
+    <item>@drawable/fuel_logo</item>
+    </array>
 
     <string-array name="textMessage">
         <item>Welcome to Riders Delight Fuel Tracker app.\nThis app provides basic information about \n\n * RE rich history\n\n * Motorcycle collections\n\n * Motorcycle specifications\n\nfor users information...</item>

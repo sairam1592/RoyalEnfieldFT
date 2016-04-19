@@ -27,9 +27,10 @@ public class BikeViewActivity extends FragmentActivity {
         setContentView(R.layout.activity_page_view);
         Intent i = getIntent();
         Bundle b = i.getExtras();
-        int[] imageArray = b.getIntArray(Constants.TAG_BIKEIMAGES);
+        int[] himImg=b.getIntArray(Constants.TAG_BIKEIMAGES);
+        String[] strArray = b.getStringArray(Constants.TAG_BIKEIMAGESURL);
         String name = b.getString(Constants.TAG_BIKENAME);
-        List<Fragment> fragments = getFragments(name, imageArray);
+        List<Fragment> fragments = getFragments(name,strArray,himImg);
         pageAdapter = new MyPageAdapter(getSupportFragmentManager(), fragments);
 
         ViewPager pager = (ViewPager) findViewById(R.id.viewpager);
@@ -37,11 +38,11 @@ public class BikeViewActivity extends FragmentActivity {
 
     }
 
-    private List<Fragment> getFragments(String name, int[] imageArray) {
+    private List<Fragment> getFragments(String name,String[] strArray,int[] intArr) {
         List<Fragment> fList = new ArrayList<Fragment>();
 
-        for (int i = 0; i < imageArray.length; i++) {
-            fList.add(BikeFragment.newInstance(name, imageArray[i]));
+        for (int i = 0; i < strArray.length; i++) {
+            fList.add(BikeFragment.newInstance(name,strArray[i],intArr[i]));
         }
         return fList;
     }

@@ -9,7 +9,6 @@ import android.content.IntentFilter;
 import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -281,7 +280,6 @@ public class PlanTripDetails extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_back) {
             onBackPressed();
             return true;
@@ -405,7 +403,6 @@ public class PlanTripDetails extends Activity {
 
     @Override
     public void onBackPressed() {
-        //Display alert message when back button has been pressed
         finish();
         return;
     }

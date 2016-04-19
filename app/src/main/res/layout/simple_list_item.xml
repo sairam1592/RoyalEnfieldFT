@@ -27,8 +27,10 @@
     <View
         android:id="@+id/view"
         style="@style/viewlist"
-        android:layout_alignBottom="@+id/imageView_img"
-        android:layout_toEndOf="@+id/imageView_img" />
+        android:layout_alignBottom="@+id/textView_price"
+        android:layout_below="@+id/textView_price"
+        android:layout_toEndOf="@+id/imageView_img"
+        android:layout_toRightOf="@+id/imageView_img" />
 
     <TextView
         android:id="@+id/textView_category"
@@ -39,5 +41,17 @@
         android:layout_toEndOf="@+id/imageView_img"
         android:layout_toRightOf="@+id/imageView_img"
         android:text="@string/sample_text" />
+
+    <TextView
+        android:id="@+id/textView_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/button_grey"
+        android:textSize="11dp"
+        android:layout_alignTop="@+id/textView_category"
+        android:layout_alignRight="@+id/textView_category"
+        android:layout_alignEnd="@+id/textView_category" />
 
 </RelativeLayout>

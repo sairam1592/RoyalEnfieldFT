@@ -61,9 +61,20 @@
             android:configChanges="orientation|screenSize"
             android:label="@string/viewAll" />
         <activity
+            android:name=".misc.WebViewActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTask"
+            android:theme="@style/TranslucentActivityStyle"/>
+
+        <activity
             android:name=".fragments.SpecsActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/techspec" />
+        <activity
+            android:name=".misc.MyIntro"
+            android:label="Welcome"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
     </application>
 
 </manifest>

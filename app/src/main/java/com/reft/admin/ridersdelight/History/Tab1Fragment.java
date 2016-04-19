@@ -12,18 +12,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.reft.admin.ridersdelight.R;
 
-
-/**
- * @author mwho
- */
 public class Tab1Fragment extends Fragment {
-    /**
-     * (non-Javadoc)
-     *
-     * @see Fragment#onCreateView(LayoutInflater, ViewGroup, Bundle)
-     */
 
     TextView txtMsg;
     ImageView iv;
@@ -35,6 +28,9 @@ public class Tab1Fragment extends Fragment {
         iv.setImageResource(R.drawable.historyfirst);
         txtMsg = (TextView) v.findViewById(R.id.textView_tabMsg);
         txtMsg.setText("The RE Cycle Company made motorcycles, bicycles, lawnmowers and stationary engines under the name RE out of its works based at Redditch, Worcestershire. The legacy of weapons manufacture is reflected in the logo comprising the cannon, and the motto \"Made like a gun\". Use of the brand name RE was licensed by the Crown in 1890.");
+        YoYo.with(Techniques.FadeIn)
+                .duration(1000)
+                .playOn(txtMsg);
         return v;
     }
 }

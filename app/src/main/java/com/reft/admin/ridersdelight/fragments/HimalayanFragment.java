@@ -8,8 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.reft.admin.ridersdelight.R;
 import com.reft.admin.ridersdelight.misc.Constants;
 
@@ -27,6 +30,7 @@ public class HimalayanFragment extends Fragment {
     List expandableListTitle;
     LinkedHashMap<String, List<String>> expandableListDetail;
     RelativeLayout rel1, rel2;
+    ImageView img1,img2;
 
     public HimalayanFragment() {
     }
@@ -36,6 +40,17 @@ public class HimalayanFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_himalayan, container, false);
+
+        img1=(ImageView) rootView.findViewById(R.id.imageview1);
+        img2=(ImageView) rootView.findViewById(R.id.imageview2);
+
+        YoYo.with(Techniques.BounceIn)
+                .duration(700)
+                .playOn(img1);
+
+        YoYo.with(Techniques.BounceIn)
+                .duration(700)
+                .playOn(img2);
 
         rel1 = (RelativeLayout) rootView.findViewById(R.id.relativeLayout1);
         rel1.setOnClickListener(new View.OnClickListener() {

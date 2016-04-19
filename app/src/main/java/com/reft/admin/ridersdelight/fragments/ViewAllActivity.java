@@ -1,6 +1,9 @@
 package com.reft.admin.ridersdelight.fragments;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -15,6 +18,7 @@ import android.widget.TextView;
 import com.reft.admin.ridersdelight.R;
 import com.reft.admin.ridersdelight.DBOperations.DBHelper;
 import com.reft.admin.ridersdelight.misc.Constants;
+import com.reft.admin.ridersdelight.misc.WebViewActivity;
 
 import java.util.Calendar;
 import java.util.regex.Matcher;
@@ -25,6 +29,8 @@ import java.util.regex.Pattern;
  */
 public class ViewAllActivity extends Activity {
 
+    AlertDialog.Builder alert;
+    AlertDialog dialog;
     Intent i;
     String id, mapUrl, duration;
     private DBHelper mydb;
@@ -63,16 +69,12 @@ public class ViewAllActivity extends Activity {
             Pattern pattern = Pattern.compile("\\d+(?:\\.\\d+)?"); // Match int or float
             Matcher matcher;
             if (rs.getString(rs.getColumnIndex(Constants.TAG_DIST)).contains(",")) {
-                //Log.i("VIEWALLACTIVITY", "Wth Comma, so taking it away!");
                 withoutComma = rs.getString(rs.getColumnIndex(Constants.TAG_DIST)).replace(",", "");
                 matcher = pattern.matcher(withoutComma);
             } else {
                 matcher = pattern.matcher(rs.getString(rs.getColumnIndex(Constants.TAG_DIST)));
             }
-
-            if (matcher.find()) {
-                //Log.i("VIEWALLACTIVITY", "MATCHER DISTANCE is:" + matcher.group());
-            }
+            if (matcher.find()) {}
             int dis;
             if (matcher.group().toString().contains(".")) {
                 dis = Integer.parseInt(matcher.group().toString().substring(0, matcher.group().indexOf(".")));
@@ -95,13 +97,41 @@ public class ViewAllActivity extends Activity {
     public void onViewMapClick() {
         view_in_map.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                Intent intent = new Intent(Intent.ACTION_VIEW,
-                        Uri.parse(mapUrl));
+                /*onShowDialog();*/
+                Intent intent = new Intent(ViewAllActivity.this, WebViewActivity.class);
+                intent.putExtra(Constants.TAG_URL, mapUrl);
                 startActivity(intent);
             }
         });
     }
 
+    public void onShowDialog() {
+        alert = new AlertDialog.Builder(this);
+        dialog = alert.create();
+        dialog.setMessage("View the map?");
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.setButton(Dialog.BUTTON_POSITIVE, "Inside App",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,
+                                        int which) {
+                        Intent intent = new Intent(ViewAllActivity.this, WebViewActivity.class);
+                        intent.putExtra(Constants.TAG_URL, mapUrl);
+                        startActivity(intent);
+                        dialog.dismiss();
+                    }
+                });
+        dialog.setButton(Dialog.BUTTON_NEGATIVE, "Outside App",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,
+                                        int which) {
+                        Intent intent = new Intent(Intent.ACTION_VIEW,
+                                Uri.parse(mapUrl));
+                        startActivity(intent);
+                        dialog.dismiss();
+                    }
+                });
+        dialog.show();
+    }
 
     public void onShareClick() {
         StringBuilder sb = new StringBuilder();
@@ -126,8 +156,6 @@ public class ViewAllActivity extends Activity {
         String desc = "Kindly set reminder for your road trip, from: " + from.getText().toString() + " ,to: " + to.getText().toString();
         Calendar beginTime = Calendar.getInstance();
         beginTime.set(2016, 0, 1, 7, 00);
-        Calendar endTime = Calendar.getInstance();
-        //endTime.set(2016, 0, 10, 8, 30);
         Intent intent = new Intent(Intent.ACTION_INSERT)
                 .setData(CalendarContract.Events.CONTENT_URI)
                 .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, beginTime.getTimeInMillis())
@@ -148,8 +176,6 @@ public class ViewAllActivity extends Activity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
         switch (id) {
             case R.id.action_back:
                 onBackPressed();
@@ -166,7 +192,6 @@ public class ViewAllActivity extends Activity {
 
     @Override
     public void onBackPressed() {
-        //Display alert message when back button has been pressed
         overridePendingTransition(R.anim.push_down_in, R.anim.push_down_out);
         finish();
         return;

@@ -34,7 +34,7 @@ public class HimalayanExpandable {
 
 
         List price = new ArrayList();
-        price.add("The bike is expected to launch around mid this year at a price range of Rs 1.5 Lac to 1.7 Lac.");
+        price.add("The bike is launched at a price range of Rs 1.56 Lakh (ex-showroom)");
 
 
         expandableListDetail.put(Constants.TAG_HIMOVERVIEW, overview);

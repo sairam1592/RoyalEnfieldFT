@@ -16,18 +16,23 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.reft.admin.ridersdelight.R;
+import com.squareup.picasso.Picasso;
 
 public class BikeFragment extends Fragment {
     public static final String EXTRA_MESSAGE = "EXTRA_MESSAGE";
     public static final String EXTRA_IMAGE = "EXTRA_IMAGE";
+    public static final String EXTRA_IMAGEURL = "EXTRA_IMAGEURL";
     Intent i;
 
-    public static final BikeFragment newInstance(String message, int imageId) {
+    public static final BikeFragment newInstance(String message, String url, int img) {
         BikeFragment f = new BikeFragment();
         Bundle bdl = new Bundle();
         bdl.putString(EXTRA_MESSAGE, message);
-        bdl.putInt(EXTRA_IMAGE, imageId);
+        bdl.putString(EXTRA_IMAGEURL, url);
+        bdl.putInt(EXTRA_IMAGE, img);
         f.setArguments(bdl);
         return f;
     }
@@ -37,12 +42,24 @@ public class BikeFragment extends Fragment {
                              Bundle savedInstanceState) {
         setHasOptionsMenu(true);
         String message = getArguments().getString(EXTRA_MESSAGE);
-        int id = getArguments().getInt(EXTRA_IMAGE);
+        String imgUrl = getArguments().getString(EXTRA_IMAGEURL);
+        int himImg = getArguments().getInt(EXTRA_IMAGE);
         View v = inflater.inflate(R.layout.bike_fragment, container, false);
         TextView messageTextView = (TextView) v.findViewById(R.id.textView_name);
         messageTextView.setText(message);
         ImageView img = (ImageView) v.findViewById(R.id.imageView_bike);
-        img.setImageResource(id);
+        if (message.equalsIgnoreCase("Himalayan")) {
+            img.setImageResource(himImg);
+        } else {
+            Picasso.with(getActivity())
+                    .load(imgUrl)
+                    .placeholder(R.drawable.ic_placeholder) // optional
+                    .error(R.drawable.ic_error_fallback)
+                    .into(img);
+        }
+        YoYo.with(Techniques.Pulse)
+                .duration(700)
+                .playOn(img);
         return v;
     }
 
@@ -54,8 +71,7 @@ public class BikeFragment extends Fragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
+        
         if (id == R.id.action_back) {
             getActivity().finish();
             return true;

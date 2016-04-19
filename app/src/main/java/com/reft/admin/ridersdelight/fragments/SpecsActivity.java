@@ -46,7 +46,6 @@ public class SpecsActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_back) {
             onBackPressed();
             return true;
@@ -57,7 +56,6 @@ public class SpecsActivity extends Activity {
 
     @Override
     public void onBackPressed() {
-        //Display alert message when back button has been pressed
         overridePendingTransition(R.anim.push_down_in, R.anim.push_down_out);
         finish();
         return;

@@ -37,6 +37,19 @@ public class MotorCycleList extends Fragment {
     String[] Thunder_500;
     String[] Continental;
     String[] Himalayan;
+    String stdB350Url[];
+    String stdB500Url[];
+    String BElectraUrl[];
+    String cls350Url[];
+    String cls500Url[];
+    String clsDSUrl[];
+    String clsChrUrl[];
+    String clsBGUrl[];
+    String tb350Url[];
+    String tb500Url[];
+    String conGTUrl[];
+    String himUrl[];
+
 
     String[] bikeCategory = new String[]{
             Constants.TAG_STDSTREET,
@@ -53,69 +66,9 @@ public class MotorCycleList extends Fragment {
             Constants.TAG_HIMALAYAN
     };
 
+    String bikePrice[];
 
-    int[] standardBullet = new int[]{
-            R.drawable.bullet_1,
-            R.drawable.bullet_2
-    };
-
-    int[] bulletElectra = new int[]{
-            R.drawable.electra_1,
-            R.drawable.electra_2
-    };
-
-    int[] bullet500 = new int[]{
-            R.drawable.bulletfive_1,
-            R.drawable.bulletfive_2
-    };
-
-    int[] classic350 = new int[]{
-            R.drawable.classicblue_3,
-            R.drawable.classicblue_4
-    };
-
-    int[] classic500 = new int[]{
-            R.drawable.classicfive_1,
-            R.drawable.classicfive_2,
-            R.drawable.classicfive_5
-    };
-
-    int[] classicChrome = new int[]{
-            R.drawable.classicchrome_2,
-            R.drawable.classicchrome_3
-    };
-
-    int[] classicDS = new int[]{
-            R.drawable.desertstorm_1,
-            R.drawable.desertstorm_3
-    };
-
-    int[] classicBG = new int[]{
-            R.drawable.military_2,
-            R.drawable.military_3
-    };
-
-    int[] tb350 = new int[]{
-            R.drawable.tb_1,
-            R.drawable.tb_3,
-            R.drawable.tb_5
-    };
-
-    int[] tb500 = new int[]{
-            R.drawable.tbfive_2,
-            R.drawable.tbfive_4
-    };
-
-    int[] continental = new int[]{
-            R.drawable.gt_1,
-            R.drawable.gt_3
-    };
-
-    int[] himalayan = new int[]{
-            R.drawable.himalayan1,
-            R.drawable.himalayan2
-    };
-
+    int himImages[]=new int[]{R.drawable.himalayan1,R.drawable.himalayan2};
 
     ListView listView;
     Intent i;
@@ -143,7 +96,21 @@ public class MotorCycleList extends Fragment {
         Continental = getResources().getStringArray(R.array.Continental_GT);
         Himalayan = getResources().getStringArray(R.array.Himalayan);
 
+        stdB350Url=getResources().getStringArray(R.array.stdBulletLinks);
+        BElectraUrl=getResources().getStringArray(R.array.BulletElectraLinks);
+        stdB500Url=getResources().getStringArray(R.array.Bullet500Links);
+        cls350Url=getResources().getStringArray(R.array.Classic350Links);
+        cls500Url=getResources().getStringArray(R.array.Classic500Links);
+        clsDSUrl=getResources().getStringArray(R.array.ClassicDSLinks);
+        clsBGUrl=getResources().getStringArray(R.array.ClassicBGLinks);
+        clsChrUrl=getResources().getStringArray(R.array.ClassicChrLinks);
+        tb350Url=getResources().getStringArray(R.array.Tb350Links);
+        tb500Url=getResources().getStringArray(R.array.tb500Links);
+        conGTUrl=getResources().getStringArray(R.array.ContinentalLinks);
+        himUrl=getResources().getStringArray(R.array.HimalayanLinks);
+
         TypedArray bikeImage = getResources().obtainTypedArray(R.array.bikeImage);
+        bikePrice=getResources().getStringArray(R.array.BikePrice);
 
         List<HashMap<String, String>> aList = new ArrayList<HashMap<String, String>>();
         for (int i = 0; i < bikeName.length; i++) {
@@ -151,16 +118,19 @@ public class MotorCycleList extends Fragment {
             hm.put(Constants.TAG_TXT, bikeName[i]);
             hm.put(Constants.TAG_IMAGE, Integer.toString(bikeImage.getResourceId(i, -1)));
             hm.put(Constants.TAG_CAT, "Category: " + bikeCategory[i]);
+            hm.put(Constants.TAG_PRICE, bikePrice[i]);
             aList.add(hm);
         }
-        String[] from = {Constants.TAG_IMAGE, Constants.TAG_TXT, Constants.TAG_CAT};
-        int[] to = {R.id.imageView_img, R.id.textView_bikeName, R.id.textView_category};
+        String[] from = {Constants.TAG_IMAGE, Constants.TAG_TXT, Constants.TAG_CAT,Constants.TAG_PRICE};
+        int[] to = {R.id.imageView_img, R.id.textView_bikeName, R.id.textView_category,R.id.textView_price};
         SimpleAdapter adapter = new SimpleAdapter(getActivity(), aList, R.layout.simple_list_item, from, to);
         listView = (ListView) rootView.findViewById(R.id.listview_bike);
         listView.setAdapter(adapter);
 
         listViewItemSelect();
         listViewOnLongClick();
+
+        Toast.makeText(getActivity(),Constants.TAG_LONG_PRESS_MSG,Toast.LENGTH_SHORT).show();
         return rootView;
     }
 
@@ -239,43 +209,43 @@ public class MotorCycleList extends Fragment {
                 b = new Bundle();
                 i = new Intent(getActivity(), BikeViewActivity.class);
                 b.putString(Constants.TAG_BIKENAME, bikeName);
-
+                b.putIntArray(Constants.TAG_BIKEIMAGES,himImages);
                 switch (bikeName) {
                     case Constants.TAG_STDBUL:
-                        b.putIntArray(Constants.TAG_BIKEIMAGES, standardBullet);
+                        b.putStringArray(Constants.TAG_BIKEIMAGESURL,stdB350Url);
                         break;
                     case Constants.TAG_BUL500:
-                        b.putIntArray(Constants.TAG_BIKEIMAGES, bullet500);
+                        b.putStringArray(Constants.TAG_BIKEIMAGESURL, stdB500Url);
                         break;
                     case Constants.TAG_ELECTRA:
-                        b.putIntArray(Constants.TAG_BIKEIMAGES, bulletElectra);
+                        b.putStringArray(Constants.TAG_BIKEIMAGESURL, BElectraUrl);
                         break;
                     case Constants.TAG_CLS350:
-                        b.putIntArray(Constants.TAG_BIKEIMAGES, classic350);
+                        b.putStringArray(Constants.TAG_BIKEIMAGESURL, cls350Url);
                         break;
                     case Constants.TAG_CLS500:
-                        b.putIntArray(Constants.TAG_BIKEIMAGES, classic500);
+                        b.putStringArray(Constants.TAG_BIKEIMAGESURL, cls500Url);
                         break;
                     case Constants.TAG_CLSCHROME:
-                        b.putIntArray(Constants.TAG_BIKEIMAGES, classicChrome);
+                        b.putStringArray(Constants.TAG_BIKEIMAGESURL, clsChrUrl);
                         break;
                     case Constants.TAG_CLSBG:
-                        b.putIntArray(Constants.TAG_BIKEIMAGES, classicBG);
+                        b.putStringArray(Constants.TAG_BIKEIMAGESURL, clsBGUrl);
                         break;
                     case Constants.TAG_CLSDS:
-                        b.putIntArray(Constants.TAG_BIKEIMAGES, classicDS);
+                        b.putStringArray(Constants.TAG_BIKEIMAGESURL, clsDSUrl);
                         break;
                     case Constants.TAG_TB350:
-                        b.putIntArray(Constants.TAG_BIKEIMAGES, tb350);
+                        b.putStringArray(Constants.TAG_BIKEIMAGESURL, tb350Url);
                         break;
                     case Constants.TAG_TB500:
-                        b.putIntArray(Constants.TAG_BIKEIMAGES, tb500);
+                        b.putStringArray(Constants.TAG_BIKEIMAGESURL, tb500Url);
                         break;
                     case Constants.TAG_CGT:
-                        b.putIntArray(Constants.TAG_BIKEIMAGES, continental);
+                        b.putStringArray(Constants.TAG_BIKEIMAGESURL, conGTUrl);
                         break;
                     case Constants.TAG_HIM:
-                        b.putIntArray(Constants.TAG_BIKEIMAGES, himalayan);
+                        b.putStringArray(Constants.TAG_BIKEIMAGESURL, himUrl);
                         break;
                     default:
                         Log.e(Constants.TAG_REFT, "MessageType: UNKNOWN");

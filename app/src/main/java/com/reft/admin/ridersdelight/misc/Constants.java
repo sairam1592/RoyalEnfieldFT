@@ -9,9 +9,11 @@ public interface Constants {
     public static final String TAG_REFT = "REFT";
     public static final String TAG_BIKENAME = "BikeName";
     public static final String TAG_BIKEIMAGES = "BikeImages";
+    public static final String TAG_BIKEIMAGESURL = "BikeImagesURL";
     public static final String TAG_BIKESPECS = "Specification";
     public static final String TAG_IMAGE = "image";
     public static final String TAG_CAT = "cat";
+    public static final String TAG_PRICE = "price";
     public static final String TAG_FUELURL = "http://www.mypetrolprice.com/petrol-price-in-india.aspx";
     public static final String TAG_STDSTREET = "Standard Street";
     public static final String TAG_RETROSTREET = "Retro Street";
@@ -77,4 +79,5 @@ public interface Constants {
     public static final String TAG_HIMFEATURES = "Features";
     public static final String TAG_HIMENGINE = "Engine";
     public static final String TAG_HIMPRICE = "Price (Approx)";
+    public static final String TAG_LONG_PRESS_MSG = "Long press to view specifications!";
 }

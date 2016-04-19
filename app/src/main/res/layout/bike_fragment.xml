@@ -29,10 +29,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/view"
-        android:layout_centerHorizontal="true"
         android:background="@android:color/transparent"
-        android:scaleType="fitCenter"
-        android:src="@drawable/logomain" />
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_placeholder"
+        android:layout_alignBottom="@+id/imageView_bg"
+        android:layout_alignLeft="@+id/view"
+        android:layout_alignStart="@+id/view"
+        android:layout_alignRight="@+id/view"
+        android:layout_alignEnd="@+id/view" />
 
     <View
         android:id="@+id/view"
