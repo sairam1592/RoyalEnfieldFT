@@ -1,8 +1,11 @@
 # RoyalEnfieldFT
+
 An Android app to view about Royal Enfield and calculate total amount &amp; fuel required to travel from one place to another.
 
 “Riders Delight” purpose is to calculate liter & price needed to travel a certain distance based on the user input. 
 Google maps api’s used to provide maps info based on To/From entered, SQLite for performing database operations.
+
+**NOTE: Currently building a new app using latest Android Technology and tools**
          
 Technology used
 
